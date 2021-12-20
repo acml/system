@@ -73,7 +73,6 @@ in {
         color = "always";
       };
     };
-    jq.enable = true;
     htop.enable = true;
     gpg.enable = true;
     git = {
@@ -122,7 +121,7 @@ in {
       initExtra = ''
         ${functions}
         ${if pkgs.stdenvNoCC.isDarwin then ''
-          [[ -d /opt/homebrew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
+          [[ -d /usr/local/Homebrew ]] && eval "$(/usr/local/Homebrew/bin/brew shellenv)"
         '' else
           ""}
         unset RPS1

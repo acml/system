@@ -68,6 +68,38 @@
         "type": "github"
       }
     },
+    "doom-emacs-source": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1639786417,
+        "narHash": "sha256-UgrbF/cNv2qJxK2jwrAsPdgeVTRrjCyU40xeMbyi1sI=",
+        "owner": "hlissner",
+        "repo": "doom-emacs",
+        "rev": "af7c1d79bd63d78410aafc410d52ee5c1109ec26",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hlissner",
+        "ref": "develop",
+        "repo": "doom-emacs",
+        "type": "github"
+      }
+    },
+    "emacs-overlay": {
+      "locked": {
+        "lastModified": 1639848183,
+        "narHash": "sha256-Oj9YSEhyzd20RHAbino3O+TcKot8XsfxKO1ZuZgMr+U=",
+        "owner": "nix-community",
+        "repo": "emacs-overlay",
+        "rev": "80685d6b449905d6fa258eb4b13875327741dc02",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "emacs-overlay",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -173,6 +205,8 @@
         "darwin": "darwin",
         "darwin-stable": "darwin-stable",
         "devshell": "devshell",
+        "doom-emacs-source": "doom-emacs-source",
+        "emacs-overlay": "emacs-overlay",
         "flake-compat": "flake-compat",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",

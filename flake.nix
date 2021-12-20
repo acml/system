@@ -16,6 +16,9 @@
     flake-utils.url = "github:numtide/flake-utils";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     # neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    
+    doom-emacs-source = { url = "github:hlissner/doom-emacs/develop"; flake = false; };
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
 
     darwin-stable.url = "github:nixos/nixpkgs/nixpkgs-21.05-darwin";
     nixos-stable.url = "github:nixos/nixpkgs/nixos-21.05";
@@ -114,7 +117,7 @@
           name = system;
           value = {
             darwin =
-              self.darwinConfigurations.randall-intel.config.system.build.toplevel;
+              self.darwinConfigurations.macbook-pro-intel.config.system.build.toplevel;
             darwinServer =
               self.homeConfigurations.darwinServer.activationPackage;
           };
@@ -129,7 +132,7 @@
         }) lib.platforms.linux));
 
       darwinConfigurations = {
-        randall = mkDarwinConfig {
+        macbook-pro = mkDarwinConfig {
           system = "aarch64-darwin";
           extraModules = [
             ./profiles/personal.nix
@@ -137,12 +140,12 @@
             { homebrew.brewPrefix = "/opt/homebrew/bin"; }
           ];
         };
-        randall-intel = mkDarwinConfig {
+        macbook-pro-intel = mkDarwinConfig {
           system = "x86_64-darwin";
           extraModules = [
             ./profiles/personal.nix
             ./modules/darwin/apps.nix
-            { homebrew.brewPrefix = "/opt/homebrew/bin"; }
+            { homebrew.brewPrefix = "/usr/local/Homebrew/bin"; }
           ];
         };
         work = mkDarwinConfig {
@@ -163,21 +166,21 @@
 
       homeConfigurations = {
         server = mkHomeConfig {
-          username = "kclejeune";
+          username = "ahmet";
           extraModules = [ ./profiles/home-manager/personal.nix ];
         };
         darwinServer = mkHomeConfig {
-          username = "kclejeune";
+          username = "ahmet";
           system = "x86_64-darwin";
           extraModules = [ ./profiles/home-manager/personal.nix ];
         };
         darwinServerM1 = mkHomeConfig {
-          username = "kclejeune";
+          username = "ahmet";
           system = "aarch64-darwin";
           extraModules = [ ./profiles/home-manager/personal.nix ];
         };
         workServer = mkHomeConfig {
-          username = "lejeukc1";
+          username = "ahmet";
           extraModules = [ ./profiles/home-manager/work.nix ];
         };
         vagrant = mkHomeConfig {

@@ -12,7 +12,7 @@ let
   '');
 
 in {
-  imports = [ ./vim ./cli ./kitty ./dotfiles ./git.nix ];
+  imports = [ ./vim ./cli ./emacs ./kitty ./dotfiles ./git.nix ];
 
   programs.home-manager = {
     enable = true;
@@ -64,7 +64,6 @@ in {
       google-cloud-sdk
       htop
       httpie
-      jq
       neofetch
       nix
       nixfmt
@@ -78,10 +77,7 @@ in {
       pre-commit
       ranger
       (ruby.withPackages (ps: with ps; [ rufo solargraph ]))
-      ripgrep
-      ripgrep-all
       rsync
-      shellcheck
       sysdo
       tealdeer
       tectonic

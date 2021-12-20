@@ -57,7 +57,7 @@ Note that this step is naturally skipped on NixOS since `nix` is the package man
 Follow the installation instructions, then run
 
 ```bash
-sudo nixos-install --flake github:kclejeune/system#phil
+sudo nixos-install --flake github:acml/system#phil
 ```
 
 ### Darwin/Linux
@@ -71,7 +71,7 @@ git clone https://github.com/kclejeune/system ~/.nixpkgs
 You can bootstrap a new nix-darwin system using
 
 ```bash
-nix --extra-experimental-features "nix-command flakes" develop -c sysdo bootstrap --darwin randall
+nix --extra-experimental-features "nix-command flakes" develop -c sysdo bootstrap --darwin macbook-pro-intel
 ```
 
 or a home-manager configuration using

@@ -1,5 +1,6 @@
 # open terminal
-cmd + ctrl - t: /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~
+cmd - return: /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~
+cmd + alt - return: env DOOMDIR=${HOME}/.config/doom DOOMLOCALDIR=${HOME}/.local/share/doom emacsclient -s default -a '' -nc
 
 # focus window
 cmd + ctrl - h : yabai -m window --focus west

@@ -8,7 +8,7 @@
   };
 
   user = {
-    description = "Kennan LeJeune";
+    description = "Ahmet Cemal Ozgezer";
     home = "${
         if pkgs.stdenvNoCC.isDarwin then "/Users" else "/home"
       }/${config.user.name}";
@@ -37,16 +37,13 @@
       curl
       wget
       git
-      jq
 
       # helpful shell stuff
       bat
       fzf
-      ripgrep
       zsh
 
       # languages
-      python3
       ruby
     ];
     etc = {
@@ -60,5 +57,16 @@
     shells = with pkgs; [ bash zsh fish ];
   };
 
-  fonts.fonts = with pkgs; [ jetbrains-mono ];
+  fonts.fonts = with pkgs; [ 
+    jetbrains-mono
+     emacs-all-the-icons-fonts
+     (nerdfonts.override {
+       fonts = [
+         "IBMPlexMono"
+         "Iosevka"
+         "Overpass"
+         "SourceCodePro"
+       ];
+     }) 
+  ];
 }

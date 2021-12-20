@@ -26,7 +26,7 @@
       # firmness level for force touch
       SecondClickThreshold = 1;
       # don't allow positional right click
-      TrackpadRightClick = false;
+      TrackpadRightClick = true;
       # three finger drag for space switching
       # TrackpadThreeFingerDrag = true;
     };
@@ -62,9 +62,9 @@
       # allow key repeat
       ApplePressAndHoldEnabled = false;
       # delay before repeating keystrokes
-      InitialKeyRepeat = 10;
+      InitialKeyRepeat = 25;
       # delay between repeated keystrokes upon holding a key
-      KeyRepeat = 1;
+      KeyRepeat = 2;
       AppleShowAllExtensions = true;
       AppleShowScrollBars = "Automatic";
     };

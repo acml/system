@@ -1,27 +1,22 @@
 { config, lib, pkgs, ... }: {
   homebrew = {
     casks = [
-      "1password-beta"
+      "android-file-transfer"
       "appcleaner"
       "bartender"
-      "displaperture"
-      "firefox-beta"
-      "fork"
-      "gpg-suite"
-      "gswitch"
-      "iina"
-      "jetbrains-toolbox"
+      "bitwarden"
+      "diffmerge"
+      "firefox"
       "karabiner-elements"
+      "keepassxc"
       "keepingyouawake"
-      "keybase"
       "kitty"
       "maccy"
+      "meld"
       "raycast"
-      "skim"
       "stats"
-      "syncthing"
       "visual-studio-code"
-      "zoom"
+      "vlc"
     ];
     masApps = { };
   };
