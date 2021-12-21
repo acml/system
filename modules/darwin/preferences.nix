@@ -57,14 +57,14 @@
     };
 
     NSGlobalDomain = {
-      "com.apple.sound.beep.feedback" = 0;
-      "com.apple.sound.beep.volume" = "0.000";
+      # "com.apple.sound.beep.feedback" = 0;
+      # "com.apple.sound.beep.volume" = "0.000";
       # allow key repeat
       ApplePressAndHoldEnabled = false;
       # delay before repeating keystrokes
-      InitialKeyRepeat = 25;
+      # InitialKeyRepeat = 25;
       # delay between repeated keystrokes upon holding a key
-      KeyRepeat = 2;
+      # KeyRepeat = 2;
       AppleShowAllExtensions = true;
       AppleShowScrollBars = "Automatic";
     };

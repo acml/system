@@ -137,9 +137,9 @@ lib.mkMerge [
         export DOOMDIR="${config.home.sessionVariables.DOOMDIR}"
         export DOOMLOCALDIR="${config.home.sessionVariables.DOOMLOCALDIR}"
         if [ ! -d "$DOOMLOCALDIR" ]; then
-          ''${HOME}/.emacs/bin/doom -y install
+          ''${HOME}/.config/emacs/bin/doom -y install
         else
-          ''${HOME}/.emacs/bin/doom -y sync -u
+          ''${HOME}/.config/emacs/bin/doom -y sync -u
         fi
       ''}";
       force = true;

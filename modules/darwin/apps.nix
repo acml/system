@@ -7,16 +7,15 @@
       "bitwarden"
       "diffmerge"
       "firefox"
-      "karabiner-elements"
-      "keepassxc"
+      # "karabiner-elements"
       "keepingyouawake"
       "kitty"
       "maccy"
       "meld"
       "raycast"
       "stats"
-      "visual-studio-code"
-      "vlc"
+      # "visual-studio-code"
+      # "vlc"
     ];
     masApps = { };
   };
