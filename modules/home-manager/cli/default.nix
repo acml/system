@@ -91,6 +91,12 @@ in {
     bash = {
       enable = true;
       shellAliases = aliases;
+      profileExtra = ''
+        if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
+          source ~/.nix-profile/etc/profile.d/nix.sh
+        fi
+        export DISPLAY=$HOSTNAME.local:0.0
+      '';
       initExtra = ''
         ${functions}
       '';
@@ -131,6 +137,7 @@ in {
           "[[ -e /etc/profile ]] && source /etc/profile"
         else
           ""}
+        [[ -e ~/.nix-profile/etc/profile.d/nix.sh ]] && source ~/.nix-profile/etc/profile.d/nix.sh
       '';
       plugins = with pkgs; [
         (mkZshPlugin { pkg = zsh-autopair; })

@@ -9,11 +9,26 @@ let
 in
 lib.mkMerge [
   {
+    fonts.fontconfig.enable = true;
+
     # Extra packages that are already part of my config
     # won't be duplicated
     # Of course, all of these packages can be overriden
     # by direnv (envrc)
     home.packages = with pkgs; [
+      # fonts
+      emacs-all-the-icons-fonts
+      jetbrains-mono
+      (pkgs.nerdfonts.override {
+        fonts = [
+         "IBMPlexMono"
+         "Iosevka"
+         "Overpass"
+         "SourceCodePro"
+        ];
+      })
+      noto-fonts-emoji
+
       (lib.mkIf isDarwin coreutils-prefixed)
 
       man-pages

@@ -48,44 +48,24 @@ in {
       # python with default packages
       (python3.withPackages
         (ps: with ps; [ black numpy scipy networkx matplotlib ]))
-      awscli2
-      cachix
       comma
       coreutils-full
       curl
       fd
-      ffmpeg
-      gawk
-      ghc
       git
       gnugrep
       gnupg
       gnused
-      google-cloud-sdk
       htop
-      httpie
-      neofetch
       nix
       nixfmt
       nixpkgs-fmt
-      nodejs
-      openjdk
       openssh
       pandoc
       parallel
-      poetry
-      pre-commit
-      ranger
-      (ruby.withPackages (ps: with ps; [ rufo solargraph ]))
-      rsync
+      #(ruby.withPackages (ps: with ps; [ rufo solargraph ]))
       sysdo
       tealdeer
-      tectonic
-      terraform
-      treefmt
-      vagrant
-      yarn
-      youtube-dl
     ];
   };
 

@@ -42,9 +42,6 @@
       bat
       fzf
       zsh
-
-      # languages
-      ruby
     ];
     etc = {
       home-manager.source = "${inputs.home-manager}";
