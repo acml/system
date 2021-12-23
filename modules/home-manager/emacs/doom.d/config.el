@@ -120,7 +120,7 @@
 ;; WSL-specific setup
 (when (and (eq system-type 'gnu/linux)
            (getenv "WSLENV"))
-  (cond ((string-equal system-name "DESKTOP-55134EEx")
+  (cond ((string-equal system-name "DESKTOP-55134EE")
          (setq initial-frame-alist
                (append '((top . 28)
                          (left . 33)
