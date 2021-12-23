@@ -180,6 +180,10 @@
           system = "aarch64-darwin";
           extraModules = [ ./profiles/home-manager/personal.nix ];
         };
+        mint = mkHomeConfig {
+          username = "linuxmint";
+          extraModules = [ ./profiles/home-manager/work.nix ];
+        };
         work = mkHomeConfig {
           username = "ahmet";
           extraModules = [ ./profiles/home-manager/work.nix ];

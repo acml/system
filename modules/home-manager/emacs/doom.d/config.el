@@ -117,26 +117,25 @@
                 ;; (load-theme 'doom-one t)
                 (modus-themes-load-operandi)))))
 
-;; WSL-specific setup
-(when (and (eq system-type 'gnu/linux)
-           (getenv "WSLENV"))
-  (cond ((string-equal system-name "DESKTOP-55134EE")
-         (setq initial-frame-alist
-               (append '((top . 28)
-                         (left . 33)
-                         (width . 267)
-                         (height . 62))
-                       initial-frame-alist)))
-        ((string-equal system-name "EVT02007NB")
-         (setq initial-frame-alist
-               (append '((top . 31)
-                         (left . 34)
-                         (width . 212)
-                         (height . 49))
-                       initial-frame-alist)))
-        (t
-         nil))
-  )
+(cond ((string-equal system-name "DESKTOP-55134EE")
+       (setq initial-frame-alist
+             (append '((top . 28)
+                       (left . 33)
+                       (width . 267)
+                       (height . 62))
+                     initial-frame-alist)))
+      ((string-equal system-name "EVT02007NB")
+       (setq initial-frame-alist
+             (append '((top . 31)
+                       (left . 34)
+                       (width . 212)
+                       (height . 49))
+                     initial-frame-alist)))
+      ((string-equal system-name "linuxmint")
+       (custom-set-variables
+        '(initial-frame-alist (quote ((fullscreen . maximized))))))
+      (t
+       nil))
 
 ;; (windmove-default-keybindings 'control)
 ;; (windswap-default-keybindings 'control 'shift)
@@ -370,8 +369,8 @@
 
 (after! lsp-mode
   (setq lsp-headerline-breadcrumb-enable t
-        lsp-signature-render-documentation t
-        lsp-lens-enable nil))
+        lsp-lens-enable nil
+        lsp-signature-render-documentation t))
 
 (after! lsp-ui
   (setq lsp-ui-doc-enable nil ; fixes the LSP lag
@@ -560,11 +559,13 @@
   (run-with-idle-timer 1 t #'display-workspaces-in-minibuffer)
   (+workspace/display))
 
-(after! counsel-projectile
-  (setq counsel-projectile-switch-project-action 'counsel-projectile-switch-project-action-dired))
+(setq +workspaces-switch-project-function #'dired)
+
+;; (after! counsel-projectile
+;;   (setq counsel-projectile-switch-project-action 'counsel-projectile-switch-project-action-dired))
 
 (after! projectile
-  (setq projectile-switch-project-action 'projectile-dired
+  (setq ;; projectile-switch-project-action 'projectile-dired
         projectile-enable-caching t
         projectile-project-search-path '("~/Projects/")
         ;; Follow suggestion to reorder root functions to find the .projectile file
