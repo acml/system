@@ -1,0 +1,10 @@
+#+TITLE: Notes
+
+* Convenience
+Run the following script after putting in your user name
+
+#+begin_src shell
+for i in Desktop Documents Downloads Videos Music Pictures; do
+  ln -s /mnt/c/Users/<username>/$i ~
+done
+#+end_src
