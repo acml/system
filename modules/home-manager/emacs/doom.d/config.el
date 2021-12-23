@@ -266,10 +266,7 @@
                                       :completion (:detailedLabel t)
                                       :cache (:directory ,(file-truename "~/.cache/ccls")))))
 
-(use-package! daemons
-  :config
-  ;; (setq daemons-always-sudo t)
-  )
+(use-package! daemons)
 
 ;;
 ;; Dired
@@ -499,8 +496,7 @@
   ;; (modus-themes-load-operandi)
   ;; ;; OR
   ;; (load-theme 'modus-operandi t)
-  :bind ("<f5>" . modus-themes-toggle)
-  )
+  :bind ("<f5>" . modus-themes-toggle))
 
 ; Each path is relative to `+mu4e-mu4e-mail-path', which is ~/.mail by default
 (after! mu4e
@@ -683,9 +679,8 @@
   (treemacs-filewatch-mode))
 
 (use-package! turkish
-  :commands (turkish-mode)
   ;; :init (evil-leader/set-key (kbd "ot") 'turkish-mode)
-  )
+  :commands (turkish-mode))
 
 (setq vterm-max-scrollback 100000)
 
