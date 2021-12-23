@@ -117,12 +117,26 @@
                 ;; (load-theme 'doom-one t)
                 (modus-themes-load-operandi)))))
 
-(setq initial-frame-alist
-      (list
-       (cons 'left                 34)
-       (cons 'top                  31)
-       (cons 'width                212)
-       (cons 'height               49)))
+;; WSL-specific setup
+(when (and (eq system-type 'gnu/linux)
+           (getenv "WSLENV"))
+  (cond ((string-equal system-name "DESKTOP-55134EEx")
+         (setq initial-frame-alist
+               (append '((top . 28)
+                         (left . 33)
+                         (width . 267)
+                         (height . 62))
+                       initial-frame-alist)))
+        ((string-equal system-name "EVT02007NB")
+         (setq initial-frame-alist
+               (append '((top . 31)
+                         (left . 34)
+                         (width . 212)
+                         (height . 49))
+                       initial-frame-alist)))
+        (t
+         nil))
+  )
 
 ;; (windmove-default-keybindings 'control)
 ;; (windswap-default-keybindings 'control 'shift)

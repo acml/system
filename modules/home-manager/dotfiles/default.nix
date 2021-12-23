@@ -26,6 +26,9 @@
   xdg.enable = true;
   xdg.configFile = {
     "nixpkgs/config.nix".source = ../../config.nix;
+    "nix/nix.conf".text = ''
+      experimental-features = nix-command flakes
+    '';
     karabiner = {
       source = ./karabiner;
       recursive = true;

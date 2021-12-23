@@ -131,13 +131,14 @@ in {
         '' else
           ""}
         unset RPS1
+        [[ -e ~/.nix-profile/etc/profile.d/nix.sh ]] && source ~/.nix-profile/etc/profile.d/nix.sh
+        export DISPLAY=$(hostname).local:0.0
       '';
       profileExtra = ''
         ${if pkgs.stdenvNoCC.isLinux then
           "[[ -e /etc/profile ]] && source /etc/profile"
         else
           ""}
-        [[ -e ~/.nix-profile/etc/profile.d/nix.sh ]] && source ~/.nix-profile/etc/profile.d/nix.sh
       '';
       plugins = with pkgs; [
         (mkZshPlugin { pkg = zsh-autopair; })

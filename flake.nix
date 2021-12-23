@@ -166,7 +166,7 @@
       };
 
       homeConfigurations = {
-        server = mkHomeConfig {
+        home = mkHomeConfig {
           username = "ahmet";
           extraModules = [ ./profiles/home-manager/personal.nix ];
         };
