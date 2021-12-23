@@ -1,1 +1,1 @@
-CreateObject("Wscript.Shell").Run "C:\Windows\System32\wsl.exe --distribution Ubuntu zsh -i -c ""emacs""",0,True
+CreateObject("Wscript.Shell").Run "C:\Windows\System32\wsl.exe --distribution Ubuntu zsh -i -c ""export DISPLAY=$(hostname).local:0; export LIBGL_ALWAYS_INDIRECT=1; export XCURSOR_SIZE=16; emacs""",0,True
