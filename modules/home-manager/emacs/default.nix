@@ -61,7 +61,7 @@ lib.mkMerge [
       sqlite
 
       # :lang cc
-      ccls
+      (lib.mkIf isLinux ccls)
       #clang-tools # for clangd
       (lib.mkIf isLinux glslang)
 
