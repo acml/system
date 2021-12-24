@@ -59,7 +59,6 @@ lib.mkMerge [
 
       # :tools lookup & :lang org +roam
       sqlite
-      (lib.mkIf isDarwin scrot)    # org-download-clipboard
       (lib.mkIf isLinux maim)      # org-download-clipboard
       gnuplot                      # org-plot/gnuplot
 
