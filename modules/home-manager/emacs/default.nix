@@ -59,6 +59,8 @@ lib.mkMerge [
 
       # :tools lookup & :lang org +roam
       sqlite
+      maim    # org-download-clipboard
+      gnuplot # org-plot/gnuplot
 
       # :lang cc
       (lib.mkIf isLinux ccls)
@@ -106,6 +108,9 @@ lib.mkMerge [
       # gopls
       # gotests
       # gore
+
+      # :app everywhere
+      xclip xdotool
     ];
 
     programs.emacs = {
