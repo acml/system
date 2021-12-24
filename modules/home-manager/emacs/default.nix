@@ -11,10 +11,11 @@ lib.mkMerge [
   {
     fonts.fontconfig.enable = true;
 
-    # Extra packages that are already part of my config
-    # won't be duplicated
-    # Of course, all of these packages can be overriden
-    # by direnv (envrc)
+    programs = {
+      jq.enable = true;      # cli to extract data out of json input
+      texlive.enable = true; # :lang latex & :lang org (latex previews)
+    };
+
     home.packages = with pkgs; [
       # fonts
       emacs-all-the-icons-fonts
@@ -39,7 +40,6 @@ lib.mkMerge [
       ripgrep-all
 
       ## Optional dependencies
-      jq # cli to extract data out of json input
       fd # faster projectile indexing
       imagemagick # for image-dired
       unzip
@@ -64,9 +64,6 @@ lib.mkMerge [
       (lib.mkIf isLinux ccls)
       #clang-tools # for clangd
       (lib.mkIf isLinux glslang)
-
-      # :lang latex & :lang org (latex previews)
-      texlive.combined.scheme-full
 
       # Nix
       nixfmt

@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 let
   functions = builtins.readFile ./functions.sh;
-  useSkim = false;
+  useSkim = true;
   useFzf = !useSkim;
   fuzz = let fd = "${pkgs.fd}/bin/fd";
   in rec {
@@ -54,6 +54,7 @@ in {
         }
       '';
     };
+    scmpuff.enable = true;
     skim = {
       enable = useSkim;
       enableBashIntegration = useSkim;
@@ -73,17 +74,17 @@ in {
         color = "always";
       };
     };
+    bottom.enable = true;
     htop.enable = true;
-    gpg.enable = true;
     git = {
       enable = true;
+      delta.enable = true;
       lfs.enable = true;
       aliases = {
         ignore =
           "!gi() { curl -sL https://www.toptal.com/developers/gitignore/api/$@ ;}; gi";
       };
     };
-    go.enable = true;
     exa = {
       enable = true;
       enableAliases = true;
@@ -101,6 +102,7 @@ in {
         ${functions}
       '';
     };
+    navi.enable = true;
     nix-index.enable = true;
     zsh = let
       mkZshPlugin = { pkg, file ? "${pkg.pname}.plugin.zsh" }: rec {
