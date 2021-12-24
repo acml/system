@@ -1,5 +1,9 @@
 { config, lib, pkgs, ... }: {
   homebrew = {
+    cleanup = "zap";
+    brews = [
+      "pngpaste"
+    ];
     casks = [
       "android-file-transfer"
       "appcleaner"
