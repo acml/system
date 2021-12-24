@@ -97,6 +97,7 @@ in {
           source ~/.nix-profile/etc/profile.d/nix.sh
         fi
         [[ ! -z "$WSLENV" ]] && export DISPLAY=$HOSTNAME.local:0.0
+        export XDG_DATA_DIRS=$HOME/.nix-profile/share:$HOME/.share:"''${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"
       '';
       initExtra = ''
         ${functions}
@@ -135,6 +136,7 @@ in {
         unset RPS1
         [[ -e ~/.nix-profile/etc/profile.d/nix.sh ]] && source ~/.nix-profile/etc/profile.d/nix.sh
         [[ ! -z "$WSLENV" ]] && export DISPLAY=$(hostname).local:0.0
+        export XDG_DATA_DIRS=$HOME/.nix-profile/share:$HOME/.share:"''${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"
       '';
       profileExtra = ''
         ${if pkgs.stdenvNoCC.isLinux then
