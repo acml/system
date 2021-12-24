@@ -8,3 +8,14 @@ for i in Desktop Documents Downloads Videos Music Pictures; do
   ln -s /mnt/c/Users/<username>/$i ~
 done
 #+end_src
+
+* builds everything from source if Nix user isn't trusted
+#+begin_quote
+warning: ignoring untrusted substituter 'https://cachix.cachix.org'
+#+end_quote
+
+Workaround:
+#+begin_src shell
+echo "trusted-users = root $USER" | sudo tee -a /etc/nix/nix.conf"
+sudo pkill nix-daemon
+#+end_src
