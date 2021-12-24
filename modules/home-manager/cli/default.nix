@@ -132,7 +132,7 @@ in {
           ""}
         unset RPS1
         [[ -e ~/.nix-profile/etc/profile.d/nix.sh ]] && source ~/.nix-profile/etc/profile.d/nix.sh
-        [[ ! -z "$WSLENV" ]] && export DISPLAY=$HOSTNAME.local:0.0
+        [[ ! -z "$WSLENV" ]] && export DISPLAY=$(hostname).local:0.0
       '';
       profileExtra = ''
         ${if pkgs.stdenvNoCC.isLinux then
