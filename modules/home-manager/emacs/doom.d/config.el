@@ -413,8 +413,8 @@
   (setq modus-themes-italic-constructs t
         modus-themes-bold-constructs t
         modus-themes-mixed-fonts t
-        modus-themes-subtle-line-numbers t
-        modus-themes-intense-markup t
+        modus-themes-subtle-line-numbers nil
+        modus-themes-intense-markup nil
         modus-themes-deuteranopia t
         modus-themes-tabs-accented t
         modus-themes-variable-pitch-ui t
@@ -431,7 +431,7 @@
         ;; Options for `modus-themes-mode-line' are either nil, or a list
         ;; that can combine any of `3d' OR `moody', `borderless',
         ;; `accented', and a natural number for extra padding
-        modus-themes-mode-line '(1 3d borderless)
+        modus-themes-mode-line '(3d borderless)
 
         ;; Options for `modus-themes-syntax' are either nil (the default),
         ;; or a list of properties that may include any of those symbols:
@@ -441,7 +441,7 @@
         ;; Options for `modus-themes-hl-line' are either nil (the default),
         ;; or a list of properties that may include any of those symbols:
         ;; `accented', `underline', `intense'
-        modus-themes-hl-line '(accented)
+        modus-themes-hl-line nil
 
         ;; Options for `modus-themes-paren-match' are either nil (the
         ;; default), or a list of properties that may include any of those
@@ -457,7 +457,7 @@
         ;; Options for `modus-themes-prompts' are either nil (the
         ;; default), or a list of properties that may include any of those
         ;; symbols: `background', `bold', `gray', `intense', `italic'
-        modus-themes-prompts '(intense)
+        modus-themes-prompts nil
 
         modus-themes-completions 'opinionated ; {nil,'moderate,'opinionated}
 
