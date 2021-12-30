@@ -1,15 +1,12 @@
 { config, lib, pkgs, ... }: {
   homebrew = {
-    cleanup = "zap";
-    brews = [
-      "pngpaste"
-    ];
     casks = [
       "android-file-transfer"
       "appcleaner"
       "bartender"
       "bitwarden"
       "diffmerge"
+      "discord"
       "firefox"
       # "karabiner-elements"
       "keepingyouawake"

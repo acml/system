@@ -21,6 +21,8 @@
       ActuationStrength = 0;
       # enable tap to click
       Clicking = true;
+      # Whether to enable tap-to-drag.
+      Dragging = true;
       # firmness level, 0 = lightest, 2 = heaviest
       FirstClickThreshold = 1;
       # firmness level for force touch

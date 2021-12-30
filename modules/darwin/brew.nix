@@ -1,7 +1,8 @@
 { inputs, config, pkgs, ... }: {
   homebrew = {
     enable = true;
-    autoUpdate = false;
+    autoUpdate = true;
+    cleanup = "zap";
     global = {
       brewfile = true;
       noLock = true;
@@ -19,5 +20,6 @@
     ];
 
     # brews = [ "yabai" "skhd" ];
+    brews = [ "pngpaste" ];
   };
 }
