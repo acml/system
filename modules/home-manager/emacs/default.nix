@@ -19,13 +19,16 @@ lib.mkMerge [
     home.packages = with pkgs; [
       # fonts
       emacs-all-the-icons-fonts
-      jetbrains-mono
+      # jetbrains-mono
+      julia-mono
       (pkgs.nerdfonts.override {
         fonts = [
+          "FiraCode"
          "IBMPlexMono"
-         "Iosevka"
+         # "Iosevka"
+         "JetBrainsMono"
          "Overpass"
-         "SourceCodePro"
+         # "SourceCodePro"
         ];
       })
       noto-fonts-emoji

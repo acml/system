@@ -35,11 +35,17 @@
       ;; font string. You generally only need these two:
       ;; (setq doom-font (font-spec :family "Iosevka" :size 14)
       ;;       doom-variable-pitch-font (font-spec :family "Ubuntu Nerd Font" :size 14))
-      doom-font (font-spec :family "Iosevka Nerd Font" :size 13)
-      ;; doom-big-font (font-spec :family "Iosevka Nerd Font" :size 26)
-      doom-variable-pitch-font (font-spec :family "Overpass Nerd Font" :size 13)
-      doom-serif-font (font-spec :family "BlexMono Nerd Font" :size 13)
+      ;; doom-font (font-spec :family "Iosevka Nerd Font" :size 13)
+      ;; ;; doom-big-font (font-spec :family "Iosevka Nerd Font" :size 26)
+      ;; doom-variable-pitch-font (font-spec :family "Overpass Nerd Font" :size 13)
+      ;; doom-serif-font (font-spec :family "BlexMono Nerd Font" :size 13)
 
+      doom-font (font-spec :family "FiraCode Nerd Font Mono" :size 12)
+      doom-big-font (font-spec :family "FiraCode Nerd Font Mono" :size 24)
+      doom-variable-pitch-font (font-spec :family "Overpass Nerd Font" :size 13)
+      doom-unicode-font (font-spec :family "JuliaMono")
+      doom-serif-font (font-spec :family "BlexMono Nerd Font" :weight 'light)
+      
       fancy-splash-image (let ((alternatives '("doom-emacs-bw-light.svg"
                                                "doom-emacs-color.png"
                                                "doom-emacs-color2.png"
