@@ -99,6 +99,10 @@
     :foreground "white" :background "red"
     :weight bold :height 2.5 :box (:line-width 10 :color "red")))
 
+;; to hide autosave file from recent files
+(after! recentf
+  (add-to-list 'recentf-exclude doom-local-dir))
+
 ;; Prevents some cases of Emacs flickering
 ;; (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
 
@@ -336,28 +340,6 @@
   :config
   (set-face-attribute 'hl-paren-face nil :weight 'ultra-bold))
 
-(after! ivy
-  (setq +ivy-buffer-preview t
-        ivy-use-virtual-buffers t
-        ivy-re-builders-alist
-        '((swiper . ivy--regex-plus)
-          (counsel-rg . ivy--regex-plus)
-          (t      . ivy--regex-fuzzy))))
-
-;; (after! ivy-posframe
-;;   (setf (alist-get t ivy-posframe-display-functions-alist)
-;;         #'ivy-posframe-display-at-frame-top-center)
-;;   (setf (alist-get 'swiper ivy-posframe-display-functions-alist)
-;;         #'ivy-posframe-display-at-frame-top-center)
-;;   (setq ivy-posframe-border-width 1
-;;         ivy-posframe-parameters (append ivy-posframe-parameters '((left-fringe . 3)
-;;                                                                   (right-fringe . 3)))))
-
-(add-hook! 'ivy-posframe-mode-hook
-  (setq ivy-posframe-border-width 1
-        ivy-posframe-parameters (append ivy-posframe-parameters '((left-fringe . 3)
-                                                                  (right-fringe . 3)))))
-
 (use-package! journalctl-mode)
 
 (after! lsp-go
@@ -519,23 +501,17 @@
                         (mu4e-trash-folder      . "/MSN/Deleted")
                         (mu4e-refile-folder     . "/MSN/Archive")
                         (smtpmail-smtp-user     . "ozgezer@msn.com")
-                        (mu4e-compose-signature . "---\nAhmet Cemal Özgezer")))
-  (set-email-account! "andasis"
-                      '((mu4e-sent-folder       . "/Andasis/Sent Items")
-                        (mu4e-drafts-folder     . "/Andasis/Drafts")
-                        (mu4e-trash-folder      . "/Andasis/Trash")
-                        (mu4e-refile-folder     . "/Andasis/Archives")
-                        (smtpmail-smtp-user     . "ahmet.ozgezer@andasis.com")
-                        (mu4e-compose-signature . "---\nAhmet Cemal Özgezer"))
-                      t))
+                        (mu4e-compose-signature . "---\nAhmet Cemal Özgezer"))))
+
+(setq
+ ;; If you use `org' and don't want your org files in the default location below,
+ ;; change `org-directory'. It must be set before org loads!
+ org-directory (expand-file-name "~/Documents/org/")
+ org-noter-notes-search-path '("~/Documents/org/notes/"))
 
 (after! org
   (setq
-   ;; If you use `org' and don't want your org files in the default location below,
-   ;; change `org-directory'. It must be set before org loads!
-   org-directory (expand-file-name "~/Documents/org/")
    org-agenda-files (list org-directory)
-   ;; ;; ;; org-noter-notes-search-path '("~/Documents/org/notes/")
    ;; org-archive-location (concat org-directory ".archive/%s::")
    ;; org-roam-directory (concat org-directory "notes/")
    ;; org-roam-db-location (concat org-roam-directory ".org-roam.db")
