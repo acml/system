@@ -35,24 +35,18 @@
       ;; font string. You generally only need these two:
       ;; (setq doom-font (font-spec :family "Iosevka" :size 14)
       ;;       doom-variable-pitch-font (font-spec :family "Ubuntu Nerd Font" :size 14))
-      ;; doom-font (font-spec :family "Iosevka Nerd Font" :size 13)
-      ;; ;; doom-big-font (font-spec :family "Iosevka Nerd Font" :size 26)
-      ;; doom-variable-pitch-font (font-spec :family "Overpass Nerd Font" :size 13)
-      ;; doom-serif-font (font-spec :family "BlexMono Nerd Font" :size 13)
-
       doom-font (font-spec :family "Iosevka Nerd Font" :size 13)
       doom-big-font (font-spec :family "Iosevka Nerd Font" :size 24)
       doom-variable-pitch-font (font-spec :family "Overpass Nerd Font" :size 13)
       ;; doom-unicode-font (font-spec :family "Noto Nerd Font")
       doom-serif-font (font-spec :family "BlexMono Nerd Font" :weight 'light)
       
-      fancy-splash-image (let ((alternatives '("doom-emacs-bw-light.svg"
-                                               "doom-emacs-color.png"
-                                               "doom-emacs-color2.png"
-                                               "doom-emacs-flugo-slant_out_bw-small.png"
-                                               "doom-emacs-flugo-slant_out_purple-small.png")))
-                           (concat doom-private-dir "splash/"
-                                   (nth (random (length alternatives)) alternatives)))
+      fancy-splash-image (funcall
+                          (lambda (choices) (elt
+                                        choices (random (length choices))))
+                          (directory-files (concat (expand-file-name
+                                                    doom-private-dir) "splash")
+                                           t "^\\([^.]\\|\\.[^.]\\|\\.\\..\\)"))
 
       auth-source-cache-expiry nil ; default is 7200 (2h)
 
