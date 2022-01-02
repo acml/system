@@ -59,13 +59,6 @@
 
       frame-resize-pixelwise t)
 
-;; (defun random-splash-image-elt (choices)
-;;   (elt choices (random (length choices))))
-
-;; (defun random-splash-image-choose-image (img-dir)
-;;   (random-splash-image-elt (directory-files img-dir t "^\\([^.]\\|\\.[^.]\\|\\.\\..\\)")))
-;; (setq fancy-splash-image (random-splash-image-choose-image (concat (expand-file-name  doom-private-dir)  "splash")))
-
 ;; (if (equal "Battery status not available"
 ;;            (battery))
 ;;     (display-battery-mode 1)                        ; On laptops it's nice to know how much power you have
