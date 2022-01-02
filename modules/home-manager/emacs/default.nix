@@ -61,8 +61,7 @@ lib.mkMerge [
       gnuplot                      # org-plot/gnuplot
 
       # :lang cc
-      (lib.mkIf isLinux ccls)
-      #clang-tools # for clangd
+      (lib.mkIf isLinux clang-tools)
       (lib.mkIf isLinux glslang)
 
       # Nix
