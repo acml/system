@@ -46,7 +46,7 @@
                                         choices (random (length choices))))
                           (directory-files (concat (expand-file-name
                                                     doom-private-dir) "splash")
-                                           t "^\\([^.]\\|\\.[^.]\\|\\.\\..\\)"))
+                                           t "^\\([^.]\\|\\.[^.]\\|\\.\\..\\)" t))
 
       auth-source-cache-expiry nil ; default is 7200 (2h)
 
