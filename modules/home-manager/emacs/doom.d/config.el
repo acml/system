@@ -114,25 +114,21 @@
                 ;; (load-theme 'doom-one t)
                 (modus-themes-load-operandi)))))
 
-(cond ((string-equal system-name "DESKTOP-55134EE")
-       (setq initial-frame-alist
-             (append '((top . 28)
-                       (left . 33)
-                       (width . 267)
-                       (height . 62))
-                     initial-frame-alist)))
-      ((string-equal system-name "EVT02007NB")
-       (setq initial-frame-alist
-             (append '((top . 31)
-                       (left . 34)
-                       (width . 212)
-                       (height . 49))
-                     initial-frame-alist)))
-      ((string-equal system-name "linuxmint")
-       (custom-set-variables
-        '(initial-frame-alist (quote ((fullscreen . maximized))))))
-      (t
-       nil))
+(pcase (system-name)
+  ("DESKTOP-55134EE" (setq initial-frame-alist
+                           (append '((top . 28)
+                                     (left . 33)
+                                     (width . 267)
+                                     (height . 62))
+                                   initial-frame-alist)))
+  ("EVT02007NB" (setq initial-frame-alist
+                      (append '((top . 31)
+                                (left . 34)
+                                (width . 212)
+                                (height . 49))
+                              initial-frame-alist)))
+  ("linuxmint" (custom-set-variables
+                '(initial-frame-alist (quote ((fullscreen . maximized)))))))
 
 ;; (windmove-default-keybindings 'control)
 ;; (windswap-default-keybindings 'control 'shift)
