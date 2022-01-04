@@ -127,8 +127,7 @@
                                 (width . 212)
                                 (height . 49))
                               initial-frame-alist)))
-  ("linuxmint" (custom-set-variables
-                '(initial-frame-alist (quote ((fullscreen . maximized)))))))
+  ("linuxmint" (add-to-list 'initial-frame-alist '(fullscreen . maximized))))
 
 ;; (windmove-default-keybindings 'control)
 ;; (windswap-default-keybindings 'control 'shift)
