@@ -1,19 +1,18 @@
-{ inputs, nixpkgs, stable, ... }: {
+{ inputs, nixpkgs, stable, lib, ... }: {
   nixpkgs.overlays = [
     # channels
     (final: prev: {
       # expose other channels via overlays
       stable = import stable { system = prev.system; };
       trunk = import inputs.trunk { system = prev.system; };
-      small = import inputs.small { system = prev.system; };
-    })
-    inputs.emacs-overlay.overlay
-    # patches for broken packages
-    (final: prev: rec {
-      nix-zsh-completions = prev.trunk.nix-zsh-completions;
-      nix-direnv = prev.trunk.nix-direnv;
     })
 
+    inputs.emacs-overlay.overlay
+
+    (final: prev: {
+      # expose other channels via overlays
+      ripgrep-all = prev.stable.ripgrep-all;
+    })
     # hacks to install comma and nix-index on aarch64-darwin
     (final: prev: rec {
       # fix yabai for monterey
@@ -27,8 +26,8 @@
       #   src = prev.fetchFromGitHub {
       #     owner = "koekeishiya";
       #     repo = "yabai";
-      #     rev = "5317b16d06e916f0e3844d3fe33d190e86c96ba9";
-      #     sha256 = "sha256-yl5a6ESA8X4dTapXGd0D0db1rhwhuOWrjFAT1NDuygo=";
+      #     rev = "b884717b2d5731f5b4ac164e7c0260076698b08c";
+      #     sha256 = "sha256-kMPf+g+7nMZyu2bkazhjuaZJVUiEoJrgxmxXhL/jC8M=";
       #   };
       #   buildInputs = with prev.darwin.apple_sdk.frameworks; [
       #     Carbon

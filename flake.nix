@@ -16,16 +16,14 @@
     devshell.url = "github:numtide/devshell";
     flake-utils.url = "github:numtide/flake-utils";
     nixos-hardware.url = "github:nixos/nixos-hardware";
-    # neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-    
+
+    stable.url = "github:nixos/nixpkgs/nixos-21.11";
+    nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    trunk.url = "github:nixos/nixpkgs/master";
+
     doom-emacs-source = { url = "github:hlissner/doom-emacs/develop"; flake = false; };
     emacs-overlay.url = "github:nix-community/emacs-overlay";
-
-    darwin-stable.url = "github:nixos/nixpkgs/nixpkgs-21.05-darwin";
-    nixos-stable.url = "github:nixos/nixpkgs/nixos-21.05";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    small.url = "github:nixos/nixpkgs/nixos-unstable-small";
-    trunk.url = "github:nixos/nixpkgs/master";
 
     comma = {
       url = "github:nix-community/comma";
@@ -45,8 +43,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, darwin, home-manager, nixos-hardware
-    , devshell, flake-utils, ... }:
+  outputs = inputs@{ self, nixpkgs, darwin, home-manager, flake-utils, ... }:
     let
       inherit (darwin.lib) darwinSystem;
       inherit (nixpkgs.lib) nixosSystem;
@@ -65,8 +62,8 @@
 
       # generate a base darwin configuration with the
       # specified hostname, overlays, and any extraModules applied
-      mkDarwinConfig = { system ? "x86_64-darwin", nixpkgs ? inputs.nixpkgs
-        , stable ? inputs.darwin-stable, lib ? (mkLib nixpkgs), baseModules ? [
+      mkDarwinConfig = { system, nixpkgs ? inputs.nixpkgs
+        , stable ? inputs.stable, lib ? (mkLib nixpkgs), baseModules ? [
           home-manager.darwinModules.home-manager
           ./modules/darwin
         ], extraModules ? [ ] }:
@@ -78,8 +75,8 @@
 
       # generate a base nixos configuration with the
       # specified overlays, hardware modules, and any extraModules applied
-      mkNixosConfig = { system ? "x86_64-linux", nixpkgs ? inputs.nixpkgs
-        , stable ? inputs.nixos-stable, lib ? (mkLib nixpkgs), hardwareModules
+      mkNixosConfig = { system ? "x86_64-linux", nixpkgs ? inputs.nixos-unstable
+        , stable ? inputs.stable, lib ? (mkLib nixpkgs), hardwareModules
         , baseModules ? [
           home-manager.nixosModules.home-manager
           ./modules/nixos
@@ -93,7 +90,7 @@
       # generate a home-manager configuration usable on any unix system
       # with overlays and any extraModules applied
       mkHomeConfig = { username, system ? "x86_64-linux"
-        , nixpkgs ? inputs.nixpkgs, stable ? inputs.nixos-stable
+        , nixpkgs ? inputs.nixpkgs, stable ? inputs.stable
         , lib ? (mkLib nixpkgs), baseModules ? [
           ./modules/home-manager
           {
@@ -150,6 +147,7 @@
           ];
         };
         work = mkDarwinConfig {
+          system = "x86_64-darwin";
           extraModules =
             [ ./profiles/work.nix ./modules/darwin/apps-minimal.nix ];
         };
@@ -159,7 +157,7 @@
         phil = mkNixosConfig {
           hardwareModules = [
             ./modules/hardware/phil.nix
-            nixos-hardware.nixosModules.lenovo-thinkpad-t460s
+            inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t460s
           ];
           extraModules = [ ./profiles/personal.nix ];
         };
@@ -200,17 +198,17 @@
         pkgs = import nixpkgs {
           inherit system;
           overlays = [
-            devshell.overlay
+            inputs.devshell.overlay
             (final: prev: {
               # expose stable packages via pkgs.stable
-              stable = import inputs.nixos-stable { system = prev.system; };
+              stable = import inputs.stable { system = prev.system; };
             })
           ];
         };
-        pyEnv = (pkgs.stable.python3.withPackages
+        pyEnv = (pkgs.python3.withPackages
           (ps: with ps; [ black pylint typer colorama shellingham ]));
         nixBin = pkgs.writeShellScriptBin "nix" ''
-          ${pkgs.nixFlakes}/bin/nix --option experimental-features "nix-command flakes" "$@"
+          ${pkgs.nixFlakes}/bin/nix --option experimental-features "nix-command flakes" $@
         '';
         sysdo = pkgs.writeShellScriptBin "sysdo" ''
           cd $PRJ_ROOT && ${pyEnv}/bin/python3 bin/do.py $@
