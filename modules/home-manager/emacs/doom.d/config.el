@@ -114,20 +114,7 @@
                 ;; (load-theme 'doom-one t)
                 (modus-themes-load-operandi)))))
 
-(pcase (system-name)
-  ("DESKTOP-55134EE" (setq initial-frame-alist
-                           (append '((top . 28)
-                                     (left . 33)
-                                     (width . 267)
-                                     (height . 62))
-                                   initial-frame-alist)))
-  ("EVT02007NB" (setq initial-frame-alist
-                      (append '((top . 31)
-                                (left . 34)
-                                (width . 212)
-                                (height . 49))
-                              initial-frame-alist)))
-  ("linuxmint" (add-to-list 'initial-frame-alist '(fullscreen . maximized))))
+(add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
 ;; (windmove-default-keybindings 'control)
 ;; (windswap-default-keybindings 'control 'shift)
