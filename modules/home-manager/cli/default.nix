@@ -96,7 +96,18 @@ in {
         if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
           source ~/.nix-profile/etc/profile.d/nix.sh
         fi
-        [[ ! -z "$WSLENV" ]] && export DISPLAY=$HOSTNAME.local:0.0
+        if [ -n ''${WSLENV} ] ; then
+          export DISPLAY=:0
+          if ! pgrep wsld > /dev/null 2>&1 ; then
+              nohup ~/.local/bin/wsld > /dev/null < /dev/null 2>&1 &
+              disown
+
+              # sleep until $DISPLAY is up
+              while ! xset q > /dev/null 2>&1 ; do
+                  sleep 0.3
+              done
+          fi
+        fi
         export XDG_DATA_DIRS=$HOME/.nix-profile/share:$HOME/.share:''${XDG_DATA_DIRS:-/usr/local/share:/usr/share}
       '';
       initExtra = ''
