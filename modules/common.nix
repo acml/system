@@ -28,21 +28,6 @@
 
   # environment setup
   environment = {
-    systemPackages = with pkgs; [
-      # editors
-      neovim
-
-      # standard toolset
-      coreutils
-      curl
-      wget
-      git
-
-      # helpful shell stuff
-      bat
-      fzf
-      zsh
-    ];
     etc = {
       home-manager.source = "${inputs.home-manager}";
       nixpkgs.source = "${nixpkgs}";
@@ -54,14 +39,13 @@
   };
 
   fonts.fonts = with pkgs; [ 
-    jetbrains-mono
      emacs-all-the-icons-fonts
+     noto-fonts-emoji
      (nerdfonts.override {
        fonts = [
          "IBMPlexMono"
          "Iosevka"
          "Overpass"
-         "SourceCodePro"
        ];
      }) 
   ];
