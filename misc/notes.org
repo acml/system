@@ -19,3 +19,74 @@ Workaround:
 echo "trusted-users = root $USER" | sudo tee -a /etc/nix/nix.conf"
 sudo pkill nix-daemon
 #+end_src
+
+* Interview Questions to Ask Your Interviewer
+How big is the company?
+
+Why did you choose to work here?
+
+Do you enjoy this particular project?
+
+Is there flexibility within the org to move around to different projects?
+
+What's a typical day like?
+
+
+Software dev process? (agile/tdd/pairing?)
+
+Bug tracking system?
+
+Version control system?
+
+Dev. desktop vs server OS? Developer machine hardware?
+
+
+Is the product live in production? If not, what's the schedule for developing it?
+
+How often are releases done?
+
+Who supports the product once it's released? Pager duty? Monitoring email?
+
+Where do feature + bugfix requests come from?
+
+Who does the "design" of the product? Internal designers, devs, both?
+
+Would my work be full-stack, or focused on backend/frontend?
+
+How big is the code base? Lots of ties to external/legacy projects?
+
+
+Typical working hours? Flexibility? Crunch times?
+
+Working from home? Regularly vs. Snow days?
+
+
+Do you have a favorite part of the job? Least favorite?
+
+Do you have a time tracking system?
+
+Centralized IT dept?
+
+Gov’t contractor? Clearance required? Potential for clearance?
+
+Regulatory compliance? PCI, SOX, etc. Annual training?
+
+
+Do people hang out outside work? Company outings? Lunch?
+
+Budget for conferences?
+
+Internal lightning talks/brown bag lunches?
+
+Dress code?
+
+
+Does the company seem stable? Profitable? Any plans to sell?
+
+Bonus structure?
+
+Management style/structure? Frequent catch-ups aka one-on-ones? Something else?
+
+Room for advancement?
+
+Learning opportunities?
