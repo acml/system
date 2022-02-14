@@ -9,6 +9,23 @@ for i in Desktop Documents Downloads Videos Music Pictures; do
 done
 #+end_src
 
+* How to Mount Windows Network Drives in WSL
+
+** Mount a Drive Until Logoff
+
+1. Note the letter of the network drive that you would like to map in WSL. We will use M: in this example.
+2. Create a new folder for that drive letter under /mnt if it does not already exist. (ex: ~mkdir /mnt/m~)
+3. Mount the drive with ~sudo mount -t drvfs M: /mnt/m~
+
+
+** Mount Drives in a Persistent Manner
+
+1. Ensure the folder exists for the mount target (e.g. /mnt/m)
+2. Open /etc/fstab and add a line such as the following:
+   M: /mnt/m drvfs defaults 0 0
+4. Reload the fstab file with ~sudo mount -a~
+
+
 * builds everything from source if Nix user isn't trusted
 #+begin_quote
 warning: ignoring untrusted substituter 'https://cachix.cachix.org'
