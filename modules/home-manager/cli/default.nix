@@ -96,9 +96,9 @@ in {
         if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
           source ~/.nix-profile/etc/profile.d/nix.sh
         fi
-        if [ -n ''${WSLENV} ] ; then
+        if [ -n "''${WSLENV}" ] ; then
           export DISPLAY=:0
-          if ! pgrep wsld > /dev/null 2>&1 ; then
+          if [ -e ~/.local/bin/wsld ] && ! pgrep wsld > /dev/null 2>&1 ; then
               nohup ~/.local/bin/wsld > /dev/null < /dev/null 2>&1 &
               disown
 
@@ -146,9 +146,9 @@ in {
           ""}
         unset RPS1
         [[ -e ~/.nix-profile/etc/profile.d/nix.sh ]] && source ~/.nix-profile/etc/profile.d/nix.sh
-        if [ -n ''${WSLENV} ] ; then
+        if [ -n "''${WSLENV}" ] ; then
           export DISPLAY=:0
-          if ! pgrep wsld > /dev/null 2>&1 ; then
+          if [ -e ~/.local/bin/wsld ] && ! pgrep wsld > /dev/null 2>&1 ; then
               nohup ~/.local/bin/wsld > /dev/null < /dev/null 2>&1 &
               disown
 
