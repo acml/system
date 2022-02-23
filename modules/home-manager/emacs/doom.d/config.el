@@ -395,9 +395,9 @@
         ;; `intense'.
         modus-themes-markup '(background italic)
 
-        ;; ;; Options for `modus-themes-syntax' are either nil (the default),
-        ;; ;; or a list of properties that may include any of those symbols:
-        ;; ;; `faint', `yellow-comments', `green-strings', `alt-syntax'
+        ;; Options for `modus-themes-syntax' are either nil (the default),
+        ;; or a list of properties that may include any of those symbols:
+        ;; `faint', `yellow-comments', `green-strings', `alt-syntax'
         modus-themes-syntax '(faint)
 
         ;; Options for `modus-themes-hl-line' are either nil (the default),
@@ -416,14 +416,36 @@
         ;; `bold', `italic', `background'
         modus-themes-links '(neutral-underline)
 
+        ;; Options for `modus-themes-box-buttons' are either nil (the
+        ;; default), or a list that can combine any of `flat', `accented',
+        ;; `faint', `variable-pitch', `underline', the symbol of any font
+        ;; weight as listed in `modus-themes-weights', and a floating
+        ;; point number (e.g. 0.9) for the height of the button's text.
+        modus-themes-box-buttons '(variable-pitch flat faint 0.9)
+
         ;; Options for `modus-themes-prompts' are either nil (the
         ;; default), or a list of properties that may include any of those
         ;; symbols: `background', `bold', `gray', `intense', `italic'
         modus-themes-prompts nil
 
-        modus-themes-completions 'opinionated ; {nil,'moderate,'opinionated}
+        ;; The `modus-themes-completions' is an alist that reads three
+        ;; keys: `matches', `selection', `popup'.  Each accepts a nil
+        ;; value (or empty list) or a list of properties that can include
+        ;; any of the following (for WEIGHT read further below):
+        ;;
+        ;; `key' - `background', `intense', `underline', `italic', WEIGHT
+        ;; `selection' - `accented', `intense', `underline', `italic', WEIGHT
+        ;; `popup' - same as `selected'
+        ;; `t' - applies to any key not explicitly referenced (check docs)
+        ;;
+        ;; WEIGHT is a symbol such as `semibold', `light', or anything
+        ;; covered in `modus-themes-weights'.  Bold is used in the absence
+        ;; of an explicit WEIGHT.
+        modus-themes-completions '((matches . (extrabold))
+                                   (selection . (semibold accented))
+                                   (popup . (accented intense)))
 
-        modus-themes-mail-citations 'faint ; {nil,'faint,'monochrome}
+        modus-themes-mail-citations 'faint ; {nil,'intense,'faint,'monochrome}
 
         ;; Options for `modus-themes-region' are either nil (the default),
         ;; or a list of properties that may include any of those symbols:
