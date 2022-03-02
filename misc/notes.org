@@ -1,6 +1,7 @@
 #+TITLE: Notes
 
 * Convenience
+
 Run the following script after putting in your user name
 
 #+begin_src shell
@@ -28,12 +29,14 @@ done
 * How to Shrink a WSL2 Virtual Disk
 
 ** Before you begin
+
 Before shrinking a WSL2 virtual disk, you need to ensure that WSL2 is not running.
 
 You can check if it’s running with the command ~wsl.exe --list --verbose~ in PowerShell.
 It should stop when it’s idle, or you can encourage it to stop with the ~wsl.exe --terminate~ command.
 
 ** Use ~diskpart~ to Shrink a WSL2 Virtual Disk
+
 You can launch the ~diskpart~ tool in ~PowerShell~.
 
 You need to specify the path to your VHDX file.
@@ -47,6 +50,12 @@ compact vdisk
 #+end_src
 
 Once that has finished, you can close ~diskpart~.
+
+* How to reduce the size of VMware disk
+
+#+begin_src sh
+sudo vmware-toolbox-cmd disk shrink /
+#+end_src
 
 * builds everything from source if Nix user isn't trusted
 #+begin_quote
