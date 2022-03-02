@@ -337,6 +337,13 @@
         lsp-ui-sideline-show-hover t
         lsp-ui-sideline-show-symbol t))
 
+;; https://stackoverflow.com/questions/730751/hiding-m-in-emacs
+(defun acml/hide-dos-eol ()
+  "Do not show ^M in files containing mixed UNIX and DOS line endings."
+  (interactive)
+  (setq buffer-display-table (make-display-table))
+  (aset buffer-display-table ?\^M []))
+
 (add-hook! ('text-mode-hook 'prog-mode-hook)
   (defun acml/set-fringe-widths ()
     (setq-local left-fringe-width 6
