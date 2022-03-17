@@ -344,6 +344,31 @@
   (setq buffer-display-table (make-display-table))
   (aset buffer-display-table ?\^M []))
 
+;; https://newbedev.com/how-do-i-display-ansi-color-codes-in-emacs-for-any-mode
+(defun acml/ansi-color (&optional beg end)
+  "Color the ANSI escape sequences in the active region or whole buffer.
+Sequences start with an escape \033 (typically shown as \"^[\")
+and end with \"m\", e.g. this is two sequences
+  ^[[46;1mTEXT^[[0m
+where the first sequence says to diplay TEXT as bold with
+a cyan background and the second sequence turns it off.
+
+This strips the ANSI escape sequences and if the buffer is saved,
+the sequences will be lost."
+  (interactive
+   (if (use-region-p)
+       (list (region-beginning) (region-end))
+     (list (point-min) (point-max))))
+  (if buffer-read-only
+      ;; read-only buffers may be pointing a read-only file system, so don't mark the buffer as
+      ;; modified. If the buffer where to become modified, a warning will be generated when emacs
+      ;; tries to autosave.
+      (let ((inhibit-read-only t)
+            (modified (buffer-modified-p)))
+        (ansi-color-apply-on-region beg end)
+        (set-buffer-modified-p modified))
+    (ansi-color-apply-on-region beg end)))
+
 (add-hook! ('text-mode-hook 'prog-mode-hook)
   (defun acml/set-fringe-widths ()
     (setq-local left-fringe-width 6
