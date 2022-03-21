@@ -32,6 +32,12 @@ C++ YouTube [[https://www.youtube.com/playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD
 ** Developing Android Apps with Kotlin
 [[https://classroom.udacity.com/courses/ud9012][Developing Android Apps with Kotlin]]
 
+** Awesome Android Learning Resources
+A curated list of [[https://github.com/androiddevnotes/awesome-android-learning-resources][awesome android learning resources]] for android app developers.
+
+** Android Developer Roadmap 2022
+The 2022 [[https://github.com/skydoves/android-developer-roadmap][Android Developer Roadmap]] suggests learning paths to understanding Android development.
+
 * Debian/Ubuntu
 
 ** Create a list of all installed packages
