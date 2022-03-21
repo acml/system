@@ -26,6 +26,8 @@ C++ YouTube [[https://www.youtube.com/playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD
 ** Cheat Sheets & Infographics
 [[https://hackingcpp.com/cpp/cheat_sheets.html][Cheat Sheets & Infographics]] is a collection of various C++ learning resources. Most materials are aimed at beginners that know the basics of imperative programming but don't know C++ very well.
 
+** Teaching C++ using org
+[[https://github.com/dmgerman/csc116ModernCplusplus][csc116ModernCplusplus]]
 
 * Kotlin & Android
 
