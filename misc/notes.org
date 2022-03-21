@@ -1,6 +1,66 @@
 #+TITLE: Notes
 
-* Convenience
+* C++
+
+** C++ Developer Roadmap
+[[https://github.com/salmer/CppDeveloperRoadmap][Roadmap]] for learning the C++ programming language for beginners and experienced devs.
+
+** C++ Game Programming course
+Entire [[https://www.reddit.com/r/cpp/comments/r837rn/my_entire_c_game_programming_course_is_now/][C++ Game Programming course]] is now available online for free. Make your own 2D game engine from scratch using ECS
+
+** Cᐩᐩ Weekly With Jason Turner
+[[https://www.youtube.com/c/lefticus1/about][Making C++ Fun and Accessible.]]
+
+** The Cherno
+C++ YouTube [[https://www.youtube.com/playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb][playlist]]
+
+** SerenityOS
+[[https://www.youtube.com/c/AndreasKling/playlists][SerenityOS]], a new from-scratch graphical operating system for desktop computers.
+
+** Watch and learn
+[[https://github.com/Bu11etmagnet/WatchAndLearn][Watch and learn]] - a collection of presentations about programming, almost exclusively related to C++
+
+** C++ Core Guidelines
+[[https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines][This document]] is a set of guidelines for using C++ well. The aim of this document is to help people to use modern C++ effectively.
+
+** Cheat Sheets & Infographics
+[[https://hackingcpp.com/cpp/cheat_sheets.html][Cheat Sheets & Infographics]] is a collection of various C++ learning resources. Most materials are aimed at beginners that know the basics of imperative programming but don't know C++ very well.
+
+
+* Debian/Ubuntu
+
+** Create a list of all installed packages
+
+To create a list of the names of all installed packages on your Ubuntu or Debian system and save it in a file named packages_list.txt, run the following command:
+
+#+begin_src shell
+sudo dpkg-query -f '${binary:Package}\n' -W > packages_list.txt
+#+end_src
+
+Now that you have the list, if you want to install the same packages on your new server you can do that with:
+
+#+begin_src shell
+sudo xargs -a packages_list.txt apt install
+#+end_src
+
+
+* NixOS
+
+** builds everything from source if Nix user isn't trusted
+#+begin_quote
+warning: ignoring untrusted substituter 'https://cachix.cachix.org'
+#+end_quote
+
+Workaround:
+#+begin_src shell
+echo "trusted-users = root $USER" | sudo tee -a /etc/nix/nix.conf"
+sudo pkill nix-daemon
+#+end_src
+
+
+* WSL
+
+** Convenience
 
 Run the following script after putting in your user name
 
@@ -10,32 +70,32 @@ for i in Desktop Documents Downloads Videos Music Pictures; do
 done
 #+end_src
 
-* How to Mount Windows Network Drives in WSL
+** How to Mount Windows Network Drives in WSL
 
-** Mount a Drive Until Logoff
+*** Mount a Drive Until Logoff
 
 1. Note the letter of the network drive that you would like to map in WSL. We will use M: in this example.
 2. Create a new folder for that drive letter under /mnt if it does not already exist. (ex: ~mkdir /mnt/m~)
 3. Mount the drive with ~sudo mount -t drvfs M: /mnt/m~
 
 
-** Mount Drives in a Persistent Manner
+*** Mount Drives in a Persistent Manner
 
 1. Ensure the folder exists for the mount target (e.g. /mnt/m)
 2. Open /etc/fstab and add a line such as the following:
    M: /mnt/m drvfs defaults 0 0
 3. Reload the fstab file with ~sudo mount -a~
 
-* How to Shrink a WSL2 Virtual Disk
+** How to Shrink a WSL2 Virtual Disk
 
-** Before you begin
+*** Before you begin
 
 Before shrinking a WSL2 virtual disk, you need to ensure that WSL2 is not running.
 
 You can check if it’s running with the command ~wsl.exe --list --verbose~ in PowerShell.
 It should stop when it’s idle, or you can encourage it to stop with the ~wsl.exe --terminate~ command.
 
-** Use ~diskpart~ to Shrink a WSL2 Virtual Disk
+*** Use ~diskpart~ to Shrink a WSL2 Virtual Disk
 
 You can launch the ~diskpart~ tool in ~PowerShell~.
 
@@ -51,22 +111,16 @@ compact vdisk
 
 Once that has finished, you can close ~diskpart~.
 
+** WSL2 X11 programs "disappear"
+[[https://github.com/nbdd0121/wsld][WSL Daemon - Stable X11 connection and time synchronisation for WSL2]]
+
+
 * How to reduce the size of VMware disk
 
 #+begin_src sh
 sudo vmware-toolbox-cmd disk shrink /
 #+end_src
 
-* builds everything from source if Nix user isn't trusted
-#+begin_quote
-warning: ignoring untrusted substituter 'https://cachix.cachix.org'
-#+end_quote
-
-Workaround:
-#+begin_src shell
-echo "trusted-users = root $USER" | sudo tee -a /etc/nix/nix.conf"
-sudo pkill nix-daemon
-#+end_src
 
 * Interview Questions to Ask Your Interviewer
 How big is the company?
