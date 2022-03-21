@@ -114,6 +114,11 @@ Once that has finished, you can close ~diskpart~.
 ** WSL2 X11 programs "disappear"
 [[https://github.com/nbdd0121/wsld][WSL Daemon - Stable X11 connection and time synchronisation for WSL2]]
 
+** Launch file with a WSL App
+[[https://github.com/mangelozzi/explorer_launch_wsl_app][Script]] to enable double click a file in explorer and launch/run it with a WSL App (Neovim, Vim, etc) within Windows Terminal
+
+** Launching WSL Programs from a Right Click Windows Menu
+[[https://nickjanetakis.com/blog/launching-wsl-programs-from-a-right-click-windows-menu][Launching and running]] a WSL command
 
 * How to reduce the size of VMware disk
 
