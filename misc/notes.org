@@ -27,6 +27,11 @@ C++ YouTube [[https://www.youtube.com/playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD
 [[https://hackingcpp.com/cpp/cheat_sheets.html][Cheat Sheets & Infographics]] is a collection of various C++ learning resources. Most materials are aimed at beginners that know the basics of imperative programming but don't know C++ very well.
 
 
+* Kotlin & Android
+
+** Developing Android Apps with Kotlin
+[[https://classroom.udacity.com/courses/ud9012][Developing Android Apps with Kotlin]]
+
 * Debian/Ubuntu
 
 ** Create a list of all installed packages
@@ -42,7 +47,6 @@ Now that you have the list, if you want to install the same packages on your new
 #+begin_src shell
 sudo xargs -a packages_list.txt apt install
 #+end_src
-
 
 * NixOS
 
