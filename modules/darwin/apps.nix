@@ -4,7 +4,7 @@
       "android-file-transfer"
       "appcleaner"
       "bartender"
-      "bitwarden"
+      # "bitwarden"
       "diffmerge"
       "discord"
       "firefox"
