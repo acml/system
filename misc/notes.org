@@ -1,5 +1,8 @@
 #+TITLE: Notes
 
+* List of Free Learning Resources In Many Languages
+[[https://github.com/EbookFoundation/free-programming-books][List of Free Learning Resources In Many Languages]]
+
 * C++
 
 ** C++ Developer Roadmap
