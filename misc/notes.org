@@ -19,36 +19,38 @@
 
 ** Articles
 - [[https://cstack.github.io/db_tutorial/][How Does a Database Work? | Let’s Build a Simple Database]]
--[[https://blog.lizzie.io/linux-containers-in-500-loc.html][ Linux containers in 500 lines of code]]
--[[https://danluu.com/malloc-tutorial/][ Malloc tutorial]]
--[[https://www.cs.princeton.edu/courses/archive/spr09/cos333/beautiful.html][ A Regular Expression Matcher]]
--[[https://brennan.io/2015/01/16/write-a-shell-in-c/][ Tutorial - Write a Shell in C • Stephen Brennan]]
--[[https://www.cs.nmsu.edu/~pfeiffer/fuse-tutorial/][ Writing a FUSE Filesystem: a Tutorial]]
--[[https://viewsourcecode.org/snaptoken/kilo/][ Build Your Own Text Editor]]
--[[https://github.com/jamesroutley/write-a-hash-table][ GitHub - jamesroutley/write-a-hash-table: ✏️ Learn how to write a hash table ...]]
--[[https://arjunsreedharan.org/post/82710718100/kernel-101-lets-write-a-kernel][ Kernels 101 – Let’s write a Kernel - Arjun Sreedharan]]
--[[https://nesdoug.com/][ nesdoug – NES Programming with cc65]]
--[[http://journal.stuffwithstuff.com/2013/12/08/babys-first-garbage-collector/][ Baby’s First Garbage Collector – journal.stuffwithstuff.com]]
--[[https://felix.engineer/blogs/virtual-machine-in-c][ Implementing a virtual machine in C]]
--[[http://peter.michaux.ca/articles/scheme-from-scratch-introduction][ peter.michaux.ca - Scheme from Scratch - Introduction]]
--[[https://norasandler.com/2017/11/29/Write-a-Compiler.html][ Writing a C Compiler, Part 1]]
--[[http://www.saminiir.com/lets-code-tcp-ip-stack-1-ethernet-arp/][ Let's code a TCP/IP stack, 1: Ethernet & ARP]]
--[[https://github.com/lotabout/write-a-C-interpreter][ GitHub - lotabout/write-a-C-interpreter: Write a simple interpreter of C. Ins...]]
--[[https://blog.holbertonschool.com/hack-virtual-memory-stack-registers-assembly-code/][ Hack the virtual memory: the stack, registers and assembly code - Blog Holber...]]
--[[http://www.gamedevcraft.com/2016/08/part-1-multiplayer-websocket-game.html][ Multiplayer WebSocket Game server written in C]]
--[[http://emulator101.com/][ Emulator 101]]
+- [[https://blog.lizzie.io/linux-containers-in-500-loc.html][Linux containers in 500 lines of code]]
+- [[https://danluu.com/malloc-tutorial/][Malloc tutorial]]
+- [[https://www.cs.princeton.edu/courses/archive/spr09/cos333/beautiful.html][A Regular Expression Matcher]]
+- [[https://brennan.io/2015/01/16/write-a-shell-in-c/][Tutorial - Write a Shell in C • Stephen Brennan]]
+- [[https://www.cs.nmsu.edu/~pfeiffer/fuse-tutorial/][Writing a FUSE Filesystem: a Tutorial]]
+- [[https://viewsourcecode.org/snaptoken/kilo/][Build Your Own Text Editor]]
+- [[https://github.com/jamesroutley/write-a-hash-table][GitHub - jamesroutley/write-a-hash-table: ✏️ Learn how to write a hash table ...]]
+- [[https://arjunsreedharan.org/post/82710718100/kernel-101-lets-write-a-kernel][Kernels 101 – Let’s write a Kernel - Arjun Sreedharan]]
+- [[https://nesdoug.com/][nesdoug – NES Programming with cc65]]
+- [[http://journal.stuffwithstuff.com/2013/12/08/babys-first-garbage-collector/][Baby’s First Garbage Collector – journal.stuffwithstuff.com]]
+- [[https://felix.engineer/blogs/virtual-machine-in-c][Implementing a virtual machine in C]]
+- [[http://peter.michaux.ca/articles/scheme-from-scratch-introduction][peter.michaux.ca - Scheme from Scratch - Introduction]]
+- [[https://norasandler.com/2017/11/29/Write-a-Compiler.html][Writing a C Compiler, Part 1]]
+- [[http://www.saminiir.com/lets-code-tcp-ip-stack-1-ethernet-arp/][Let's code a TCP/IP stack, 1: Ethernet & ARP]]
+- [[https://github.com/lotabout/write-a-C-interpreter][GitHub - lotabout/write-a-C-interpreter: Write a simple interpreter of C. Ins...]]
+- [[https://blog.holbertonschool.com/hack-virtual-memory-stack-registers-assembly-code/][Hack the virtual memory: the stack, registers and assembly code - Blog Holber...]]
+- [[http://www.gamedevcraft.com/2016/08/part-1-multiplayer-websocket-game.html][Multiplayer WebSocket Game server written in C]]
+- [[http://emulator101.com/][Emulator 101]]
 - [[https://helderman.github.io/htpataic/htpataic01.html][How to Program a Text Adventure in C]]
--[[http://www.linuxfromscratch.org/][ Welcome to Linux From Scratch!]]
+- [[http://www.linuxfromscratch.org/][Welcome to Linux From Scratch!]]
 
 ** Video Series
 - [[https://www.youtube.com/playlist?list=PLZ1QII7yudbc-Ky058TEaOstZHVbT-2hg][Chess Engine In C - YouTube]]
--[[https://www.youtube.com/playlist?list=PLT6WFYYZE6uLMcPGS3qfpYm7T_gViYMMt][ Learn Video Game Programming in C - YouTube]]
--[[https://www.youtube.com/playlist?list=PLSkJey49cOgTSj465v2KbLZ7LMn10bCF9][ Let's Make: Dangerous Dave - YouTube]]
--[[https://www.youtube.com/playlist?list=PLkTXsX7igf8edTYU92nU-f5Ntzuf-RKvW][ Coding A Sudoku Solver in C - YouTube]]
--[[https://www.youtube.com/playlist?list=PLkTXsX7igf8erbWGYT4iSAhpnJLJ0Nk5G][ Coding a Rogue/Nethack RPG in C - YouTube]]
--[[https://www.udemy.com/learn-socket-programming-in-c-from-scratch/][ Learn Socket Programming in C from Scratch | Udemy]]
--[[https://github.com/pervognsen/bitwise][ GitHub - pervognsen/bitwise: Bitwise is an educational project where we creat...]]
--[[https://handmadehero.org/][ Handmade Hero]]
+- [[https://www.youtube.com/playlist?list=PLT6WFYYZE6uLMcPGS3qfpYm7T_gViYMMt][Learn Video Game Programming in C - YouTube]]
+- [[https://www.youtube.com/playlist?list=PLSkJey49cOgTSj465v2KbLZ7LMn10bCF9][Let's Make: Dangerous Dave - YouTube]]
+- [[https://www.youtube.com/playlist?list=PLkTXsX7igf8edTYU92nU-f5Ntzuf-RKvW][Coding A Sudoku Solver in C - YouTube]]
+- [[https://www.youtube.com/playlist?list=PLkTXsX7igf8erbWGYT4iSAhpnJLJ0Nk5G][Coding a Rogue/Nethack RPG in C - YouTube]]
+- [[https://www.udemy.com/learn-socket-programming-in-c-from-scratch/][Learn Socket Programming in C from Scratch | Udemy]]
+- [[https://github.com/pervognsen/bitwise][GitHub - pervognsen/bitwise: Bitwise is an educational project where we creat...]]
+- [[https://handmadehero.org/][Handmade Hero]]
+- [[https://www.youtube.com/watch?v=BXSZ4_DKCBw][Refactoring A Donut! | De-obfuscated C Challenge - YouTube]]
+- [[https://www.youtube.com/watch?v=DEqXNfs_HhY][Donut-shaped C code that generates a 3D spinning donut - YouTube]]
 
 ** Pitfalls
 *** Do not cast an address that is not surely 32-bit aligned to a 32-bit pointer
@@ -104,6 +106,11 @@ C++ YouTube [[https://www.youtube.com/playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD
 
 ** Teaching C++ using org
 [[https://github.com/dmgerman/csc116ModernCplusplus][csc116ModernCplusplus]]
+
+
+* Git
+- [[https://learngitbranching.js.org/][Learn Git Branching]]
+- [[https://ohmygit.org/][Oh My Git!]]
 
 
 * Kotlin & Android
