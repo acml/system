@@ -61,6 +61,7 @@
 ;; (package! string-inflection) ;; for spacemacs-editing
 
 (package! beginend)
+(package! cmake-integration :recipe (:host github :repo "darcamo/cmake-integration"))
 (package! daemons)
 
 ;; (package! dired-show-readme :recipe (:host gitlab :repo "kisaragi-hiu/dired-show-readme"))
