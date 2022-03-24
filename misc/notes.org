@@ -50,6 +50,31 @@
 -[[https://github.com/pervognsen/bitwise][ GitHub - pervognsen/bitwise: Bitwise is an educational project where we creat...]]
 -[[https://handmadehero.org/][ Handmade Hero]]
 
+** Pitfalls
+*** Do not cast an address that is not surely 32-bit aligned to a 32-bit pointer
+
+#+begin_src c
+//uint32_t addr = *((uint32_t*)(&my_struct.address));
+// Do not cast an address that is not surely 32-bit aligned to a 32-bit pointer,
+// because on ARM architecture the result is undefined.
+//
+// using memcpy() instead:
+uint32_t addr;
+memcpy(&addr,&my_struct.address,sizeof(uint32_t));
+#+end_src
+
+See also: [[https://stackoverflow.com/questions/227897/how-to-allocate-aligned-memory-only-using-the-standard-library][c - How to allocate aligned memory only using the standard library? - Stack O...]]
+
+Also related: GCC has a warning that can help to identify points in the code
+when we might be accessing unaligned data, which is activated with
+~-Wcast-align~. It is not part of the warnings that are activated by options
+~-Wall~ or ~-Wextra~, so we will have to add it explicitly if we want it. The
+warning is only triggered when compiling for architectures that do not support
+unaligned access for all types, so you will not see it if compiling only for
+x86.
+
+See also: [[https://www.alfonsobeato.net/arm/how-to-access-safely-unaligned-data/][How to Access Safely Unaligned Data – Alfonso Sánchez-Beato's blog]]
+
 
 * C++
 
