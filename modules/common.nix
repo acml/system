@@ -1,4 +1,4 @@
-{ inputs, config, lib, pkgs, nixpkgs, stable, ... }: {
+{ inputs, config, lib, pkgs, ... }: {
   imports = [ ./primary.nix ./nixpkgs.nix ./overlays.nix ];
 
   programs.zsh = {
@@ -28,11 +28,30 @@
 
   # environment setup
   environment = {
+    systemPackages = with pkgs; [
+      # editors
+      neovim
+
+      # standard toolset
+      coreutils-full
+      curl
+      wget
+      git
+      jq
+
+      # helpful shell stuff
+      bat
+      # fzf
+      ripgrep
+
+      # languages
+      python3
+      ruby
+    ];
     etc = {
       home-manager.source = "${inputs.home-manager}";
-      nixpkgs.source = "${nixpkgs}";
-      stable.source = "${stable}";
-      trunk.source = "${inputs.trunk}";
+      nixpkgs.source = "${pkgs.path}";
+      stable.source = "${inputs.stable}";
     };
     # list of acceptable shells in /etc/shells
     shells = with pkgs; [ bash zsh fish ];

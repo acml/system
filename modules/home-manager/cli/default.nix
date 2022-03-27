@@ -3,27 +3,28 @@ let
   functions = builtins.readFile ./functions.sh;
   useSkim = true;
   useFzf = !useSkim;
-  fuzz = let fd = "${pkgs.fd}/bin/fd";
-  in rec {
-    defaultCommand = "${fd} -H --type f";
-    defaultOptions = [ "--height 50%" ];
-    fileWidgetCommand = "${defaultCommand}";
-    fileWidgetOptions = [
-      "--preview '${pkgs.bat}/bin/bat --color=always --plain --line-range=:200 {}'"
-    ];
-    changeDirWidgetCommand = "${fd} --type d";
-    changeDirWidgetOptions =
-      [ "--preview '${pkgs.tree}/bin/tree -C {} | head -200'" ];
-    historyWidgetOptions = [ ];
-  };
-  aliases = { } // (if !pkgs.stdenvNoCC.isDarwin then
-    { }
-  else {
+  fuzz =
+    let fd = "${pkgs.fd}/bin/fd";
+    in
+    rec {
+      defaultCommand = "${fd} -H --type f";
+      defaultOptions = [ "--height 50%" ];
+      fileWidgetCommand = "${defaultCommand}";
+      fileWidgetOptions = [
+        "--preview '${pkgs.bat}/bin/bat --color=always --plain --line-range=:200 {}'"
+      ];
+      changeDirWidgetCommand = "${fd} --type d";
+      changeDirWidgetOptions =
+        [ "--preview '${pkgs.tree}/bin/tree -C {} | head -200'" ];
+      historyWidgetOptions = [ ];
+    };
+  aliases = (lib.optionalAttrs pkgs.stdenvNoCC.isDarwin {
     # darwin specific aliases
     ibrew = "arch -x86_64 brew";
     abrew = "arch -arm64 brew";
   });
-in {
+in
+{
   home.packages = [ pkgs.tree ];
   programs = {
     direnv = {
@@ -115,7 +116,7 @@ in {
       '';
     };
     navi.enable = true;
-    nix-index.enable = true;
+    nix-index.enable = false;
     zsh = let
       mkZshPlugin = { pkg, file ? "${pkg.pname}.plugin.zsh" }: rec {
         name = pkg.pname;
@@ -182,6 +183,9 @@ in {
       };
     };
     zoxide.enable = true;
-    starship.enable = true;
+    starship = {
+      enable = true;
+      package = pkgs.stable.starship;
+    };
   };
 }

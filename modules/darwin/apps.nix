@@ -1,22 +1,21 @@
 { config, lib, pkgs, ... }: {
+  imports = [ ./apps-minimal.nix ];
   homebrew = {
     casks = [
       "android-file-transfer"
       "appcleaner"
-      "bartender"
-      # "bitwarden"
       "diffmerge"
       "discord"
-      "firefox"
-      # "karabiner-elements"
-      "keepingyouawake"
-      "kitty"
       "maccy"
       "meld"
-      "raycast"
-      "stats"
-      # "visual-studio-code"
-      # "vlc"
+      # "displaperture"
+      # "fork"
+      # "gpg-suite"
+      # "iina"
+      # "keybase"
+      # "skim"
+      # "syncthing"
+      # "zoom"
     ];
     masApps = { };
   };

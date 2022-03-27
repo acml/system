@@ -231,8 +231,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixos-unstable": "nixos-unstable",
         "nixpkgs": "nixpkgs_2",
-        "stable": "stable",
-        "trunk": "trunk"
+        "stable": "stable"
       }
     },
     "stable": {
@@ -247,22 +246,6 @@
       "original": {
         "owner": "nixos",
         "ref": "nixos-21.11",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "trunk": {
-      "locked": {
-        "lastModified": 1647763487,
-        "narHash": "sha256-onoEKA6wpgT5orgzH3GSfUJu7uPVlcZXpw1mFUkbdX4=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "6f227f03cb0e717c7a6ea396d5e7e76de46f0d84",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "master",
         "repo": "nixpkgs",
         "type": "github"
       }

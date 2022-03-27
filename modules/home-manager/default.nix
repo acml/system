@@ -1,8 +1,8 @@
 { inputs, config, pkgs, ... }:
 let
   homeDir = config.home.homeDirectory;
-  pyEnv = (pkgs.python3.withPackages
-    (ps: with ps; [ black pylint typer colorama shellingham ]));
+  pyEnv =
+    (pkgs.python3.withPackages (ps: with ps; [ typer colorama shellingham ]));
   sysDoNixos =
     "[[ -d /etc/nixos ]] && cd /etc/nixos && ${pyEnv}/bin/python bin/do.py $@";
   sysDoDarwin =
@@ -39,14 +39,14 @@ in {
       KAGGLE_CONFIG_DIR = "${config.xdg.configHome}/kaggle";
       JAVA_HOME = "${pkgs.openjdk.home}";
       NODE_PATH = "${NODE_GLOBAL}/lib";
-      HOMEBREW_NO_AUTO_UPDATE = 1;
+      # HOMEBREW_NO_AUTO_UPDATE = 1;
     };
     sessionPath = [ "${NODE_GLOBAL}/bin" ];
 
     # define package definitions for current user environment
     packages = with pkgs; [
       # python with default packages
-      (python3.withPackages
+      (pkgs.python3.withPackages
         (ps: with ps; [ black numpy scipy networkx matplotlib ]))
       coreutils-full
       curl
@@ -68,9 +68,4 @@ in {
     ];
   };
 
-  manual = {
-    html.enable = false;
-    json.enable = false;
-    manpages.enable = false;
-  };
 }
