@@ -256,15 +256,6 @@
                                       :completion (:detailedLabel t)
                                       :cache (:directory ,(file-truename "~/.cache/ccls")))))
 
-(use-package! cmake-integration
-  :bind (:map c++-mode-map
-         ([M-f9] . cmake-integration-save-and-compile)                ;; Ask for the target name and compile it
-         ([f9] . cmake-integration-save-and-compile-last-target)      ;; Recompile the last target
-         ([M-f10] . cmake-integration-run-last-target-with-arguments) ;; Ask for command line parameters to run the program
-         ([f10] . cmake-integration-run-last-target)                  ;; Run the program (possible using the last command line parameters)
-         ([M-f8] . cmake-integration-cmake-configure-with-preset)     ;; Ask for a preset name and call CMake
-         ([f8] . cmake-integration-cmake-reconfigure)))               ;; Call CMake with the last chosen preset
-
 (use-package! daemons)
 
 ;;
