@@ -155,6 +155,10 @@ echo "trusted-users = root $USER" | sudo tee -a /etc/nix/nix.conf"
 sudo pkill nix-daemon
 #+end_src
 
+** nix.conf should be placed under ~/.config/nix/nix.conf
+#+begin_src c
+extra-experimental-features = flakes nix-command
+#+end_src
 
 * WSL
 
