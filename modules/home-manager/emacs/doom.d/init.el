@@ -25,9 +25,7 @@
         company)
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
-       ;; (:if (version<= "28.0" emacs-version)
-       ;;  (ivy +fuzzy +prescient +childframe +icons) ; a search engine for love and life
-       ;;  (ivy +fuzzy +prescient +icons))
+       ;;ivy               ; a search engine for love and life
        (vertico +icons)          ; the search engine of the future
 
        :ui
@@ -92,7 +90,7 @@
        ;;biblio            ; Writes a PhD for you (citation needed)
        (debugger +lsp)   ; FIXME stepping through code, to help you add bugs
        direnv
-       (docker +lsp)
+       ;;(docker +lsp)
        editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
        (eval +overlay)   ; run code, run (also, repls)
