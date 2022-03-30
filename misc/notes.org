@@ -124,6 +124,7 @@ A curated list of [[https://github.com/androiddevnotes/awesome-android-learning-
 ** Android Developer Roadmap 2022
 The 2022 [[https://github.com/skydoves/android-developer-roadmap][Android Developer Roadmap]] suggests learning paths to understanding Android development.
 
+** [[https://www.udacity.com/course/kotlin-bootcamp-for-programmers--ud9011][Kotlin Bootcamp for Programmers | Udacity Free Courses]]
 
 * Debian/Ubuntu
 
