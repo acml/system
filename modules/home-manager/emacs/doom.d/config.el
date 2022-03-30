@@ -520,7 +520,42 @@ the sequences will be lost."
   ;; (modus-themes-load-operandi)
   ;; ;; OR
   ;; (load-theme 'modus-operandi t)
-  :bind ("<f5>" . modus-themes-toggle))
+  (with-eval-after-load 'pdf-tools
+      ;; Configure PDF page colors. The code below comes from Modus
+     (defun my-pdf-tools-backdrop ()
+       (face-remap-add-relative
+        'default
+        `(:background ,(modus-themes-color 'bg-alt))))
+
+     (defun my-pdf-tools-midnight-mode-toggle ()
+       (when (derived-mode-p 'pdf-view-mode)
+         (if (eq (car custom-enabled-themes) 'modus-vivendi)
+             (pdf-view-midnight-minor-mode 1)
+           (pdf-view-midnight-minor-mode -1))
+         (my-pdf-tools-backdrop)))
+
+     (defun my-pdf-tools-themes-toggle ()
+       (mapc
+        (lambda (buf)
+          (with-current-buffer buf
+            (my-pdf-tools-midnight-mode-toggle)))
+        (buffer-list)))
+
+     (add-hook 'pdf-tools-enabled-hook #'my-pdf-tools-midnight-mode-toggle)
+     (add-hook 'modus-themes-after-load-theme-hook #'my-pdf-tools-themes-toggle))
+  (defun my-modus-themes-toggle ()
+    "Toggle between `modus-operandi' and `modus-vivendi' themes.
+     This uses `enable-theme' instead of the standard method of
+     `load-theme'.  The technicalities are covered in the Modus themes
+     manual."
+    (interactive)
+    (pcase (modus-themes--current-theme)
+      ('modus-operandi (progn (enable-theme 'modus-vivendi)
+                              (disable-theme 'modus-operandi)))
+      ('modus-vivendi (progn (enable-theme 'modus-operandi)
+                             (disable-theme 'modus-vivendi)))
+      (_ (error "No Modus theme is loaded; evaluate `modus-themes-load-themes' first"))))
+  :bind ("<f5>" . my-modus-themes-toggle))
 
 ; Each path is relative to `+mu4e-mu4e-mail-path', which is ~/.mail by default
 (after! mu4e
