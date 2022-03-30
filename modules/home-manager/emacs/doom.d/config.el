@@ -543,19 +543,7 @@ the sequences will be lost."
 
      (add-hook 'pdf-tools-enabled-hook #'my-pdf-tools-midnight-mode-toggle)
      (add-hook 'modus-themes-after-load-theme-hook #'my-pdf-tools-themes-toggle))
-  (defun my-modus-themes-toggle ()
-    "Toggle between `modus-operandi' and `modus-vivendi' themes.
-     This uses `enable-theme' instead of the standard method of
-     `load-theme'.  The technicalities are covered in the Modus themes
-     manual."
-    (interactive)
-    (pcase (modus-themes--current-theme)
-      ('modus-operandi (progn (enable-theme 'modus-vivendi)
-                              (disable-theme 'modus-operandi)))
-      ('modus-vivendi (progn (enable-theme 'modus-operandi)
-                             (disable-theme 'modus-vivendi)))
-      (_ (error "No Modus theme is loaded; evaluate `modus-themes-load-themes' first"))))
-  :bind ("<f5>" . my-modus-themes-toggle))
+  :bind ("<f5>" . modus-themes-toggle))
 
 ; Each path is relative to `+mu4e-mu4e-mail-path', which is ~/.mail by default
 (after! mu4e
