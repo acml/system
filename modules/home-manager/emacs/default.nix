@@ -116,15 +116,16 @@ lib.mkMerge [
         (lib.mkIf isLinux pkgs.emacsPgtkGcc)
         (lib.mkIf isDarwin pkgs.emacsPgtkGcc)
       ];
-      extraPackages = (epkgs:
-        (with epkgs; [
-          # exwm
-          vterm
-          pdf-tools
-        ]) ++
-
-        # MELPA packages:
-        (with epkgs.melpaPackages; [ ]));
+      extraPackages = epkgs: (with epkgs.melpaPackages; [
+        pdf-tools
+        vterm
+      ]) ++ (with epkgs.elpaPackages; [
+        # auctex
+      ]) ++ (with epkgs.nongnuPackages; [
+        # org-contrib
+      ])++ [
+        # pkgs.mu
+      ];
     };
 
     home.sessionVariables = {
