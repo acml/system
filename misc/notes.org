@@ -128,6 +128,8 @@ The 2022 [[https://github.com/skydoves/android-developer-roadmap][Android Develo
 
 ** [[https://developer.android.com/courses/pathways/android-architecture][Modern Android App Architecture  |  Android Developers]]
 
+** [[https://medium.com/the-android-caf%C3%A9/solid-principles-the-kotlin-way-ff717c0d60da][Solid Principles | Vijay Mishra | Kotlin Design Patterns | The Android Cafe]]
+
 * Debian/Ubuntu
 
 ** Create a list of all installed packages
