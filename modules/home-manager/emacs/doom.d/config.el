@@ -301,6 +301,16 @@
   :config
   (global-evil-colemak-basics-mode))
 
+(setq avy-keys '(?t ?n ?p ?l ?s ?e ?f ?u ?r ?i ?w ?y ?a ?o)
+      lispy-avy-keys '(?t ?n ?p ?l ?s ?e ?f ?u ?r ?i ?w ?y ?a ?o))
+
+;; :ui window-select settings, ignoring +numbers flag for now
+(after! ace-window
+  (setq aw-keys '(?t ?n ?p ?l ?s ?e ?f ?u ?r ?i ?w ?y ?a ?o)))
+(after! switch-window
+  (setq switch-window-shortcut-style 'qwerty
+        switch-window-qwerty-shortcuts '("t" "n" "p" "l" "s" "e" "f" "u" "r")))
+
 (after! format-all
   (setq +format-on-save-enabled-modes
       '(go-mode)))
