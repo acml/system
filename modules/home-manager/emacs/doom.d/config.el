@@ -654,6 +654,7 @@ the sequences will be lost."
       ;; treemacs-collapse-dirs 5
       ;; treemacs-eldoc-display t
       ;; treemacs-is-never-other-window nil
+      treemacs-position 'right
       treemacs-recenter-after-file-follow 'on-distance
       treemacs-recenter-after-project-expand 'on-distance
       ;; treemacs-show-hidden-files t
