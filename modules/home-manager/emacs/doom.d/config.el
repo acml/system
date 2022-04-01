@@ -315,6 +315,14 @@
    evil-vsplit-window-right t  ; Switch to the new window after splitting
    evil-split-window-below t))
 
+(use-package! evil-colemak-basics
+  :after evil evil-snipe
+  :init
+  (setq evil-colemak-basics-rotate-t-f-j nil
+        evil-colemak-basics-char-jump-commands 'evil-snipe)
+  :config
+  (global-evil-colemak-basics-mode))
+
 (after! format-all
   (setq +format-on-save-enabled-modes
       '(go-mode)))
