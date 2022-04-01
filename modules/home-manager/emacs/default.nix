@@ -6,6 +6,52 @@ let
   DOOMDIR = "${config.xdg.configHome}/doom";
   EDITOR = "emacsclient -tc";
   ALTERNATE_EDITOR = "emacs";
+
+  treeSitterGrammars = pkgs.runCommandLocal "grammars" {} ''
+    mkdir -p $out/bin
+    ${
+      lib.concatStringsSep "\n"
+      (lib.mapAttrsToList (name: src: "ln -s ${src}/parser $out/bin/${name}.so") pkgs.tree-sitter.builtGrammars)
+    };
+  '';
+  # list taken from here: https://github.com/emacs-tree-sitter/tree-sitter-langs/tree/e7b8db7c4006c04a4bc1fc6865ec31f223843192/repos
+  # commented out are not yet packaged in nix
+  langs = [
+    "agda"
+    "bash"
+    "c"
+    "c-sharp"
+    "cpp"
+    "css"
+    /*
+     "elm"
+     */
+    "fluent"
+    "go"
+    /*
+     "hcl"
+     */
+    "html"
+    /*
+     "janet-simple"
+     */
+    "java"
+    "javascript"
+    "jsdoc"
+    "json"
+    "ocaml"
+    "python"
+    "php"
+    /*
+     "pgn"
+     */
+    "ruby"
+    "rust"
+    "scala"
+    "swift"
+    "typescript"
+  ];
+  grammars = lib.getAttrs (map (lang: "tree-sitter-${lang}") langs) pkgs.tree-sitter.builtGrammars;
 in
 lib.mkMerge [
   {
@@ -15,6 +61,14 @@ lib.mkMerge [
       jq.enable = true;      # cli to extract data out of json input
       texlive.enable = true; # :lang latex & :lang org (latex previews)
     };
+
+    home.file.".tree-sitter".source = pkgs.runCommand "grammars" {} ''
+      mkdir -p $out/bin
+      ${
+        lib.concatStringsSep "\n"
+          (lib.mapAttrsToList (name: src: "name=${name}; ln -s ${src}/parser $out/bin/\${name#tree-sitter-}.so") grammars)
+      };
+    '';
 
     home.packages = with pkgs; [
       # fonts
@@ -118,6 +172,8 @@ lib.mkMerge [
       ];
       extraPackages = epkgs: (with epkgs.melpaPackages; [
         pdf-tools
+        tree-sitter
+        tree-sitter-langs
         vterm
       ]) ++ (with epkgs.elpaPackages; [
         # auctex
