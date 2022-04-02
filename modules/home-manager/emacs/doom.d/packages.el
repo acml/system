@@ -81,9 +81,6 @@
 
 ;; (package! shrface :recipe (:host github :repo "chenyanming/shrface"))
 
-(package! tree-sitter)
-(package! tree-sitter-langs)
-
 (package! turkish)
 
 (package! trashed)

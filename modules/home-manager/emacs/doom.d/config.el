@@ -716,13 +716,6 @@ the sequences will be lost."
   (treemacs-follow-mode)
   (treemacs-filewatch-mode))
 
-(use-package! tree-sitter
-  :config
-  (cl-pushnew (expand-file-name "~/.tree-sitter") tree-sitter-load-path)
-  (require 'tree-sitter-langs)
-  (global-tree-sitter-mode)
-  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
-
 (use-package! turkish
   ;; :init (evil-leader/set-key (kbd "ot") 'turkish-mode)
   :commands (turkish-mode))
