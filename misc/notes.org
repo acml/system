@@ -174,11 +174,16 @@ nix = {
 #+end_src
 
 Then rebuild your system and you can continue along with the article.
+
 *** If you are not on NixOS, you will need to either edit ~/.config/nix/nix.conf or /etc/nix/nix.conf and add the following line to it:
 
 #+begin_src bash
 experimental-features = nix-command flakes
 #+end_src
+
+You may need to restart the Nix daemon here with sudo systemctl restart
+nix-daemon.service, but if you are unsure how Nix was set up on that non-NixOS
+machine feel free to totally restart your computer.
 
 
 * WSL
