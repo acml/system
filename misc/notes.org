@@ -160,10 +160,26 @@ echo "trusted-users = root $USER" | sudo tee -a /etc/nix/nix.conf"
 sudo pkill nix-daemon
 #+end_src
 
-** nix.conf should be placed under ~/.config/nix/nix.conf
-#+begin_src c
-extra-experimental-features = flakes nix-command
+** To enable Nix flakes on your machine.
+
+*** If you are using NixOS, add this to your configuration.nix file:
+
+#+begin_src nix
+nix = {
+  package = pkgs.nixFlakes;
+  extraOptions = ''
+    experimental-features = nix-command flakes
+  '';
+};
 #+end_src
+
+Then rebuild your system and you can continue along with the article.
+*** If you are not on NixOS, you will need to either edit ~/.config/nix/nix.conf or /etc/nix/nix.conf and add the following line to it:
+
+#+begin_src bash
+experimental-features = nix-command flakes
+#+end_src
+
 
 * WSL
 
