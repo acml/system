@@ -3,7 +3,7 @@ let theme = builtins.readFile ./theme.conf;
 in
 {
   programs.kitty = {
-    enable = true;
+    enable = false;
     font = {
       package = pkgs.jetbrains-mono;
       name = "JetBrains Mono";
