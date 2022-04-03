@@ -160,6 +160,8 @@ echo "trusted-users = root $USER" | sudo tee -a /etc/nix/nix.conf"
 sudo pkill nix-daemon
 #+end_src
 
+** [[https://christine.website/blog/nix-flakes-1-2022-02-21][Nix Flakes: an Introduction - Xe]]
+
 ** To enable Nix flakes on your machine.
 
 *** If you are using NixOS, add this to your configuration.nix file:
