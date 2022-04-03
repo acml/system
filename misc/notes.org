@@ -39,6 +39,7 @@
 - [[http://emulator101.com/][Emulator 101]]
 - [[https://helderman.github.io/htpataic/htpataic01.html][How to Program a Text Adventure in C]]
 - [[http://www.linuxfromscratch.org/][Welcome to Linux From Scratch!]]
+- [[https://www.a1k0n.net/2011/07/20/donut-math.html][Donut math: how donut.c works – a1k0n.net]]
 
 ** Video Series
 - [[https://www.youtube.com/playlist?list=PLZ1QII7yudbc-Ky058TEaOstZHVbT-2hg][Chess Engine In C - YouTube]]
@@ -49,8 +50,12 @@
 - [[https://www.udemy.com/learn-socket-programming-in-c-from-scratch/][Learn Socket Programming in C from Scratch | Udemy]]
 - [[https://github.com/pervognsen/bitwise][GitHub - pervognsen/bitwise: Bitwise is an educational project where we creat...]]
 - [[https://handmadehero.org/][Handmade Hero]]
+
+*** Donut
 - [[https://www.youtube.com/watch?v=BXSZ4_DKCBw][Refactoring A Donut! | De-obfuscated C Challenge - YouTube]]
 - [[https://www.youtube.com/watch?v=DEqXNfs_HhY][Donut-shaped C code that generates a 3D spinning donut - YouTube]]
+-[[https://www.youtube.com/watch?v=sW9npZVpiMI][ why you NEED math for programming - YouTube]]
+
 
 ** Pitfalls
 *** Do not cast an address that is not surely 32-bit aligned to a 32-bit pointer
