@@ -80,6 +80,9 @@ lib.mkMerge [
       # JavaScript
       # nodePackages.typescript-language-server
 
+      # json
+      nodePackages.vscode-json-languageserver
+
       # :lang lua
       (lib.mkIf isLinux sumneko-lua-language-server)
 
