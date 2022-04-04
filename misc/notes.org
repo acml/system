@@ -151,6 +151,9 @@ Now that you have the list, if you want to install the same packages on your new
 sudo xargs -a packages_list.txt apt install
 #+end_src
 
+* [[https://github.com/vikasrawal/orgpaper/blob/master/orgpapers.org][orgpaper/orgpapers.org at master · vikasrawal/orgpaper · GitHub]]
+
+* [[https://emacsconf.org/2021/talks/research/][EmacsConf - 2021 - talks - Managing a research workflow (bibliographies, note...]]
 
 * NixOS
 
