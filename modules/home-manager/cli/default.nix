@@ -115,8 +115,6 @@ in
         ${functions}
       '';
     };
-    navi.enable = true;
-    nix-index.enable = false;
     zsh = let
       mkZshPlugin = { pkg, file ? "${pkg.pname}.plugin.zsh" }: rec {
         name = pkg.pname;
@@ -182,7 +180,6 @@ in
         plugins = [ "git" "sudo" ];
       };
     };
-    zoxide.enable = true;
     starship = {
       enable = true;
       package = pkgs.stable.starship;
