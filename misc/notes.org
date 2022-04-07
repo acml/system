@@ -114,6 +114,18 @@ C++ YouTube [[https://www.youtube.com/playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD
 
 ** Learn these: QT, SFML, SDL2 and GLFW. What should be the order?
 
+** Books
+
+*** A Tour of C++
+Reading Notes
+[[https://ianyepan.github.io/posts/cpp-notes-pt1/][A Tour of C++ - Reading Notes (Part 1/2) | Ian Y.E. Pan]]
+[[https://ianyepan.github.io/posts/cpp-notes-pt2/][A Tour of C++ - Reading Notes (Part 2/2) | Ian Y.E. Pan]]
+
+
+* Online Programming
+- [[https://leetcode.com/][LeetCode - The World's Leading Online Programming Learning Platform]]
+- [[https://www.hackerrank.com/][HackerRank]]
+
 * Git
 - [[https://learngitbranching.js.org/][Learn Git Branching]]
 - [[https://ohmygit.org/][Oh My Git!]]
