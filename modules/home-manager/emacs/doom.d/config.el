@@ -97,7 +97,7 @@
   (add-to-list 'recentf-exclude doom-local-dir))
 
 ;; Prevents some cases of Emacs flickering
-;; (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
+(add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
 
 ;; (add-to-list 'default-frame-alist '(alpha . (95)))
 ;; (set-frame-parameter (selected-frame) 'alpha '(95))
@@ -301,15 +301,18 @@
   :config
   (global-evil-colemak-basics-mode))
 
-(setq avy-keys '(?t ?n ?p ?l ?s ?e ?f ?u ?r ?i ?w ?y ?a ?o)
-      lispy-avy-keys '(?t ?n ?p ?l ?s ?e ?f ?u ?r ?i ?w ?y ?a ?o))
+(setq avy-keys '(?a ?r ?s ?t ?d ?h ?n ?e ?i ?o ?w ?f ?p ?l ?u ?y)
+      lispy-avy-keys '(?a ?r ?s ?t ?d ?h ?n ?e ?i ?o ?w ?f ?p ?l ?u ?y))
 
 ;; :ui window-select settings, ignoring +numbers flag for now
 (after! ace-window
-  (setq aw-keys '(?t ?n ?p ?l ?s ?e ?f ?u ?r ?i ?w ?y ?a ?o)))
+  (setq aw-keys '(?a ?r ?s ?t ?d ?h ?n ?e ?i ?o ?w ?f ?p ?l ?u ?y)))
 (after! switch-window
   (setq switch-window-shortcut-style 'qwerty
-        switch-window-qwerty-shortcuts '("t" "n" "p" "l" "s" "e" "f" "u" "r")))
+        switch-window-qwerty-shortcuts '("a" "r" "s" "t" "d" "h" "n" "e" "i" "o" "w" "f" "p" "l" "u" "y")))
+
+(after! expand-region
+  (define-key evil-visual-state-map (kbd "v") 'er/expand-region))
 
 (after! format-all
   (setq +format-on-save-enabled-modes
@@ -574,12 +577,13 @@ the sequences will be lost."
 (after! org
   (setq
    org-agenda-files (list org-directory)
+   org-ellipsis (if (and (display-graphic-p) (char-displayable-p ?)) "  " nil)
    ;; org-archive-location (concat org-directory ".archive/%s::")
    ;; org-roam-directory (concat org-directory "notes/")
    ;; org-roam-db-location (concat org-roam-directory ".org-roam.db")
    ;; org-journal-encrypt-journal t
    ;; org-journal-file-format "%Y%m%d.org"
-   ;; org-startup-folded 'overview
+   org-startup-folded 'show2levels
    ;; org-ellipsis " [...] "
    ))
 

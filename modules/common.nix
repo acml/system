@@ -57,15 +57,4 @@
     shells = with pkgs; [ bash zsh fish ];
   };
 
-  fonts.fonts = with pkgs; [ 
-     emacs-all-the-icons-fonts
-     noto-fonts-emoji
-     (nerdfonts.override {
-       fonts = [
-         "IBMPlexMono"
-         "Iosevka"
-         "Overpass"
-       ];
-     }) 
-  ];
 }

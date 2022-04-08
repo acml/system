@@ -13,7 +13,6 @@ lib.mkMerge [
 
     programs = {
       jq.enable = true;      # cli to extract data out of json input
-      texlive.enable = true; # :lang latex & :lang org (latex previews)
     };
 
     home.packages = with pkgs; [
@@ -59,7 +58,8 @@ lib.mkMerge [
       sqlite
       (lib.mkIf isLinux maim)      # org-download-clipboard
       gnuplot                      # org-plot/gnuplot
-
+      # :lang latex & :lang org (latex previews)
+      texlive.combined.scheme-medium
       # :lang cc
       (lib.mkIf isLinux clang-tools)
       (lib.mkIf isLinux glslang)
