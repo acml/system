@@ -59,7 +59,7 @@ lib.mkMerge [
       (lib.mkIf isLinux maim)      # org-download-clipboard
       gnuplot                      # org-plot/gnuplot
       # :lang latex & :lang org (latex previews)
-      texlive.combined.scheme-medium
+      texlive.combined.scheme-full
       # :lang cc
       (lib.mkIf isLinux clang-tools)
       (lib.mkIf isLinux glslang)

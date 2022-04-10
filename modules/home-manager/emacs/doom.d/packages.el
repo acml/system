@@ -65,9 +65,11 @@
 
 ;; (package! dired-show-readme :recipe (:host gitlab :repo "kisaragi-hiu/dired-show-readme"))
 (package! dired-auto-readme :recipe (:host github :repo "amno1/dired-auto-readme"))
-(package! evil-colemak-basics)
-(package! org-pretty-table :recipe (:host github :repo "Fuco1/org-pretty-table"))
 (package! dired-subtree)
+
+(package! evil-colemak-basics)
+
+(package! org-pretty-table :recipe (:host github :repo "Fuco1/org-pretty-table"))
 
 (package! highlight-parentheses)
 (package! journalctl-mode)

@@ -585,7 +585,10 @@ the sequences will be lost."
    ;; org-journal-file-format "%Y%m%d.org"
    org-startup-folded 'show2levels
    ;; org-ellipsis " [...] "
-   ))
+   )
+  (add-hook! org-mode
+    (org-pretty-table-mode 1))
+  )
 
 (after! persp-mode
   (setq persp-emacsclient-init-frame-behaviour-override nil)
