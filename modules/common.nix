@@ -8,7 +8,7 @@
   };
 
   user = {
-    description = "Ahmet Cemal Ozgezer";
+    description = "Ahmet Cemal Özgezer";
     home = "${
         if pkgs.stdenvNoCC.isDarwin then "/Users" else "/home"
       }/${config.user.name}";

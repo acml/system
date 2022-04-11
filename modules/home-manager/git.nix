@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }: {
   home.packages = [ pkgs.github-cli ];
   programs.git = {
-    userName = "Ahmet Cemal Ozgezer";
+    userName = "Ahmet Cemal Özgezer";
     extraConfig = {
       credential.helper =
         if pkgs.stdenvNoCC.isDarwin then

@@ -13,7 +13,7 @@
     lfs.enable = true;
     package = pkgs.git;
     userEmail = "ozgezer@gmail.com";
-    userName = "Ahmet Cemal Ozgezer";
+    userName = "Ahmet Cemal Özgezer";
     extraConfig = { http.sslVerify = true; };
   };
 }
