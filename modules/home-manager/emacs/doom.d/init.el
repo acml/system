@@ -87,7 +87,7 @@
 
        :tools
        ;;ansible
-       ;;biblio            ; Writes a PhD for you (citation needed)
+       biblio            ; Writes a PhD for you (citation needed)
        (debugger +lsp)   ; FIXME stepping through code, to help you add bugs
        direnv
        ;;(docker +lsp)
@@ -153,7 +153,7 @@
        ;;nim               ; python + lisp at the speed of c
        nix               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
-       (org +brain +dragndrop +gnuplot +journal +noter +pandoc +pretty)               ; organize your plain life in plain text
+       (org +brain +dragndrop +gnuplot +journal +noter +pandoc +pretty +roam2)               ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional

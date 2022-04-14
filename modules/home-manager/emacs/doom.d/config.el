@@ -590,6 +590,11 @@ the sequences will be lost."
     (org-pretty-table-mode 1))
   )
 
+(after! citar
+  (setq! citar-bibliography '("~/Projects/research-paper/references.bib"))
+  (setq! citar-library-paths '("~/Projects/research-paper/library/files/")
+         citar-notes-paths '("~/Projects/research-paper/notes/")))
+
 (after! persp-mode
   (setq persp-emacsclient-init-frame-behaviour-override nil)
   (defun display-workspaces-in-minibuffer ()
