@@ -149,7 +149,7 @@ lib.mkMerge [
       source = pkgs.applyPatches {
         name = "doom-emacs-source";
         src = inputs.doom-emacs-source;
-        patches = [ ./doom.d/disable_install_hooks.patch ];
+        # patches = [ ./doom.d/disable_install_hooks.patch ];
       };
       onChange = "${pkgs.writeShellScript "doom-change" ''
         export DOOMDIR="${config.home.sessionVariables.DOOMDIR}"

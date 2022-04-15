@@ -24,7 +24,7 @@
     nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
-    doom-emacs-source = { url = "github:hlissner/doom-emacs/develop"; flake = false; };
+    doom-emacs-source = { url = "github:hlissner/doom-emacs/master"; flake = false; };
     emacs-overlay.url = "github:nix-community/emacs-overlay";
 
     comma = {
