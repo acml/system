@@ -3,6 +3,12 @@
 * List of Free Learning Resources In Many Languages
 [[https://github.com/EbookFoundation/free-programming-books][List of Free Learning Resources In Many Languages]]
 
+* Great books
+
+- [[http://craftinginterpreters.com/][Crafting Interpreters]]
+- [[http://gameprogrammingpatterns.com/][Game Programming Patterns]]
+- [[https://mitpress.mit.edu/sites/default/files/sicp/index.html][Welcome to the SICP Web Site]]
+
 
 * C
 
@@ -123,10 +129,12 @@ Reading Notes
 
 
 * Online Programming
+
 - [[https://leetcode.com/][LeetCode - The World's Leading Online Programming Learning Platform]]
 - [[https://www.hackerrank.com/][HackerRank]]
 
 * Git
+
 - [[https://learngitbranching.js.org/][Learn Git Branching]]
 - [[https://ohmygit.org/][Oh My Git!]]
 
@@ -148,6 +156,7 @@ The 2022 [[https://github.com/skydoves/android-developer-roadmap][Android Develo
 
 ** [[https://medium.com/the-android-caf%C3%A9/solid-principles-the-kotlin-way-ff717c0d60da][Solid Principles | Vijay Mishra | Kotlin Design Patterns | The Android Cafe]]
 
+
 * Debian/Ubuntu
 
 ** Create a list of all installed packages
@@ -163,6 +172,7 @@ Now that you have the list, if you want to install the same packages on your new
 #+begin_src shell
 sudo xargs -a packages_list.txt apt install
 #+end_src
+
 
 * [[https://github.com/vikasrawal/orgpaper/blob/master/orgpapers.org][orgpaper/orgpapers.org at master · vikasrawal/orgpaper · GitHub]]
 
