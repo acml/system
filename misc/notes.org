@@ -174,9 +174,20 @@ sudo xargs -a packages_list.txt apt install
 #+end_src
 
 
-* [[https://github.com/vikasrawal/orgpaper/blob/master/orgpapers.org][orgpaper/orgpapers.org at master · vikasrawal/orgpaper · GitHub]]
+* Research
+** [[https://github.com/vikasrawal/orgpaper/blob/master/orgpapers.org][orgpaper/orgpapers.org at master · vikasrawal/orgpaper · GitHub]]
+** [[https://emacsconf.org/2021/talks/research/][EmacsConf - 2021 - talks - Managing a research workflow (bibliographies, note...]]
+** [[https://www.bloomberg.com/news/articles/2022-04-01/employees-are-returning-to-office-post-covid-just-to-sit-on-zoom-calls][Benefits of Working From Office: Workers Back to Desks Just to Sit on Zoom Ca...]]
+** [[https://cobriant.github.io/emacs_presentation.html][Research with Org-mode for Emacs]]
+** [[http://www.wouterspekkink.org/academia/writing/tool/doom-emacs/2021/02/27/writing-academic-papers-with-org-mode.html][Writing academic papers with org-mode]]
+** [[https://github.com/GeneKao/orgmode-latex-templates][My org-mode starter codes for exporting to latex/pdf ]]
+** [[https://jonathanabennett.github.io/blog/2019/05/29/writing-academic-papers-with-org-mode/][Writing Academic Papers with Org-mode - Jonathan Bennett's Blog]]
+** [[https://gitlab.com/nathanfurnal/dotemacs][Nathan Furnal / dotemacs · GitLab]]
+** [[https://www.linuxjournal.com/content/org-mode-latex-exporter-latex-non-texers][The org-mode LaTeX exporter: LaTeX for non-TEXers | Linux Journal]]
+** [[https://rgoswami.me/posts/org-note-workflow/][An Orgmode Note Workflow :: Rohit Goswami — Reflections]]
+** [[https://lucidmanager.org/categories/productivity/][More productive with Emacs: Write websites, articles and books]]
+** [[https://blog.tecosaur.com/tmio/2021-07-31-citations.html][This Month in Org - July 2021 - Introducing citations!]]
 
-* [[https://emacsconf.org/2021/talks/research/][EmacsConf - 2021 - talks - Managing a research workflow (bibliographies, note...]]
 
 * NixOS
 
