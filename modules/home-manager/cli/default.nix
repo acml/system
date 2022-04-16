@@ -138,6 +138,8 @@ in
         fpath+=~/.zfunc
       '';
       initExtra = ''
+        bindkey "^P" up-line-or-search
+        bindkey "^N" down-line-or-search
         ${functions}
         ${if pkgs.stdenvNoCC.isDarwin then ''
           [[ -d /usr/local/Homebrew ]] && eval "$(/usr/local/Homebrew/bin/brew shellenv)"
