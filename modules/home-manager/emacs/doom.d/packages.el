@@ -70,6 +70,7 @@
 (package! evil-colemak-basics)
 
 (package! org-pretty-table :recipe (:host github :repo "Fuco1/org-pretty-table"))
+(package! org-roam-bibtex :recipe (:host github :repo "org-roam/org-roam-bibtex"))
 
 (package! highlight-parentheses)
 (package! journalctl-mode)

@@ -577,7 +577,7 @@ the sequences will be lost."
 (after! org
   (setq
    org-agenda-files (list org-directory)
-   org-ellipsis (if (and (display-graphic-p) (char-displayable-p ?)) "  " nil)
+   org-ellipsis (if (and (display-graphic-p) (char-displayable-p ?)) " " nil)
    ;; org-archive-location (concat org-directory ".archive/%s::")
    ;; org-roam-directory (concat org-directory "notes/")
    ;; org-roam-db-location (concat org-roam-directory ".org-roam.db")
@@ -590,10 +590,19 @@ the sequences will be lost."
     (org-pretty-table-mode 1))
   )
 
+(setq bibtex-completion-bibliography (directory-files
+                                      (concat (getenv "HOME") "/Projects/research-paper") t
+                                      "^[A-Z|a-z].+.bib$")
+      bibtex-completion-library-path (concat (getenv "HOME") "/Projects/research-paper")
+      bibtex-completion-pdf-field "File"
+      bibtex-completion-notes-path org-directory)
+
 (after! citar
-  (setq! citar-bibliography '("~/Projects/research-paper/references.bib"))
-  (setq! citar-library-paths '("~/Projects/research-paper/library/files/")
+  (setq! citar-bibliography '("~/Projects/research-paper/references.bib")
+         citar-library-paths '("~/Projects/research-paper/library/files/")
          citar-notes-paths '("~/Projects/research-paper/notes/")))
+
+(use-package! org-roam-bibtex :after org-roam)
 
 (after! persp-mode
   (setq persp-emacsclient-init-frame-behaviour-override nil)
