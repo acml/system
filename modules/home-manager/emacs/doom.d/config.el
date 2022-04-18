@@ -600,7 +600,11 @@ the sequences will be lost."
 (after! citar
   (setq! citar-bibliography '("~/Projects/research-paper/references.bib")
          citar-library-paths '("~/Projects/research-paper/library/files/")
-         citar-notes-paths '("~/Projects/research-paper/notes/")))
+         citar-notes-paths '("~/Projects/research-paper/notes/")
+         citar-symbols `((file ,(all-the-icons-faicon "file-o" :face 'all-the-icons-green :v-adjust -0.1) . " ")
+                         (note ,(all-the-icons-material "speaker_notes" :face 'all-the-icons-blue :v-adjust -0.3) . " ")
+                         (link ,(all-the-icons-octicon "link" :face 'all-the-icons-orange :v-adjust 0.01) . " "))
+         citar-symbol-separator "  "))
 
 (use-package! org-roam-bibtex :after org-roam)
 
