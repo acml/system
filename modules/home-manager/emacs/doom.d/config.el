@@ -13,7 +13,7 @@
       ;; There are two ways to load a theme. Both assume the theme is installed and
       ;; available. You can either set `doom-theme' or manually load a theme with the
       ;; `load-theme' function. This is the default:
-      doom-theme 'modus-operandi
+      doom-theme (if (display-graphic-p) 'modus-operandi 'modus-vivendi)
       ;; modus-operandi modus-vivendi doom-one doom-gruvbox doom-tomorrow-night
 
       ;; This determines the style of line numbers in effect. If set to `nil', line
@@ -112,7 +112,9 @@
                 (set-fontset-font t 'symbol (font-spec :family "Noto Color Emoji") frame 'append)
                 (set-fontset-font t 'symbol (font-spec :family "Noto Emoji") frame 'append)
                 ;; (load-theme 'doom-one t)
-                (modus-themes-load-operandi)))))
+                (if (display-graphic-p)
+                    (modus-themes-load-operandi)
+                  (modus-themes-load-vivendi))))))
 
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
