@@ -56,7 +56,7 @@
       undo-limit 80000000          ; Raise undo-limit to 80Mb
       auto-save-default t          ; Nobody likes to loose work, I certainly don't
       truncate-string-ellipsis "…" ; Unicode ellispis are nicer than "...", and also save /precious/ space
-
+      window-resize-pixelwise t
       frame-resize-pixelwise t)
 
 ;; (if (equal "Battery status not available"
