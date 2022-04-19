@@ -755,6 +755,3 @@ the sequences will be lost."
          ("C-<f5>" . ztree-diff))
   :init (setq ztree-draw-unicode-lines t
               ztree-show-number-of-children t))
-
-;; (setq spacemacs-path doom-modules-dir)
-;; (load! (concat spacemacs-path "spacemacs/+spacemacs"))
