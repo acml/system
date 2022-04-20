@@ -76,5 +76,6 @@
 (package! turkish)
 
 (package! trashed)
+(package! visual-ascii-mode)
 (package! windswap)
 (package! ztree)
