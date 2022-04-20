@@ -66,7 +66,7 @@
 
 (global-subword-mode 1)                           ; Iterate through CamelCase words
 
-(setq-default custom-file (expand-file-name ".custom.el" doom-private-dir))
+(setq-default custom-file (expand-file-name "custom.el" doom-local-dir))
 (when (file-exists-p custom-file)
   (load custom-file))
 
