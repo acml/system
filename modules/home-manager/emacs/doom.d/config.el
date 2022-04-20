@@ -595,18 +595,22 @@ the sequences will be lost."
 (setq bibtex-completion-bibliography (directory-files
                                       (concat (getenv "HOME") "/Projects/research-paper") t
                                       "^[A-Z|a-z].+.bib$")
-      bibtex-completion-library-path (concat (getenv "HOME") "/Projects/research-paper")
-      bibtex-completion-pdf-field "File"
+      bibtex-completion-library-path (concat (getenv "HOME") "/Projects/research-paper/files")
+      bibtex-completion-pdf-field "file"
       bibtex-completion-notes-path org-directory)
 
 (after! citar
   (setq! citar-bibliography '("~/Projects/research-paper/references.bib")
-         citar-library-paths '("~/Projects/research-paper/library/files/")
+         citar-library-paths '("~/Projects/research-paper/files/")
          citar-notes-paths '("~/Projects/research-paper/notes/")
          citar-symbols `((file ,(all-the-icons-faicon "file-o" :face 'all-the-icons-green :v-adjust -0.1) . " ")
                          (note ,(all-the-icons-material "speaker_notes" :face 'all-the-icons-blue :v-adjust -0.3) . " ")
                          (link ,(all-the-icons-octicon "link" :face 'all-the-icons-orange :v-adjust 0.01) . " "))
-         citar-symbol-separator "  "))
+         citar-symbol-separator "  "
+         citar-citeproc-csl-styles-dir "~/Projects/research-paper/csl/styles"
+         citar-citeproc-csl-locales-dir "~/Projects/research-paper/csl/locales"
+         citar-format-reference-function #'citar-citeproc-format-reference
+         citar-file-parser-functions '(citar-file-parser-default citar-file-parser-triplet)))
 
 (use-package! org-roam-bibtex :after org-roam)
 
