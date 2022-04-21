@@ -579,17 +579,18 @@ the sequences will be lost."
   (setq
    org-agenda-files (list org-directory)
    org-ellipsis (if (and (display-graphic-p) (char-displayable-p ?)) " " nil)
-   ;; org-archive-location (concat org-directory ".archive/%s::")
-   ;; org-roam-directory (concat org-directory "notes/")
-   ;; org-roam-db-location (concat org-roam-directory ".org-roam.db")
-   ;; org-journal-encrypt-journal t
-   ;; org-journal-file-format "%Y%m%d.org"
-   org-startup-folded 'show2levels
-   ;; org-ellipsis " [...] "
-   )
+   org-startup-folded 'show2levels)
+
   (add-hook! org-mode
-    (org-pretty-table-mode 1))
-  )
+    (org-pretty-table-mode 1)))
+
+(use-package! deft
+  :after org
+  :custom
+  (deft-recursive t)
+  (deft-use-filter-string-for-filename t)
+  (deft-default-extension "org")
+  (deft-directory org-roam-directory))
 
 (use-package! org-noter
   :after org
