@@ -582,7 +582,6 @@ the sequences will be lost."
   :after org
   :config
   (setq org-noter-notes-search-path '("~/Documents/org/notes/")))
-    (org-pretty-table-mode 1))
 
 (setq
  ;; If you use `org' and don't want your org files in the default location below,
@@ -595,8 +594,7 @@ the sequences will be lost."
    org-ellipsis (if (and (display-graphic-p) (char-displayable-p ?)) " " nil)
    org-startup-folded 'show2levels)
 
-  (add-hook! org-mode
-    (org-pretty-table-mode 1))
+  (add-hook! org-mode (org-pretty-table-mode 1))
 
   ;;   ;; Set up org-ref stuff
   ;; (use-package! org-ref
