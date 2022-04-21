@@ -56,8 +56,9 @@ lib.mkMerge [
 
       # :tools lookup & :lang org +roam
       sqlite
-      (lib.mkIf isLinux maim)      # org-download-clipboard
-      gnuplot                      # org-plot/gnuplot
+      (lib.mkIf isLinux maim) # org-download-clipboard
+      gnuplot                 # org-plot/gnuplot
+      graphviz                # org-roam-graph
       # :lang latex & :lang org (latex previews)
       texlive.combined.scheme-full
       # :lang cc
