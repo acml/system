@@ -3,6 +3,7 @@
 * List of Free Learning Resources In Many Languages
 [[https://github.com/EbookFoundation/free-programming-books][List of Free Learning Resources In Many Languages]]
 
+
 * Great books
 
 - [[http://craftinginterpreters.com/][Crafting Interpreters]]
@@ -133,6 +134,7 @@ Reading Notes
 - [[https://leetcode.com/][LeetCode - The World's Leading Online Programming Learning Platform]]
 - [[https://www.hackerrank.com/][HackerRank]]
 - [[https://exercism.org/][Exercism]]
+
 
 * Online Jobs
 - [[https://www.upwork.com/][Upwork | The World’s Work Marketplace]]
@@ -303,6 +305,7 @@ Once that has finished, you can close ~diskpart~.
 #+begin_src sh
 sudo vmware-toolbox-cmd disk shrink /
 #+end_src
+
 
 * [[https://www.adamconrad.dev/blog/changing-jobs-during-the-great-resignation/][Changing jobs during the Great Resignation - Adam C. Conrad]]
 
