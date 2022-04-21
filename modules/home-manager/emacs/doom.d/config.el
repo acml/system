@@ -573,8 +573,7 @@ the sequences will be lost."
 (setq
  ;; If you use `org' and don't want your org files in the default location below,
  ;; change `org-directory'. It must be set before org loads!
- org-directory (expand-file-name "~/Documents/org/")
- org-noter-notes-search-path '("~/Documents/org/notes/"))
+ org-directory (expand-file-name "~/Documents/org/"))
 
 (after! org
   (setq
@@ -591,6 +590,11 @@ the sequences will be lost."
   (add-hook! org-mode
     (org-pretty-table-mode 1))
   )
+
+(use-package! org-noter
+  :after org
+  :config
+  (setq org-noter-notes-search-path '("~/Documents/org/notes/")))
 
 (setq bibtex-completion-bibliography (directory-files
                                       (concat (getenv "HOME") "/Projects/research-paper") t
