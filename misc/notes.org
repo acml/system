@@ -132,6 +132,11 @@ Reading Notes
 
 - [[https://leetcode.com/][LeetCode - The World's Leading Online Programming Learning Platform]]
 - [[https://www.hackerrank.com/][HackerRank]]
+- [[https://exercism.org/][Exercism]]
+
+* Online Jobs
+- [[https://www.upwork.com/][Upwork | The World’s Work Marketplace]]
+
 
 * Git
 
