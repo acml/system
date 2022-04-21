@@ -714,6 +714,12 @@ the sequences will be lost."
 
 (setq +workspaces-switch-project-function #'dired)
 
+(use-package! proced
+  :init
+  (setq proced-auto-update-flag t
+        proced-auto-update-interval 1
+        proced-descend t))
+
 ;; (after! counsel-projectile
 ;;   (setq counsel-projectile-switch-project-action 'counsel-projectile-switch-project-action-dired))
 
