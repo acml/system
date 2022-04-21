@@ -309,6 +309,7 @@ sudo vmware-toolbox-cmd disk shrink /
 
 * [[https://www.adamconrad.dev/blog/changing-jobs-during-the-great-resignation/][Changing jobs during the Great Resignation - Adam C. Conrad]]
 
+
 * Interview Questions to Ask Your Interviewer
 How big is the company?
 
