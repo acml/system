@@ -570,20 +570,6 @@ the sequences will be lost."
                         (smtpmail-smtp-user     . "ozgezer@msn.com")
                         (mu4e-compose-signature . "---\nAhmet Cemal Özgezer"))))
 
-(setq
- ;; If you use `org' and don't want your org files in the default location below,
- ;; change `org-directory'. It must be set before org loads!
- org-directory (expand-file-name "~/Documents/org/"))
-
-(after! org
-  (setq
-   org-agenda-files (list org-directory)
-   org-ellipsis (if (and (display-graphic-p) (char-displayable-p ?)) " " nil)
-   org-startup-folded 'show2levels)
-
-  (add-hook! org-mode
-    (org-pretty-table-mode 1)))
-
 (use-package! deft
   :after org
   :custom
@@ -596,6 +582,106 @@ the sequences will be lost."
   :after org
   :config
   (setq org-noter-notes-search-path '("~/Documents/org/notes/")))
+    (org-pretty-table-mode 1))
+
+(setq
+ ;; If you use `org' and don't want your org files in the default location below,
+ ;; change `org-directory'. It must be set before org loads!
+ org-directory (expand-file-name "~/Documents/org/"))
+
+(after! org
+  (setq
+   org-agenda-files (list org-directory)
+   org-ellipsis (if (and (display-graphic-p) (char-displayable-p ?)) " " nil)
+   org-startup-folded 'show2levels)
+
+  (add-hook! org-mode
+    (org-pretty-table-mode 1))
+
+  ;;   ;; Set up org-ref stuff
+  ;; (use-package! org-ref
+  ;;   :custom
+  ;;   (org-ref-default-bibliography "~/Documents/bibtex/library.bib")
+  ;;   (org-ref-default-citation-link "citep")
+  ;;         (org-ref-insert-link-function 'org-ref-insert-link-hydra/body)
+  ;;         (org-ref-insert-cite-function 'org-ref-insert-cite-link)
+  ;;         (org-ref-insert-label-function 'org-ref-insert-label-link)
+  ;;         (org-ref-insert-ref-function 'org-ref-insert-ref-link)
+  ;;         (org-ref-cite-onclick-function (lambda (_) (org-ref-citation-hydra/body))))
+
+  ;; (defun my/org-ref-open-pdf-at-point ()
+  ;;   "Open the pdf for bibtex key under point if it exists."
+  ;;   (interactive)
+  ;;   (let* ((results (org-ref-get-bibtex-key-and-file))
+  ;;          (key (car results))
+  ;;          (pdf-file (funcall org-ref-get-pdf-filename-function key)))
+  ;;     (if (file-exists-p pdf-file)
+  ;;         (find-file pdf-file)
+  ;;       (message "No PDF found for %s" key))))
+
+  ;; (setq org-ref-completion-library 'org-ref-ivy-cite
+  ;;       org-export-latex-format-toc-function 'org-export-latex-no-toc
+  ;;       org-ref-get-pdf-filename-function
+  ;;       (lambda (key) (car (bibtex-completion-find-pdf key)))
+  ;;       org-ref-open-pdf-function 'my/org-ref-open-pdf-at-point
+  ;;       ;; For pdf export engines
+  ;;       org-latex-pdf-process (list "latexmk -pdflatex='%latex -shell-escape -interaction nonstopmode' -pdf -bibtex -f -output-directory=%o %f")
+  ;;       org-ref-notes-function 'orb-edit-notes)
+
+  ;; (after! org-roam
+  ;;   (setq org-roam-directory "~/Documents/org/roam/")
+
+  ;;   (add-hook 'after-init-hook 'org-roam-mode)
+
+  ;;   ;; org-roam-bibtex stuff
+  ;;   (use-package! org-roam-bibtex)
+  ;;   (org-roam-bibtex-mode)
+
+  ;;   (setq orb-preformat-keywords
+  ;;         '("citekey" "title" "url" "author-or-editor" "keywords" "file")
+  ;;         orb-process-file-keyword t
+  ;;         orb-file-field-extensions '("pdf"))
+
+  ;;   ;; Let's set up some org-roam capture templates
+  ;;   (setq org-roam-capture-templates
+  ;;         (quote (("d" "default" plain
+  ;;                  "%?"
+  ;;                  :target
+  ;;                  (file+head "%<%Y-%m-%d-%H%M%S>-${slug}.org"
+  ;;                             "#+title: ${title}\n")
+  ;;                  :unnarrowed t)
+  ;;                 ("r" "bibliography reference" plain
+  ;;                  (file "~/org/roam/templates/orb-capture")
+  ;;                  :target
+  ;;                  (file+head "references/${citekey}.org" "#+title: ${title}\n")))))
+
+  ;;   ;; And now we set necessary variables for org-roam-dailies
+  ;;   (setq org-roam-dailies-directory "daily/")
+  ;;   (setq org-roam-dailies-capture-templates
+  ;;         '(("d" "default" entry
+  ;;            "* %?"
+  ;;            :target
+  ;;            (file+head "%<%Y-%m-%d>.org"
+  ;;                       "#+title: %<%Y-%m-%d>\n"))))
+
+  ;;   ;; Function to capture quotes from pdf
+  ;;   (defun org-roam-capture-pdf-active-region ()
+  ;;     (let* ((pdf-buf-name (plist-get org-capture-plist :original-buffer))
+  ;;            (pdf-buf (get-buffer pdf-buf-name)))
+  ;;       (if (buffer-live-p pdf-buf)
+  ;;           (with-current-buffer pdf-buf
+  ;;             (car (pdf-view-active-region-text)))
+  ;;         (user-error "Buffer %S not alive" pdf-buf-name)))
+
+  ;;     ;; For org-roam-ui
+  ;;     (use-package! websocket)
+  ;;     (use-package! org-roam-ui-follow-mode
+  ;;       :hook (after-init . org-roam-ui-mode)
+  ;;       :config
+  ;;       (setq org-roam-ui-sync-theme t
+  ;;             org-roam-ui-follow t
+  ;;             org-roam-ui-update-on-save t))))
+  )
 
 (setq bibtex-completion-bibliography (directory-files
                                       (concat (getenv "HOME") "/Projects/research-paper") t
