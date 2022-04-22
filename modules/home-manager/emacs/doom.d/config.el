@@ -382,9 +382,8 @@ the sequences will be lost."
     (ansi-color-apply-on-region beg end)))
 
 (add-hook! ('text-mode-hook 'prog-mode-hook)
-  (defun acml/set-fringe-widths ()
-    (setq-local left-fringe-width 6
-                right-fringe-width 6)))
+  (setq-local left-fringe-width 7
+              right-fringe-width 7))
 
 ;;; :tools magit
 (add-hook! 'magit-mode-hook
