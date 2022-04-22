@@ -747,10 +747,6 @@ the sequences will be lost."
    :compile "make O=am43xx_evm ARCH=arm CROSS_COMPILE=arm-openwrt-linux-gnueabi- all"
    :compilation-dir "."))
 
-;; (remove-hook 'doom-first-buffer-hook #'global-hl-line-mode)
-;; (setq global-hl-line-modes nil)
-;; (add-hook! 'rainbow-mode-hook
-;;     (hl-line-mode (if rainbow-mode -1 +1)))
 (use-package! rainbow-mode
   :hook
   ((prog-mode . rainbow-mode)
