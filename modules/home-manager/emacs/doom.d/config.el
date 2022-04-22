@@ -246,17 +246,10 @@
 ;;
 ;; Dired
 ;;
-
-;; Hook up dired-x global bindings without loading it up-front
-(define-key ctl-x-map "\C-j" 'dired-jump)
-(define-key ctl-x-4-map "\C-j" 'dired-jump-other-window)
-
 (setq dired-hide-details-hide-symlink-targets t)
 (add-hook! dired-mode
   (dired-hide-details-mode 1)
-  ;; (dired-show-readme-mode 1)
-  (dired-auto-readme-mode 1)
-  (hl-line-mode 1))
+  (dired-auto-readme-mode 1))
 
 (use-package! dired-subtree
   :after dired
