@@ -153,7 +153,7 @@
   (setq avy-all-windows 'all-frames))
 
 (use-package! beginend
-  :init (beginend-global-mode))
+  :hook (after-init . beginend-global-mode))
 
 ;; WSL specific setting
 (when (and (eq system-type 'gnu/linux) (getenv "WSLENV"))
@@ -236,7 +236,7 @@
                                       :completion (:detailedLabel t)
                                       :cache (:directory ,(file-truename "~/.cache/ccls")))))
 
-(use-package! daemons)
+(use-package! daemons :defer t)
 
 ;;
 ;; Dired
@@ -322,12 +322,13 @@
 
 (use-package! highlight-parentheses
   :init
-  (add-hook 'prog-mode-hook #'highlight-parentheses-mode)
   (setq highlight-parentheses-delay 0.2)
   :config
-  (set-face-attribute 'hl-paren-face nil :weight 'ultra-bold))
+  (set-face-attribute 'hl-paren-face nil :weight 'ultra-bold)
+  :hook
+  (prog-mode . highlight-parentheses-mode))
 
-(use-package! journalctl-mode)
+(use-package! journalctl-mode :defer t)
 
 (after! lsp-go
   (lsp-register-custom-settings
@@ -711,6 +712,7 @@ the sequences will be lost."
 (setq +workspaces-switch-project-function #'dired)
 
 (use-package! proced
+  :defer t
   :init
   (setq proced-auto-update-flag t
         proced-auto-update-interval 1
@@ -756,9 +758,9 @@ the sequences will be lost."
   ((prog-mode . rainbow-mode)
    (org-mode . rainbow-mode)))
 
-(use-package! trashed
-  :config
-  (add-to-list 'evil-emacs-state-modes 'trashed-mode))
+(after! evil-collection
+  (after! trashed
+    (evil-collection-trashed-setup)))
 
 (setq +treemacs-git-mode 'deferred
       ;; treemacs-collapse-dirs 5
@@ -833,15 +835,14 @@ the sequences will be lost."
   (treemacs-follow-mode)
   (treemacs-filewatch-mode))
 
-(use-package! turkish
-  ;; :init (evil-leader/set-key (kbd "ot") 'turkish-mode)
-  :commands (turkish-mode))
+(use-package! turkish :commands (turkish-mode))
 
-(setq vterm-max-scrollback 100000)
+(after! vterm
+  (setq vterm-max-scrollback 100000))
 
 ;; text mode directory tree
 (use-package! ztree
-  :bind (:map ztreediff-mode-map
-         ("C-<f5>" . ztree-diff))
-  :init (setq ztree-draw-unicode-lines t
-              ztree-show-number-of-children t))
+  :defer t
+  :init
+  (setq ztree-draw-unicode-lines t
+        ztree-show-number-of-children t))
