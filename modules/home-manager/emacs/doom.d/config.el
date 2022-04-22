@@ -387,14 +387,12 @@ the sequences will be lost."
                 right-fringe-width 6)))
 
 ;;; :tools magit
-;;; does not work if converted to add-hook!
-(add-hook 'magit-mode-hook
-  (lambda ()
-    (setq-local left-fringe-width 16
-                magit-section-visibility-indicator (if (display-graphic-p)
-                                                       '(magit-fringe-bitmap> . magit-fringe-bitmapv)
-                                                     (cons (if (char-displayable-p ?…) "…" "...")
-                                                           t)))))
+(add-hook! 'magit-mode-hook
+  (setq-local
+   left-fringe-width 16
+   magit-section-visibility-indicator (if (display-graphic-p)
+                                          '(magit-fringe-bitmap> . magit-fringe-bitmapv)
+                                        (cons (if (char-displayable-p ?…) "…" "...") t))))
 
 (after! magit
   (magit-add-section-hook 'magit-status-sections-hook
