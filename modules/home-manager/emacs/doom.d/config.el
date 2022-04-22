@@ -381,9 +381,8 @@ the sequences will be lost."
         (set-buffer-modified-p modified))
     (ansi-color-apply-on-region beg end)))
 
-(add-hook! ('text-mode-hook 'prog-mode-hook)
-  (setq-local left-fringe-width 7
-              right-fringe-width 7))
+(setq-default left-fringe-width 8
+              right-fringe-width 8)
 
 ;;; :tools magit
 (add-hook! 'magit-mode-hook
@@ -831,11 +830,6 @@ the sequences will be lost."
           "*/_region_.log"
           "*/_region_.tex"))
 
-  ;; (add-hook! '(treemacs-mode-hook treemacs-select-functions)
-  ;;            (defun acml/set-treemacs-fringes (&optional visibilty)
-  ;;              (set-window-fringes nil 8)))
-  ;; highlight current line in fringe for treemacs window
-  ;; (treemacs-fringe-indicator-mode 'always)
   (treemacs-follow-mode)
   (treemacs-filewatch-mode))
 
