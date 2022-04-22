@@ -118,8 +118,13 @@
 
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
-;; (windmove-default-keybindings 'control)
-;; (windswap-default-keybindings 'control 'shift)
+;; Directional window-selection routines
+(use-package! windmove
+  :hook (after-init . windmove-default-keybindings))
+
+(use-package! windswap
+  :hook (after-init . (lambda () (windswap-default-keybindings 'control 'shift))))
+
 ;; (add-hook 'org-shiftup-final-hook 'windmove-up)
 ;; (add-hook 'org-shiftleft-final-hook 'windmove-left)
 ;; (add-hook 'org-shiftdown-final-hook 'windmove-down)
