@@ -119,6 +119,8 @@ C++ YouTube [[https://www.youtube.com/playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD
 ** Teaching C++ using org
 [[https://github.com/dmgerman/csc116ModernCplusplus][csc116ModernCplusplus]]
 
+** [[https://www.jacksondunstan.com/articles/5530][JacksonDunstan.com | C++ For C# Developers: Part 1 – Introduction]]
+
 ** Learn these: QT, SFML, SDL2 and GLFW. What should be the order?
 
 ** Books
@@ -129,14 +131,30 @@ Reading Notes
 [[https://ianyepan.github.io/posts/cpp-notes-pt2/][A Tour of C++ - Reading Notes (Part 2/2) | Ian Y.E. Pan]]
 
 
+* Go
+- [[https://quii.gitbook.io/learn-go-with-tests/][Learn Go with Tests - Learn Go with tests]]
+- [[https://gobyexample.com/][Go by Example]]
+- [[https://go.dev/tour/list][A Tour of Go]]
+
+* Rust
+- [[https://doc.rust-lang.org/book/index.html][The Rust Programming Language - The Rust Programming Language]]
+- [[https://doc.rust-lang.org/rust-by-example/index.html][Introduction - Rust By Example]]
+- [[https://github.com/rust-lang/rustlings][GitHub - rust-lang/rustlings: Small exercises to get you used to reading and ...]]
+
 * Online Programming
 
 - [[https://leetcode.com/][LeetCode - The World's Leading Online Programming Learning Platform]]
 - [[https://www.hackerrank.com/][HackerRank]]
 - [[https://exercism.org/][Exercism]]
+- [[https://codecrafters.io/][Build your own X. Master any language.]]
+- [[https://projecteuler.net/archives][Archived Problems - Project Euler]]
+- [[https://mlpro.io/problems/][All Problems | MLPro]]
+- [[https://github.com/gamontal/awesome-katas][GitHub - gamontal/awesome-katas: A curated list of code katas]]
+- [[https://github.com/ahmdrefat/awesome-koans][GitHub - ahmdrefat/awesome-koans: A list of all available kōans]]
 
 
 * Online Jobs
+- [[https://tiermaker.com/list/technology/best-big-tech-company-to-work-for-ranked-by-hackpack--1657601/2127463][Tech Interview Difficulty - TierMaker]]
 - [[https://www.upwork.com/][Upwork | The World’s Work Marketplace]]
 
 
