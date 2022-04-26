@@ -1,8 +1,9 @@
 { config, lib, pkgs, ... }: {
   homebrew = {
     casks = [
-      "bartender"
+      "dozer"
       "firefox"
+      "foobar2000"
       "keepingyouawake"
       "kitty"
       "raycast"
