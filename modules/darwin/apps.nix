@@ -6,7 +6,7 @@
       "appcleaner"
       "diffmerge"
       "discord"
-      "maccy"
+      # "maccy"
       "meld"
       # "displaperture"
       # "fork"
