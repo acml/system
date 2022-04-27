@@ -84,9 +84,6 @@ lib.mkMerge [
       # json
       nodePackages.vscode-json-languageserver
 
-      # :lang lua
-      (lib.mkIf isLinux sumneko-lua-language-server)
-
       # Bash
       nodePackages.bash-language-server shellcheck
 
