@@ -46,6 +46,7 @@
 - [[http://emulator101.com/][Emulator 101]]
 - [[https://helderman.github.io/htpataic/htpataic01.html][How to Program a Text Adventure in C]]
 - [[http://www.linuxfromscratch.org/][Welcome to Linux From Scratch!]]
+- [[http://www.catb.org/esr/structure-packing/][The Lost Art of Structure Packing]]
 - [[https://www.a1k0n.net/2011/07/20/donut-math.html][Donut math: how donut.c works – a1k0n.net]]
 
 ** Video Series
