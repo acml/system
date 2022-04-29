@@ -109,6 +109,8 @@ lib.mkMerge [
 
       # :app everywhere
       xclip xdotool
+
+      trash-cli
     ];
 
     programs.emacs = {
