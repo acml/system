@@ -124,6 +124,8 @@ C++ YouTube [[https://www.youtube.com/playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD
 
 ** Learn these: QT, SFML, SDL2 and GLFW. What should be the order?
 
+** [[https://hackingcpp.com/index.html][Learn Contemporary C++ | Concise&Visual Examples | hacking C++]]
+
 ** Books
 
 *** A Tour of C++
