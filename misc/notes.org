@@ -133,6 +133,13 @@ Reading Notes
 [[https://ianyepan.github.io/posts/cpp-notes-pt1/][A Tour of C++ - Reading Notes (Part 1/2) | Ian Y.E. Pan]]
 [[https://ianyepan.github.io/posts/cpp-notes-pt2/][A Tour of C++ - Reading Notes (Part 2/2) | Ian Y.E. Pan]]
 
+** Game Programming
+
+*** [[https://www.youtube.com/playlist?list=PLSPw4ASQYyynKPY0I-QFHK0iJTjnvNUys][C++/Game Tutorials - YouTube]]
+
+*** [[https://www.youtube.com/playlist?list=PLSPw4ASQYyymu3PfG9gxywSPghnSMiOAW][Advanced C++/Graphics Tutorials - YouTube]]
+
+*** [[https://lazyfoo.net/tutorials/SDL/index.php][Lazy Foo' Productions - Beginning Game Programming v2.0]]
 
 * Go
 - [[https://quii.gitbook.io/learn-go-with-tests/][Learn Go with Tests - Learn Go with tests]]
