@@ -81,8 +81,8 @@ lib.mkMerge [
       # JavaScript
       # nodePackages.typescript-language-server
 
-      # json
-      nodePackages.vscode-json-languageserver
+      # HTML/CSS/JSON language servers
+      nodePackages.vscode-langservers-extracted
 
       # Bash
       nodePackages.bash-language-server shellcheck
