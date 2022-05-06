@@ -61,9 +61,14 @@ lib.mkMerge [
       graphviz                # org-roam-graph
       # :lang latex & :lang org (latex previews)
       texlive.combined.scheme-full
+
       # :lang cc
-      (lib.mkIf isLinux clang-tools)
-      (lib.mkIf isLinux glslang)
+      clang-tools
+      glslang
+
+      # CMake LSP
+      cmake
+      cmake-language-server
 
       # Nix
       nixfmt
@@ -89,10 +94,6 @@ lib.mkMerge [
 
       # Rust
       # cargo cargo-audit cargo-edit clippy rust-analyzer rustfmt
-
-      # Erlang and Elixir
-      # erlang-ls
-      # beamPackages.elixir beamPackages.elixir_ls
 
       # :lang go
       # go
