@@ -79,5 +79,6 @@
 
 (package! trashed)
 (package! visual-ascii-mode)
+(package! vundo)
 (package! windswap)
 (package! ztree)

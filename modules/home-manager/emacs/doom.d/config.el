@@ -834,6 +834,11 @@ the sequences will be lost."
 (after! vterm
   (setq vterm-max-scrollback 100000))
 
+(use-package! vundo
+  :bind ("C-x u" . vundo)
+  :config
+  (setq vundo-glyph-alist vundo-unicode-symbols))
+
 ;; text mode directory tree
 (use-package! ztree
   :defer t
