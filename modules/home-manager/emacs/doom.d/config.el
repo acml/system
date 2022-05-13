@@ -573,6 +573,14 @@ the sequences will be lost."
   (deft-default-extension "org")
   (deft-directory org-roam-directory))
 
+(use-package! org-appear
+  :hook (org-mode . org-appear-mode)
+  :config
+  (setq org-appear-autolinks t
+        org-appear-autoemphasis t
+        org-appear-autosubmarkers t
+        org-appear-delay 0.3))
+
 (use-package! org-noter
   :after org
   :config
