@@ -163,11 +163,12 @@ Reading Notes
 
 * Online Programming
 
-- [[https://leetcode.com/][LeetCode - The World's Leading Online Programming Learning Platform]]
 - [[https://www.hackerrank.com/][HackerRank]]
+- [[https://projecteuler.net/archives][Project Euler - Archived Problems]]
+- [[https://app.codility.com/programmers/lessons/1-iterations/][Codility - Learn to Code]]
+- [[https://leetcode.com/][LeetCode - The World's Leading Online Programming Learning Platform]]
 - [[https://exercism.org/][Exercism]]
 - [[https://codecrafters.io/][Build your own X. Master any language.]]
-- [[https://projecteuler.net/archives][Archived Problems - Project Euler]]
 - [[https://mlpro.io/problems/][All Problems | MLPro]]
 - [[https://github.com/gamontal/awesome-katas][GitHub - gamontal/awesome-katas: A curated list of code katas]]
 - [[https://github.com/ahmdrefat/awesome-koans][GitHub - ahmdrefat/awesome-koans: A list of all available kōans]]
