@@ -42,7 +42,6 @@
       # helpful shell stuff
       bat
       # fzf
-      ripgrep
 
       # languages
       python3
