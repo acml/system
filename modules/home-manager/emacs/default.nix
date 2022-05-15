@@ -6,6 +6,10 @@ let
   DOOMDIR = "${config.xdg.configHome}/doom";
   EDITOR = "emacsclient -tc";
   ALTERNATE_EDITOR = "emacs";
+  myRPackages = with pkgs.rPackages; [
+    languageserver
+    lintr
+  ];
 in
 lib.mkMerge [
   {
@@ -91,6 +95,9 @@ lib.mkMerge [
 
       # Bash
       nodePackages.bash-language-server shellcheck
+
+      # ess: R
+      (rWrapper.override { packages = myRPackages; })
 
       # Rust
       # cargo cargo-audit cargo-edit clippy rust-analyzer rustfmt
