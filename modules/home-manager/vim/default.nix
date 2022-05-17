@@ -4,7 +4,7 @@
     let inherit (lib.vimUtils ./.) readVimSection;
     in
     {
-      enable = true;
+      enable = false;
       viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;
