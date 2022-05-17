@@ -14,6 +14,7 @@ let
 in
 {
   imports = [
+    ./emacs
     ./nvim
     ./cli
     ./kitty
