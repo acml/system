@@ -76,6 +76,4 @@
     enableKeyMapping = true;
     remapCapsLockToControl = true;
   };
-
-
 }

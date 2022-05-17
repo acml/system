@@ -5,7 +5,6 @@ in
   # environment setup
   environment = {
     loginShell = pkgs.zsh;
-    pathsToLink = [ "/Applications" ];
     backupFileExtension = "backup";
     etc = { darwin.source = "${inputs.darwin}"; };
     # Use a custom configuration.nix location.
@@ -15,7 +14,7 @@ in
     # systemPackages = [ ];
   };
 
-  fonts.fontDir.enable = true;
+  fonts.enableFontDir = true;
   nix.nixPath = [ "darwin=/etc/${config.environment.etc.darwin.target}" ];
   nix.extraOptions = ''
     extra-platforms = x86_64-darwin

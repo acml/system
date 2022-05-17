@@ -3,11 +3,13 @@ let theme = builtins.readFile ./theme.conf;
 in
 {
   programs.kitty = {
-    enable = false;
+    enable = true;
+    package = pkgs.small.kitty;
     font = {
       package = pkgs.jetbrains-mono;
       name = "JetBrains Mono";
     };
+    theme = "One Dark";
     settings = {
       bold_font = "auto";
       italic_font = "auto";
@@ -19,9 +21,7 @@ in
       macos_titlebar_color = "background";
       macos_option_as_alt = "yes";
       scrollback_lines = 10000;
+      shell_integration = "no-cursor";
     };
-    extraConfig = ''
-      ${theme}
-    '';
   };
 }

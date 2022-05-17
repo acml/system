@@ -18,15 +18,21 @@ let
         [ "--preview '${pkgs.tree}/bin/tree -C {} | head -200'" ];
       historyWidgetOptions = [ ];
     };
-  aliases = (lib.optionalAttrs pkgs.stdenvNoCC.isDarwin {
+  aliases = lib.mkIf pkgs.stdenvNoCC.isDarwin {
     # darwin specific aliases
     ibrew = "arch -x86_64 brew";
     abrew = "arch -arm64 brew";
-  });
+  };
 in
 {
   home.packages = [ pkgs.tree ];
   programs = {
+    ssh = {
+      enable = true;
+      includes = [ "config.d/*" ];
+      forwardAgent = true;
+    };
+
     direnv = {
       enable = true;
       nix-direnv.enable = true;
@@ -115,6 +121,7 @@ in
         ${functions}
       '';
     };
+    nix-index.enable = true;
     zsh = let
       mkZshPlugin = { pkg, file ? "${pkg.pname}.plugin.zsh" }: rec {
         name = pkg.pname;
@@ -161,10 +168,7 @@ in
         export XDG_DATA_DIRS=$HOME/.nix-profile/share:$HOME/.share:''${XDG_DATA_DIRS:-/usr/local/share:/usr/share}
       '';
       profileExtra = ''
-        ${if pkgs.stdenvNoCC.isLinux then
-          "[[ -e /etc/profile ]] && source /etc/profile"
-        else
-          ""}
+          ${lib.optionalString pkgs.stdenvNoCC.isLinux "[[ -e /etc/profile ]] && source /etc/profile"}
       '';
       plugins = with pkgs; [
         (mkZshPlugin { pkg = zsh-autopair; })

@@ -1,8 +1,9 @@
 { config, pkgs, ... }: {
+  homebrew.extraConfig = ''
+    brew "yabai", restart_service: "changed"
+  '';
   services.yabai = {
     enable = false;
-    enableScriptingAddition = false;
-    package = pkgs.yabai;
     config = {
       mouse_follows_focus = "off";
       focus_follows_mouse = "off";
@@ -39,11 +40,5 @@
       # Do not manage some apps which are not resizable
       yabai -m rule --add app="^(Calculator|System Preferences|[sS]tats|[Jj]et[Bb]rains [Tt]ool[Bb]ox)$" manage=off
     '';
-  };
-
-  services.skhd = {
-    enable = true;
-    package = pkgs.skhd;
-    skhdConfig = builtins.readFile ../home-manager/dotfiles/skhd/skhdrc;
   };
 }

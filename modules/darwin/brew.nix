@@ -8,6 +8,8 @@
       noLock = true;
     };
 
+    brews = [ "pngpaste" ];
+
     taps = [
       "homebrew/bundle"
       "homebrew/cask"
@@ -18,8 +20,8 @@
       "koekeishiya/formulae"
       "teamookla/speedtest"
     ];
-
-    # brews = [ "yabai" "skhd" ];
-    brews = [ "pngpaste" ];
+    casks = [
+      "hammerspoon"
+    ];
   };
 }
