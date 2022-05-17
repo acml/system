@@ -20,7 +20,7 @@
 
   programs.neovim =
     {
-      enable = false;
+      enable = true;
       viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;
