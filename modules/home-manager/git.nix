@@ -24,7 +24,7 @@ in
       fix = "commit --amend --no-edit";
       oops = "reset HEAD~1";
       sub = "submodule update --init --recursive";
-      ignore = "!gi() { curl -sL https://www.toptal.com/developers/gitignore/api/$@ ;}; gi";
+      ignore = "!gi() { ${pkgs.curl}/bin/curl -sL https://www.toptal.com/developers/gitignore/api/$@ ;}; gi";
 
     };
     delta = {
