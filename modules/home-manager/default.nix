@@ -68,7 +68,6 @@ in
       coreutils-full
       curl
       fd
-      git
       gnugrep
       gnupg
       gnused
