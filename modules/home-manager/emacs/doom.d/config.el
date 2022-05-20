@@ -853,3 +853,6 @@ the sequences will be lost."
   :init
   (setq ztree-draw-unicode-lines t
         ztree-show-number-of-children t))
+
+;; different configs on different computers
+;; (require (intern (system-name)) nil 'noerror)
