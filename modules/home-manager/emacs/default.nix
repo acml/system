@@ -78,7 +78,7 @@ lib.mkMerge [
       nixfmt
 
       # Markdown exporting
-      mdl pandoc
+      # mdl pandoc
 
       # Python LSP setup
       # nodePackages.pyright

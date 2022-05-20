@@ -76,7 +76,6 @@ in
       nixfmt
       nixpkgs-fmt
       openssh
-      pandoc
       parallel
       #(ruby.withPackages (ps: with ps; [ rufo solargraph ]))
       sysdo

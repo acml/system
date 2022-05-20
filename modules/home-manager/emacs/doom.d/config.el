@@ -330,7 +330,8 @@
 
 (after! lsp-go
   (lsp-register-custom-settings
-   '(("gopls.experimentalWorkspaceModule" t t))))
+   '(("gopls.experimentalWorkspaceModule" t t)
+     ("gopls.staticcheck" t t))))
 
 (after! lsp-mode
   (setq lsp-headerline-breadcrumb-enable t
@@ -599,35 +600,25 @@ the sequences will be lost."
 
   (add-hook! org-mode (org-pretty-table-mode 1))
 
-  ;;   ;; Set up org-ref stuff
-  ;; (use-package! org-ref
-  ;;   :custom
-  ;;   (org-ref-default-bibliography "~/Documents/bibtex/library.bib")
-  ;;   (org-ref-default-citation-link "citep")
-  ;;         (org-ref-insert-link-function 'org-ref-insert-link-hydra/body)
-  ;;         (org-ref-insert-cite-function 'org-ref-insert-cite-link)
-  ;;         (org-ref-insert-label-function 'org-ref-insert-label-link)
-  ;;         (org-ref-insert-ref-function 'org-ref-insert-ref-link)
-  ;;         (org-ref-cite-onclick-function (lambda (_) (org-ref-citation-hydra/body))))
+  ;; Set up org-ref stuff
+(use-package! org-ref
+  :after org
+  :demand t ;; Ensure that it loads so that links work immediately.
+  :config
+  (setq org-ref-default-bibliography '("~/Projects/research-paper/references.bib")
+        org-ref-get-pdf-filename-function 'org-ref-get-pdf-filename-helm-bibtex
+        bibtex-completion-pdf-field "file"
+        org-ref-default-citation-link "parencite")
 
-  ;; (defun my/org-ref-open-pdf-at-point ()
-  ;;   "Open the pdf for bibtex key under point if it exists."
-  ;;   (interactive)
-  ;;   (let* ((results (org-ref-get-bibtex-key-and-file))
-  ;;          (key (car results))
-  ;;          (pdf-file (funcall org-ref-get-pdf-filename-function key)))
-  ;;     (if (file-exists-p pdf-file)
-  ;;         (find-file pdf-file)
-  ;;       (message "No PDF found for %s" key))))
-
-  ;; (setq org-ref-completion-library 'org-ref-ivy-cite
-  ;;       org-export-latex-format-toc-function 'org-export-latex-no-toc
-  ;;       org-ref-get-pdf-filename-function
-  ;;       (lambda (key) (car (bibtex-completion-find-pdf key)))
-  ;;       org-ref-open-pdf-function 'my/org-ref-open-pdf-at-point
-  ;;       ;; For pdf export engines
-  ;;       org-latex-pdf-process (list "latexmk -pdflatex='%latex -shell-escape -interaction nonstopmode' -pdf -bibtex -f -output-directory=%o %f")
-  ;;       org-ref-notes-function 'orb-edit-notes)
+  (defun org-ref-open-pdf-at-point-in-emacs ()
+    "Open the pdf for bibtex key under point if it exists."
+    (interactive)
+    (let* ((results (org-ref-get-bibtex-key-and-file))
+           (key (car results))
+           (pdf-file (funcall org-ref-get-pdf-filename-function key)))
+      (if (file-exists-p pdf-file)
+          (find-file-other-window pdf-file)
+        (message "no pdf found for %s" key)))))
 
   ;; (after! org-roam
   ;;   (setq org-roam-directory "~/Documents/org/roam/")
@@ -699,10 +690,74 @@ the sequences will be lost."
                          (note ,(all-the-icons-material "speaker_notes" :face 'all-the-icons-blue :v-adjust -0.3) . " ")
                          (link ,(all-the-icons-octicon "link" :face 'all-the-icons-orange :v-adjust 0.01) . " "))
          citar-symbol-separator "  "
-         citar-citeproc-csl-styles-dir "~/Projects/research-paper/csl/styles"
-         citar-citeproc-csl-locales-dir "~/Projects/research-paper/csl/locales"
+         org-cite-csl-styles-dir "~/Projects/research-paper/csl/styles"
+         org-cite-csl-locales-dir "~/Projects/research-paper/csl/locales"
+         citar-citeproc-csl-styles-dir org-cite-csl-styles-dir
+         citar-citeproc-csl-locales-dir org-cite-csl-locales-dir
+         ;; citar-citeproc-csl-style (file-name-concat org-cite-csl-styles-dir "apa-tr.csl")
          citar-format-reference-function #'citar-citeproc-format-reference
          citar-file-parser-functions '(citar-file-parser-default citar-file-parser-triplet)))
+
+(use-package! ox-latex
+  :after ox
+  :demand t
+  :init (setq org-latex-pdf-process
+              '("latexmk -pdflatex='pdflatex -shell-escape -interaction nonstopmode' -pdf -bibtex -f %f"))
+  :config
+
+  ;; Sometimes it's good to locally override these two.
+  (put 'org-latex-title-command 'safe-local-variable #'stringp)
+  (put 'org-latex-toc-command 'safe-local-variable #'stringp)
+
+  ;; Need to let ox know about ipython and jupyter
+  (add-to-list 'org-latex-minted-langs '(ipython "python"))
+  (add-to-list 'org-babel-tangle-lang-exts '("ipython" . "py"))
+  (add-to-list 'org-latex-minted-langs '(jupyter-python "python"))
+  (add-to-list 'org-babel-tangle-lang-exts '("jupyter-python" . "py"))
+
+  ;; Mimore class is a latex class for writing articles.
+  (add-to-list 'org-latex-classes
+               '("mimore"
+                 "\\documentclass{mimore}
+ [NO-DEFAULT-PACKAGES]
+ [PACKAGES]
+ [EXTRA]"
+                 ("\\section{%s}" . "\\section*{%s}")
+                 ("\\subsection{%s}" . "\\subsection*{%s}")
+                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+  ;; Mimosis is a class I used to write my Ph.D. thesis.
+  (add-to-list 'org-latex-classes
+               '("mimosis"
+                 "\\documentclass{mimosis}
+ [NO-DEFAULT-PACKAGES]
+ [PACKAGES]
+ [EXTRA]
+\\newcommand{\\mboxparagraph}[1]{\\paragraph{#1}\\mbox{}\\\\}
+\\newcommand{\\mboxsubparagraph}[1]{\\subparagraph{#1}\\mbox{}\\\\}"
+                 ("\\chapter{%s}" . "\\chapter*{%s}")
+                 ("\\section{%s}" . "\\section*{%s}")
+                 ("\\subsection{%s}" . "\\subsection*{%s}")
+                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                 ("\\mboxparagraph{%s}" . "\\mboxparagraph*{%s}")
+                 ("\\mboxsubparagraph{%s}" . "\\mboxsubparagraph*{%s}")))
+
+  ;; Elsarticle is Elsevier class for publications.
+  (add-to-list 'org-latex-classes
+               '("elsarticle"
+                 "\\documentclass{elsarticle}
+ [NO-DEFAULT-PACKAGES]
+ [PACKAGES]
+ [EXTRA]"
+                 ("\\section{%s}" . "\\section*{%s}")
+                 ("\\subsection{%s}" . "\\subsection*{%s}")
+                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+  (setq org-latex-prefer-user-labels t))
 
 (use-package! org-roam-bibtex :after org-roam)
 

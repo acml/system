@@ -54,12 +54,13 @@
 
 ;; (package! dired-show-readme :recipe (:host gitlab :repo "kisaragi-hiu/dired-show-readme"))
 (package! dired-auto-readme :recipe (:host github :repo "amno1/dired-auto-readme"))
+(package! org-pretty-table :recipe (:host github :repo "Fuco1/org-pretty-table")) ;; dired-auto-readme dependency
+(package! org-view-mode)                                                          ;; dired-auto-readme dependency
 (package! dired-subtree)
 
 (package! evil-colemak-basics)
 
-(package! org-pretty-table :recipe (:host github :repo "Fuco1/org-pretty-table"))
-;; (package! org-ref)
+(package! org-ref)
 (package! org-roam-bibtex :recipe (:host github :repo "org-roam/org-roam-bibtex"))
 ;; (package! org-roam-ui :recipe (:host github :repo "org-roam/org-roam-ui" :files ("*.el" "out")))
 
@@ -78,6 +79,7 @@
 (package! turkish)
 
 (package! trashed)
+(package! ascii)
 (package! visual-ascii-mode)
 (package! vundo)
 (package! windswap)
