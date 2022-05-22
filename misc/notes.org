@@ -11,6 +11,12 @@
 - [[https://mitpress.mit.edu/sites/default/files/sicp/index.html][Welcome to the SICP Web Site]]
 
 
+* Bash snippets
+#+begin_src bash
+$ for i in *.TD0; do samdisk copy ${i} ${i/.TD0/.RAW}; done
+#+end_src
+
+
 * C
 
 ** Books
