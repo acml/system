@@ -925,6 +925,13 @@ the sequences will be lost."
   :config
   (setq vundo-glyph-alist vundo-unicode-symbols))
 
+(setq which-key-allow-multiple-replacements t)
+(after! which-key
+  (pushnew!
+   which-key-replacement-alist
+   '(("" . "\\`+?evil[-:]?\\(?:a-\\)?\\(.*\\)") . (nil . " \\1"))
+   '(("\\`g s" . "\\`evilem--?motion-\\(.*\\)") . (nil . " \\1"))))
+
 ;; text mode directory tree
 (use-package! ztree
   :defer t
