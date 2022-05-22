@@ -701,9 +701,20 @@ the sequences will be lost."
 (use-package! ox-latex
   :after ox
   :demand t
-  :init (setq org-latex-pdf-process
-              '("latexmk -pdflatex='pdflatex -shell-escape -interaction nonstopmode' -pdf -bibtex -f %f"))
+  :init (setq
+         org-latex-pdf-process '("latexmk -pdflatex='pdflatex -shell-escape -interaction nonstopmode' -pdf -bibtex -f %f")
+         ;; org-latex-pdf-process '("tectonic -Z shell-escape --outdir=%o %f")
+         )
   :config
+
+  ;; Nicolas Goaziou, http://article.gmane.org/gmane.emacs.orgmode/67692
+  (defun org-latex-ignore-heading-filter-headline (headline backend info)
+    "Strip headline from HEADLINE. Ignore BACKEND and INFO."
+    (when (and (org-export-derived-backend-p backend 'latex)
+               (string-match "\\`.*ignoreheading.*\n" headline))
+      (replace-match "" nil nil headline)))
+  (add-to-list 'org-export-filter-headline-functions
+               'org-latex-ignore-heading-filter-headline)
 
   ;; Sometimes it's good to locally override these two.
   (put 'org-latex-title-command 'safe-local-variable #'stringp)
@@ -758,6 +769,18 @@ the sequences will be lost."
                  ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
   (setq org-latex-prefer-user-labels t))
+
+;; Feature `ox-extra' is a library from the org-plus-contrib package.
+;; It adds extra keywords and tagging functionality for org export.
+(use-package! ox-extra
+  ;; Demand so that ignore headlines is always active.
+  :demand t
+  :after ox
+  ;; The ignore-headlines allows Org to understand the tag :ignore: and simply
+  ;; remove tagged headings on export, but leave their content in.
+  ;; See my blog post about writing thesis with org mode here:
+  ;; https://write.as/dani/writing-a-phd-thesis-with-org-mode
+  :config (ox-extras-activate '(ignore-headlines)))
 
 (use-package! org-roam-bibtex :after org-roam)
 
