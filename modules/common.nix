@@ -1,4 +1,8 @@
-{ inputs, config, lib, pkgs, ... }: {
+{ inputs, config, lib, pkgs, ... }:
+let
+  inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
+in
+{
   imports = [ ./primary.nix ./nixpkgs.nix ./overlays.nix ];
 
   programs.zsh = {
@@ -56,4 +60,17 @@
     shells = with pkgs; [ bash zsh fish ];
   };
 
+  fonts = {
+    fontDir.enable = true;
+    fonts = with pkgs; [
+      emacs-all-the-icons-fonts
+      (lib.mkIf isLinux noto-fonts-emoji)
+      (pkgs.nerdfonts.override {
+        fonts = [
+          "IBMPlexMono"
+          "Iosevka"
+          "Overpass"
+        ];})
+    ];
+  };
 }

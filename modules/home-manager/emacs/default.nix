@@ -20,17 +20,6 @@ lib.mkMerge [
     };
 
     home.packages = with pkgs; [
-      # fonts
-      emacs-all-the-icons-fonts
-      (lib.mkIf isLinux noto-fonts-emoji)
-      (pkgs.nerdfonts.override {
-        fonts = [
-          "IBMPlexMono"
-          "Iosevka"
-          "Overpass"
-        ];
-      })
-
       (lib.mkIf isDarwin coreutils-prefixed)
 
       man-pages
@@ -98,6 +87,10 @@ lib.mkMerge [
 
       # ess: R
       (rWrapper.override { packages = myRPackages; })
+
+      # :lang lua
+      # (lib.mkIf isLinux sumneko-lua-language-server)
+      sumneko-lua-language-server
 
       # Rust
       # cargo cargo-audit cargo-edit clippy rust-analyzer rustfmt
