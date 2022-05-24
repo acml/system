@@ -59,18 +59,4 @@ in
     # list of acceptable shells in /etc/shells
     shells = with pkgs; [ bash zsh fish ];
   };
-
-  fonts = {
-    fontDir.enable = true;
-    fonts = with pkgs; [
-      emacs-all-the-icons-fonts
-      (lib.mkIf isLinux noto-fonts-emoji)
-      (pkgs.nerdfonts.override {
-        fonts = [
-          "IBMPlexMono"
-          "Iosevka"
-          "Overpass"
-        ];})
-    ];
-  };
 }

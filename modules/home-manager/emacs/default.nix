@@ -13,13 +13,25 @@ let
 in
 lib.mkMerge [
   {
-    fonts.fontconfig.enable = true;
 
     programs = {
       jq.enable = true;      # cli to extract data out of json input
     };
 
+    fonts.fontconfig.enable = true;
+
     home.packages = with pkgs; [
+      # fonts
+      emacs-all-the-icons-fonts
+      (lib.mkIf isLinux noto-fonts-emoji)
+      (pkgs.nerdfonts.override {
+        fonts = [
+          "IBMPlexMono"
+          "Iosevka"
+          "Overpass"
+        ];
+      })
+
       (lib.mkIf isDarwin coreutils-prefixed)
 
       man-pages
