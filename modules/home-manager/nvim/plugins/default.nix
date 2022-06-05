@@ -1,6 +1,6 @@
 { lib, ... }: {
   imports = [
-    # ./coc
+    ./coc
     ./fzf
     ./lualine-nvim
     ./theme

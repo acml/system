@@ -6,10 +6,6 @@ let
   DOOMDIR = "${config.xdg.configHome}/doom";
   EDITOR = "emacsclient -tc";
   ALTERNATE_EDITOR = "emacs";
-  myRPackages = with pkgs.rPackages; [
-    languageserver
-    lintr
-  ];
 in
 lib.mkMerge [
   {
@@ -96,9 +92,6 @@ lib.mkMerge [
 
       # Bash
       nodePackages.bash-language-server shellcheck
-
-      # ess: R
-      (rWrapper.override { packages = myRPackages; })
 
       # :lang lua
       # (lib.mkIf isLinux sumneko-lua-language-server)
