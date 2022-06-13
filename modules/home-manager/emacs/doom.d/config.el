@@ -635,15 +635,6 @@ the sequences will be lost."
   ;;           (with-current-buffer pdf-buf
   ;;             (car (pdf-view-active-region-text)))
   ;;         (user-error "Buffer %S not alive" pdf-buf-name)))
-
-  ;;     ;; For org-roam-ui
-  ;;     (use-package! websocket)
-  ;;     (use-package! org-roam-ui-follow-mode
-  ;;       :hook (after-init . org-roam-ui-mode)
-  ;;       :config
-  ;;       (setq org-roam-ui-sync-theme t
-  ;;             org-roam-ui-follow t
-  ;;             org-roam-ui-update-on-save t))))
   )
 
 (after! persp-mode
