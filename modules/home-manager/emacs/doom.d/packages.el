@@ -60,8 +60,6 @@
 
 (package! evil-colemak-basics)
 
-(package! org-ref)
-(package! org-roam-bibtex :recipe (:host github :repo "org-roam/org-roam-bibtex"))
 ;; (package! org-roam-ui :recipe (:host github :repo "org-roam/org-roam-ui" :files ("*.el" "out")))
 
 (package! highlight-parentheses)

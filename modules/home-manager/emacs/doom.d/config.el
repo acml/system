@@ -600,39 +600,10 @@ the sequences will be lost."
 
   (add-hook! org-mode (org-pretty-table-mode 1))
 
-  ;; Set up org-ref stuff
-(use-package! org-ref
-  :after org
-  :demand t ;; Ensure that it loads so that links work immediately.
-  :config
-  (setq org-ref-default-bibliography '("~/Projects/research-paper/references.bib")
-        org-ref-get-pdf-filename-function 'org-ref-get-pdf-filename-helm-bibtex
-        bibtex-completion-pdf-field "file"
-        org-ref-default-citation-link "parencite")
-
-  (defun org-ref-open-pdf-at-point-in-emacs ()
-    "Open the pdf for bibtex key under point if it exists."
-    (interactive)
-    (let* ((results (org-ref-get-bibtex-key-and-file))
-           (key (car results))
-           (pdf-file (funcall org-ref-get-pdf-filename-function key)))
-      (if (file-exists-p pdf-file)
-          (find-file-other-window pdf-file)
-        (message "no pdf found for %s" key)))))
-
   ;; (after! org-roam
   ;;   (setq org-roam-directory "~/Documents/org/roam/")
 
   ;;   (add-hook 'after-init-hook 'org-roam-mode)
-
-  ;;   ;; org-roam-bibtex stuff
-  ;;   (use-package! org-roam-bibtex)
-  ;;   (org-roam-bibtex-mode)
-
-  ;;   (setq orb-preformat-keywords
-  ;;         '("citekey" "title" "url" "author-or-editor" "keywords" "file")
-  ;;         orb-process-file-keyword t
-  ;;         orb-file-field-extensions '("pdf"))
 
   ;;   ;; Let's set up some org-roam capture templates
   ;;   (setq org-roam-capture-templates
@@ -674,115 +645,6 @@ the sequences will be lost."
   ;;             org-roam-ui-follow t
   ;;             org-roam-ui-update-on-save t))))
   )
-
-(setq bibtex-completion-bibliography (directory-files
-                                      (concat (getenv "HOME") "/Projects/research-paper") t
-                                      "^[A-Z|a-z].+.bib$")
-      bibtex-completion-library-path (concat (getenv "HOME") "/Projects/research-paper/files")
-      bibtex-completion-pdf-field "file"
-      bibtex-completion-notes-path org-directory)
-
-(after! citar
-  (setq! citar-bibliography '("~/Projects/research-paper/references.bib")
-         citar-library-paths '("~/Projects/research-paper/files/")
-         citar-notes-paths '("~/Projects/research-paper/notes/")
-         citar-symbols `((file ,(all-the-icons-faicon "file-o" :face 'all-the-icons-green :v-adjust -0.1) . " ")
-                         (note ,(all-the-icons-material "speaker_notes" :face 'all-the-icons-blue :v-adjust -0.3) . " ")
-                         (link ,(all-the-icons-octicon "link" :face 'all-the-icons-orange :v-adjust 0.01) . " "))
-         citar-symbol-separator "  "
-         org-cite-csl-styles-dir "~/Projects/research-paper/csl/styles"
-         org-cite-csl-locales-dir "~/Projects/research-paper/csl/locales"
-         citar-citeproc-csl-styles-dir org-cite-csl-styles-dir
-         citar-citeproc-csl-locales-dir org-cite-csl-locales-dir
-         ;; citar-citeproc-csl-style (file-name-concat org-cite-csl-styles-dir "apa-tr.csl")
-         citar-format-reference-function #'citar-citeproc-format-reference
-         citar-file-parser-functions '(citar-file-parser-default citar-file-parser-triplet)))
-
-(use-package! ox-latex
-  :after ox
-  :demand t
-  :init (setq
-         org-latex-pdf-process '("latexmk -pdflatex='pdflatex -shell-escape -interaction nonstopmode' -pdf -bibtex -f %f")
-         ;; org-latex-pdf-process '("tectonic -Z shell-escape --outdir=%o %f")
-         )
-  :config
-
-  ;; Nicolas Goaziou, http://article.gmane.org/gmane.emacs.orgmode/67692
-  (defun org-latex-ignore-heading-filter-headline (headline backend info)
-    "Strip headline from HEADLINE. Ignore BACKEND and INFO."
-    (when (and (org-export-derived-backend-p backend 'latex)
-               (string-match "\\`.*ignoreheading.*\n" headline))
-      (replace-match "" nil nil headline)))
-  (add-to-list 'org-export-filter-headline-functions
-               'org-latex-ignore-heading-filter-headline)
-
-  ;; Sometimes it's good to locally override these two.
-  (put 'org-latex-title-command 'safe-local-variable #'stringp)
-  (put 'org-latex-toc-command 'safe-local-variable #'stringp)
-
-  ;; Need to let ox know about ipython and jupyter
-  (add-to-list 'org-latex-minted-langs '(ipython "python"))
-  (add-to-list 'org-babel-tangle-lang-exts '("ipython" . "py"))
-  (add-to-list 'org-latex-minted-langs '(jupyter-python "python"))
-  (add-to-list 'org-babel-tangle-lang-exts '("jupyter-python" . "py"))
-
-  ;; Mimore class is a latex class for writing articles.
-  (add-to-list 'org-latex-classes
-               '("mimore"
-                 "\\documentclass{mimore}
- [NO-DEFAULT-PACKAGES]
- [PACKAGES]
- [EXTRA]"
-                 ("\\section{%s}" . "\\section*{%s}")
-                 ("\\subsection{%s}" . "\\subsection*{%s}")
-                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
-                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
-
-  ;; Mimosis is a class I used to write my Ph.D. thesis.
-  (add-to-list 'org-latex-classes
-               '("mimosis"
-                 "\\documentclass{mimosis}
- [NO-DEFAULT-PACKAGES]
- [PACKAGES]
- [EXTRA]
-\\newcommand{\\mboxparagraph}[1]{\\paragraph{#1}\\mbox{}\\\\}
-\\newcommand{\\mboxsubparagraph}[1]{\\subparagraph{#1}\\mbox{}\\\\}"
-                 ("\\chapter{%s}" . "\\chapter*{%s}")
-                 ("\\section{%s}" . "\\section*{%s}")
-                 ("\\subsection{%s}" . "\\subsection*{%s}")
-                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-                 ("\\mboxparagraph{%s}" . "\\mboxparagraph*{%s}")
-                 ("\\mboxsubparagraph{%s}" . "\\mboxsubparagraph*{%s}")))
-
-  ;; Elsarticle is Elsevier class for publications.
-  (add-to-list 'org-latex-classes
-               '("elsarticle"
-                 "\\documentclass{elsarticle}
- [NO-DEFAULT-PACKAGES]
- [PACKAGES]
- [EXTRA]"
-                 ("\\section{%s}" . "\\section*{%s}")
-                 ("\\subsection{%s}" . "\\subsection*{%s}")
-                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
-                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
-
-  (setq org-latex-prefer-user-labels t))
-
-;; Feature `ox-extra' is a library from the org-plus-contrib package.
-;; It adds extra keywords and tagging functionality for org export.
-(use-package! ox-extra
-  ;; Demand so that ignore headlines is always active.
-  :demand t
-  :after ox
-  ;; The ignore-headlines allows Org to understand the tag :ignore: and simply
-  ;; remove tagged headings on export, but leave their content in.
-  ;; See my blog post about writing thesis with org mode here:
-  ;; https://write.as/dani/writing-a-phd-thesis-with-org-mode
-  :config (ox-extras-activate '(ignore-headlines)))
-
-(use-package! org-roam-bibtex :after org-roam)
 
 (after! persp-mode
   (setq persp-emacsclient-init-frame-behaviour-override nil)
