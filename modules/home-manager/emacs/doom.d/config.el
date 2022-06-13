@@ -176,66 +176,6 @@
         calendar-latitude 41.168602
         calendar-longitude 29.047024))
 
-;; (defconst ac/c-or-c++-mode--regexp
-;;   (eval-when-compile
-;;     (let ((id "[a-zA-Z0-9_]+") (ws "[ \t\r]+") (ws-maybe "[ \t\r]*"))
-;;       (concat "^" ws-maybe "\\(?:"
-;;                     "using"     ws "\\(?:namespace" ws "std;\\|std::\\)"
-;;               "\\|" "namespace" "\\(:?" ws id "\\)?" ws-maybe "{"
-;;               "\\|" "class"     ws id ws-maybe "[:{\n]"
-;;               "\\|" "template"  ws-maybe "<.*>"
-;;               "\\|" "#include"  ws-maybe "<\\(?:string\\|iostream\\|map\\)>"
-;;               "\\)")))
-;;   "A regexp applied to C header files to check if they are really C++.")
-
-;; (defconst ac/make-mode--regexp
-;;   (eval-when-compile
-;;     (let ((id "[A-Z0-9_]+") (ws-maybe "[ \t\r]*"))
-;;       (concat "^" ws-maybe "\\(?:"
-;;               "include"  ws-maybe ".*"
-;;               "\\|" id ws-maybe "=" ws-maybe ".*"
-;;               "\\)")))
-;;   "A regexp applied to files to check if they are really Makefiles.")
-
-;; (defun ac/c-or-make-mode ()
-;;   "Analyze buffer and enable either C or C++ mode.
-;; Some people and projects use .h extension for C++ header files
-;; which is also the one used for C header files.  This makes
-;; matching on file name insufficient for detecting major mode that
-;; should be used.
-;; This function attempts to use file contents to determine whether
-;; the code is C or C++ and based on that chooses whether to enable
-;; `c-mode' or `c++-mode'."
-;;   (save-excursion
-;;     (save-restriction
-;;       (save-match-data
-;;         (widen)
-;;         (goto-char (point-min))
-;;         (if (re-search-forward ac/c-or-c++-mode--regexp
-;;                                (+ (point) 50000) t)
-;;             (c++-mode)
-;;           (goto-char (point-min))
-;;           (if (re-search-forward ac/make-mode--regexp
-;;                                  (+ (point) 50000) t)
-;;               (makefile-mode)
-;;             (c-mode)))))))
-
-;; (add-to-list 'auto-mode-alist '("\\.h\\'" . ac/c-or-make-mode))
-
-;; (defun ac/make-mode-p ()
-;;   "Analyze buffer and enable Makefile mode.
-;; This function attempts to use file contents to determine whether
-;; the code is Makefile and based on that chooses whether to enable
-;; `makefile-mode'."
-;;   (save-excursion
-;;     (save-restriction
-;;       (save-match-data
-;;         (widen)
-;;         (goto-char (point-min))
-;;         (re-search-forward ac/make-mode--regexp
-;;                                  (+ (point) magic-mode-regexp-match-limit) t)))))
-;; (add-to-list 'magic-mode-alist '(ac/make-mode-p . makefile-mode))
-
 (after! ccls
   (setq ccls-initialization-options `(:index (:comments 2)
                                       :completion (:detailedLabel t)
@@ -542,30 +482,6 @@ the sequences will be lost."
      (add-hook 'modus-themes-after-load-theme-hook #'my-pdf-tools-themes-toggle))
   :bind ("<f5>" . modus-themes-toggle))
 
-; Each path is relative to `+mu4e-mu4e-mail-path', which is ~/.mail by default
-(after! mu4e
-  (set-email-account! "yahoo"
-                      '((mu4e-sent-folder       . "/Yahoo/Sent")
-                        (mu4e-drafts-folder     . "/Yahoo/Draft")
-                        (mu4e-trash-folder      . "/Yahoo/Trash")
-                        (mu4e-refile-folder     . "/Yahoo/Archive")
-                        (smtpmail-smtp-user     . "ozgezer@yahoo.com")
-                        (mu4e-compose-signature . "---\nAhmet Cemal Özgezer")))
-  (set-email-account! "gmail"
-                      '((mu4e-sent-folder       . "/Gmail/[Gmail]/Sent Mail")
-                        (mu4e-drafts-folder     . "/Gmail/[Gmail]/Drafts")
-                        (mu4e-trash-folder      . "/Gmail/[Gmail]/Trash")
-                        (mu4e-refile-folder     . "/Gmail/[Gmail]/Archive")
-                        (smtpmail-smtp-user     . "ozgezer@gmail.com")
-                        (mu4e-compose-signature . "---\nAhmet Cemal Özgezer")))
-  (set-email-account! "msn"
-                      '((mu4e-sent-folder       . "/MSN/Sent")
-                        (mu4e-drafts-folder     . "/MSN/Drafts")
-                        (mu4e-trash-folder      . "/MSN/Deleted")
-                        (mu4e-refile-folder     . "/MSN/Archive")
-                        (smtpmail-smtp-user     . "ozgezer@msn.com")
-                        (mu4e-compose-signature . "---\nAhmet Cemal Özgezer"))))
-
 (use-package! deft
   :after org
   :custom
@@ -655,9 +571,6 @@ the sequences will be lost."
         proced-auto-update-interval 1
         proced-descend t))
 
-;; (after! counsel-projectile
-;;   (setq counsel-projectile-switch-project-action 'counsel-projectile-switch-project-action-dired))
-
 (after! projectile
   (setq ;; projectile-switch-project-action 'projectile-dired
         projectile-enable-caching t
@@ -668,23 +581,7 @@ the sequences will be lost."
         ;;                                            projectile-root-top-down-recurring
         ;;                                            projectile-root-bottom-up
         ;;                                            projectile-root-local)
-        )
-  (projectile-register-project-type
-   'gimsa '("build.sh")
-   :compile "./build.sh"
-   :compilation-dir ".")
-  (projectile-register-project-type
-   'linux '("COPYING" "CREDITS" "Kbuild" "Kconfig" "MAINTAINERS" "Makefile" "README")
-   :compile "make O=am43xx_evm ARCH=arm CROSS_COMPILE=arm-openwrt-linux-gnueabi- all"
-   :compilation-dir ".")
-  (projectile-register-project-type
-   'openwrt '("BSDmakefile" "Config.in" "feeds.conf.default" "LICENSE" "Makefile" "README" "rules.mk" "version.date")
-   :compile "make world"
-   :compilation-dir ".")
-  (projectile-register-project-type
-   'u-boot '("config.mk" "Kbuild" "Kconfig" "MAINTAINERS" "MAKEALL" "Makefile" "README" "snapshot.commit")
-   :compile "make O=am43xx_evm ARCH=arm CROSS_COMPILE=arm-openwrt-linux-gnueabi- all"
-   :compilation-dir "."))
+        ))
 
 (use-package! rainbow-mode
   :hook
