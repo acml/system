@@ -18,8 +18,8 @@ lib.mkMerge [
 
     home.packages = with pkgs; [
       # fonts
-      dejavu_fonts
       emacs-all-the-icons-fonts
+      (lib.mkIf isLinux dejavu_fonts)
       (lib.mkIf isLinux noto-fonts-emoji)
       (pkgs.nerdfonts.override {
         fonts = [
