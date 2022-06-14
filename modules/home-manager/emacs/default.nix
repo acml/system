@@ -19,14 +19,7 @@ lib.mkMerge [
     home.packages = with pkgs; [
       # fonts
       emacs-all-the-icons-fonts
-      (lib.mkIf isLinux noto-fonts-emoji)
-      (pkgs.nerdfonts.override {
-        fonts = [
-          "IBMPlexMono"
-          "Iosevka"
-          "Overpass"
-        ];
-      })
+      nerdfonts
 
       (lib.mkIf isDarwin coreutils-prefixed)
 
