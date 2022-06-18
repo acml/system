@@ -115,8 +115,8 @@ lib.mkMerge [
     programs.emacs = {
       enable = true;
       package = lib.mkMerge [
-        (lib.mkIf isLinux pkgs.emacsPgtkNativeComp)
-        (lib.mkIf isDarwin pkgs.emacsPgtkNativeComp)
+        (lib.mkIf isLinux pkgs.emacsNativeComp)
+        (lib.mkIf isDarwin pkgs.emacsNativeComp)
       ];
       extraPackages = epkgs: (with epkgs.melpaPackages; [
         pdf-tools
