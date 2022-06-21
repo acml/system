@@ -77,6 +77,7 @@ in
       nixpkgs-fmt
       openssh
       parallel
+      ranger
       #(ruby.withPackages (ps: with ps; [ rufo solargraph ]))
       sysdo
       tealdeer
