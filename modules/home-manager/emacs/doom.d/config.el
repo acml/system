@@ -206,6 +206,33 @@
      :desc "Up" :n "<left>" #'dired-up-directory
      :desc "Down" :n "<right>" #'dired-find-file)))
 
+(use-package! dirvish
+  :after dired
+  :config
+  ;; Go back home? Just press `bh'
+  (setq dired-listing-switches
+        "-l --almost-all --human-readable --time-style=long-iso --group-directories-first --no-group"
+        dirvish-menu-bookmarks
+        '(("h" "~/"                          "Home")
+          ("d" "~/Downloads/"                "Downloads")
+          ("m" "/mnt/"                       "Drives")
+          ("n" "~/.nixpkgs/"                 "Nix")
+          ("p" "~/Projects/"                 "Projects")
+          ("t" "~/.local/share/Trash/files/" "TrashCan")))
+
+  (map! :map dired-mode-map :ng "q" #'quit-window)
+
+  (dirvish-define-preview exa (file)
+    "Use `exa' to generate directory preview."
+    (when (file-directory-p file) ; we only interest in directories here
+      `(shell . ("exa" "--color=always" "-al" ,file)))) ; use the output of `exa' command as preview
+
+  (add-to-list 'dirvish-preview-dispatchers 'exa)
+  :bind
+  ;; (:map dired-mode-map ; Dirvish respects all the keybindings in this map
+  ;;  ("TAB" . dirvish-subtree-toggle))
+  )
+
 ;; Easier to match with a bspwm rule:
 ;;   bspc rule -a 'Emacs:emacs-everywhere' state=floating sticky=on
 (setq emacs-everywhere-frame-name-format "emacs-everywhere")
