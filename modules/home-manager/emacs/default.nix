@@ -26,6 +26,8 @@ lib.mkMerge [
       man-pages
       posix_man_pages
 
+      exercism
+
       ## Doom dependencies
       (ripgrep.override { withPCRE2 = true; })
       ripgrep-all
@@ -81,6 +83,7 @@ lib.mkMerge [
       # nodePackages.typescript-language-server
 
       # HTML/CSS/JSON language servers
+      nodePackages.prettier
       nodePackages.vscode-langservers-extracted
 
       # Bash
@@ -94,17 +97,17 @@ lib.mkMerge [
       # cargo cargo-audit cargo-edit clippy rust-analyzer rustfmt
 
       # :lang go
-      # go
-      # gocode
-      # gomodifytags
-      # delve # vscode
-      # gopkgs # vscode
-      # go-outline # vscode
-      # golint # vscode
-      # golangci-lint
-      # gopls
-      # gotests
-      # gore
+      go_1_18
+      gocode
+      gomodifytags
+      delve # vscode
+      gopkgs # vscode
+      go-outline # vscode
+      golint # vscode
+      golangci-lint
+      gopls
+      gotests
+      gore
 
       # :app everywhere
       xclip xdotool
