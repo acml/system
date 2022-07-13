@@ -258,7 +258,8 @@
   (setq
    evil-want-fine-undo t       ; By default while in insert all changes are one big blob. Be more granular
    evil-vsplit-window-right t  ; Switch to the new window after splitting
-   evil-split-window-below t))
+   evil-split-window-below t   ; yanking to the system clipboard crashes emacs
+   x-select-enable-clipboard nil))
 
 (use-package! evil-colemak-basics
   :after evil evil-snipe
