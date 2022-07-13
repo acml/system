@@ -100,24 +100,24 @@
         , baseModules ? [
             ./modules/home-manager
             {
-              home.sessionVariables = {
-                NIX_PATH =
-                  "nixpkgs=${nixpkgs}:stable=${stable}\${NIX_PATH:+:}$NIX_PATH";
+              home = {
+                inherit username;
+                homeDirectory = "${homePrefix system}/${username}";
+                sessionVariables = {
+                  NIX_PATH =
+                    "nixpkgs=${nixpkgs}:stable=${stable}\${NIX_PATH:+:}$NIX_PATH";
+                };
               };
             }
           ]
         , extraModules ? [ ]
         }:
         homeManagerConfiguration rec {
-          inherit system username;
           pkgs = import nixpkgs {
             inherit system;
           };
-          homeDirectory = "${homePrefix system}/${username}";
           extraSpecialArgs = { inherit inputs nixpkgs stable; };
-          configuration = {
-            imports = baseModules ++ extraModules ++ [ ./modules/overlays.nix ];
-          };
+          modules = baseModules ++ extraModules ++ [ ./modules/overlays.nix ];
         };
     in
     {
@@ -219,7 +219,7 @@
 
       devShells = eachSystemMap defaultSystems (system:
         let
-          pkgs = import nixpkgs {
+          pkgs = import inputs.stable {
             inherit system;
             overlays = [ inputs.devshell.overlay ];
           };
@@ -231,7 +231,13 @@
         in
         {
           default = pkgs.devshell.mkShell {
-            packages = with pkgs; [ nixfmt pyEnv black rnix-lsp stylua treefmt ];
+            packages = with pkgs; [
+              nixfmt
+              pyEnv
+              rnix-lsp
+              stylua
+              treefmt
+            ];
             commands = [{
               name = "sysdo";
               package = sysdo;
