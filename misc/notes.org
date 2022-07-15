@@ -159,6 +159,7 @@ Reading Notes
 - [[https://doc.rust-lang.org/book/index.html][The Rust Programming Language - The Rust Programming Language]]
 - [[https://doc.rust-lang.org/rust-by-example/index.html][Introduction - Rust By Example]]
 - [[https://github.com/rust-lang/rustlings][GitHub - rust-lang/rustlings: Small exercises to get you used to reading and ...]]
+- [[https://eli.thegreenplace.net/2022/how-i-went-about-learning-rust/][How I went about learning Rust - Eli Bendersky's website]]
 
 * Microsoft
 
