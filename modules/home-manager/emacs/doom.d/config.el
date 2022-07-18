@@ -584,6 +584,13 @@ the sequences will be lost."
   ;;         (user-error "Buffer %S not alive" pdf-buf-name)))
   )
 
+(use-package! pdf-occur :commands (pdf-occur-global-minor-mode))
+(use-package! pdf-history :commands (pdf-history-minor-mode))
+(use-package! pdf-links :commands (pdf-links-minor-mode))
+(use-package! pdf-outline :commands (pdf-outline-minor-mode))
+(use-package! pdf-annot :commands (pdf-annot-minor-mode))
+(use-package! pdf-sync :commands (pdf-sync-minor-mode))
+
 (after! persp-mode
   (setq persp-emacsclient-init-frame-behaviour-override nil)
   (defun display-workspaces-in-minibuffer ()
