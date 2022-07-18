@@ -206,6 +206,9 @@
      :desc "Up" :n "<left>" #'dired-up-directory
      :desc "Down" :n "<right>" #'dired-find-file)))
 
+(after! (:any dired dirvish)
+  (require 'dired-x))
+
 (use-package! dirvish
   :after dired
   :config
