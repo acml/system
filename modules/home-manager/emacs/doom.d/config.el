@@ -377,7 +377,6 @@ the sequences will be lost."
                          (magit-pull "--rebase" "--autostash")))
 
 (use-package! modus-themes
-  :ensure                         ; omit this to use the built-in themes
   :init
   (setq modus-themes-italic-constructs t
         modus-themes-bold-constructs t
