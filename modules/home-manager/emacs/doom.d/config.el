@@ -208,22 +208,37 @@
 
 (after! (:any dired dirvish)
   (require 'dired-x))
+(set-popup-rule! "^ \\*Dirvish.*" :ignore t)
 
+(map! :map dired-mode-map :ng "q" #'dirvish-quit)
 (use-package! dirvish
   :after dired
   :config
   ;; Go back home? Just press `bh'
   (setq dired-listing-switches
         "-l --almost-all --human-readable --time-style=long-iso --group-directories-first --no-group"
-        dirvish-menu-bookmarks
+        dirvish-bookmark-entries
         '(("h" "~/"                          "Home")
           ("d" "~/Downloads/"                "Downloads")
           ("m" "/mnt/"                       "Drives")
           ("n" "~/.nixpkgs/"                 "Nix")
           ("p" "~/Projects/"                 "Projects")
           ("t" "~/.local/share/Trash/files/" "TrashCan")))
+  (setq dirvish-attributes '(all-the-icons file-size collapse subtree-state vc-state git-msg))
 
-  (map! :map dired-mode-map :ng "q" #'quit-window)
+  ;; (map! :map dired-mode-map :ng "q" #'quit-window)
+  (map! :map dirvish-mode-map
+        :n "b" #'dirvish-quick-access
+        :n "z" #'dirvish-show-history
+        ;; :n "f" #'dirvish-file-info-menu
+        ;; :n "F" #'dirvish-toggle-fullscreen
+        ;; :n "l" #'dired-find-file
+        ;; :n "h" #'dired-up-directory
+        :n "?" #'dirvish-dispatch
+        ;; :n "q" #'dirvish-quit
+        ;; :localleader
+        ;; "h" #'dired-omit-mode
+        )
 
   (dirvish-define-preview exa (file)
     "Use `exa' to generate directory preview."
@@ -231,7 +246,7 @@
       `(shell . ("exa" "--color=always" "-al" ,file)))) ; use the output of `exa' command as preview
 
   (add-to-list 'dirvish-preview-dispatchers 'exa)
-  :bind
+  ;; :bind
   ;; (:map dired-mode-map ; Dirvish respects all the keybindings in this map
   ;;  ("TAB" . dirvish-subtree-toggle))
   )
@@ -375,6 +390,18 @@ the sequences will be lost."
       magit-inhibit-save-previous-winconf t
       transient-values '((magit-rebase "--autosquash" "--autostash")
                          (magit-pull "--rebase" "--autostash")))
+
+(defvar elken/mixed-pitch-modes '(org-mode LaTeX-mode markdown-mode gfm-mode Info-mode)
+  "Only use `mixed-pitch-mode' for given modes.")
+
+(defun init-mixed-pitch-h ()
+  "Hook `mixed-pitch-mode' into each mode of `elken/mixed-pitch-modes'"
+  (when (memq major-mode elken/mixed-pitch-modes)
+    (mixed-pitch-mode 1))
+  (dolist (hook elken/mixed-pitch-modes)
+    (add-hook (intern (concat (symbol-name hook) "-hook")) #'mixed-pitch-mode)))
+
+(add-hook 'doom-init-ui-hook #'init-mixed-pitch-h)
 
 (use-package! modus-themes
   :init
@@ -521,6 +548,7 @@ the sequences will be lost."
   (deft-directory org-roam-directory))
 
 (use-package! org-appear
+  :after org
   :hook (org-mode . org-appear-mode)
   :config
   (setq org-appear-autolinks t
@@ -536,7 +564,8 @@ the sequences will be lost."
 (setq
  ;; If you use `org' and don't want your org files in the default location below,
  ;; change `org-directory'. It must be set before org loads!
- org-directory (expand-file-name "~/Documents/org/"))
+ org-directory (expand-file-name "~/Documents/org/")
+ org-startup-with-inline-images t)
 
 (after! org
   (setq

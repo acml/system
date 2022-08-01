@@ -57,12 +57,13 @@
 (package! org-pretty-table :recipe (:host github :repo "Fuco1/org-pretty-table")) ;; dired-auto-readme dependency
 (package! org-view-mode)                                                          ;; dired-auto-readme dependency
 (package! dired-subtree)
+(unpin! dirvish)
 
 (package! evil-colemak-basics)
 
 (package! highlight-parentheses)
 (package! journalctl-mode)
-
+(package! mixed-pitch)
 (package! modus-themes)
 (package! obvious :recipe (:host github :repo "alphapapa/obvious.el"))
 
