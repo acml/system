@@ -64,7 +64,7 @@ lib.mkMerge [
 
       # CMake LSP
       cmake
-      cmake-language-server
+      # cmake-language-server
 
       # Nix
       nixfmt
