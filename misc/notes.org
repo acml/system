@@ -135,6 +135,8 @@ C++ YouTube [[https://www.youtube.com/playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD
 
 ** [[https://hackingcpp.com/index.html][Learn Contemporary C++ | Concise&Visual Examples | hacking C++]]
 
+** [[https://luckyresistor.me/knowledge/learn-cpp/][Learn C++ - Lucky Resistor]]
+
 ** Books
 
 *** A Tour of C++
