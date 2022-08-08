@@ -137,6 +137,8 @@ C++ YouTube [[https://www.youtube.com/playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD
 
 ** [[https://luckyresistor.me/knowledge/learn-cpp/][Learn C++ - Lucky Resistor]]
 
+** [[https://www.etlcpp.com/][Embedded Template Library]]
+
 ** Books
 
 *** A Tour of C++
