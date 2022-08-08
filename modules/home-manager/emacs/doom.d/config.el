@@ -191,13 +191,6 @@
   (dired-hide-details-mode 1)
   (dired-auto-readme-mode 1))
 
-(use-package! dired-subtree
-  :after dired
-  :config
-  (map!
-   (:map dired-mode-map
-    :desc "Toggle subtree" :n [tab] #'dired-subtree-toggle)))
-
 (after! dired
   ;; Define localleader bindings
   (map!
@@ -234,6 +227,7 @@
         ;; :n "F" #'dirvish-toggle-fullscreen
         ;; :n "l" #'dired-find-file
         ;; :n "h" #'dired-up-directory
+        :n "TAB" #'dirvish-subtree-toggle
         :n "?" #'dirvish-dispatch
         ;; :n "q" #'dirvish-quit
         ;; :localleader
