@@ -15,6 +15,7 @@
 ;;      directory (for easy access to its source code).
 
 (doom! :input
+       ;;bidi              ; (tfel ot) thgir etirw uoy gnipleh
        ;;chinese
        ;;japanese
        ;;layout            ; auie,ctsrnm is the superior home row
@@ -31,7 +32,7 @@
        doom              ; what makes DOOM look the way it does
        doom-dashboard    ; a nifty splash screen for Emacs
        ;;doom-quit         ; DOOM quit-message prompts when you quit Emacs
-       ;; (emoji +unicode)  ; 🙂
+       ;;(emoji +unicode)  ; 🙂
        hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        hydra
        ;;indent-guides     ; highlighted indent columns
@@ -45,7 +46,7 @@
        ;;tabs              ; a tab bar for Emacs
        (treemacs +lsp)   ; a project drawer, like neotree but cooler
        ;;unicode           ; extended unicode support for various languages
-       vc-gutter         ; vcs diff in the fringe
+       (vc-gutter +diff-hl +pretty) ; vcs diff in the fringe
        vi-tilde-fringe   ; fringe tildes to mark beyond EOB
        (window-select +numbers)     ; visually switch windows
        workspaces        ; tab emulation, persistence & separate workspaces
@@ -127,7 +128,7 @@
        ;;elm               ; care for a cup of TEA?
        emacs-lisp        ; drown in parentheses
        ;;erlang            ; an elegant language for a more civilized age
-       ;; (ess +lsp)               ; emacs speaks statistics
+       ;;ess               ; emacs speaks statistics
        ;;factor
        ;;faust             ; dsp, but you get to keep your soul
        ;;fortran           ; in FORTRAN, GOD is REAL (unless declared INTEGER)
