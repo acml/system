@@ -403,6 +403,7 @@ the sequences will be lost."
         modus-themes-bold-constructs t
         modus-themes-mixed-fonts t
         modus-themes-subtle-line-numbers nil
+        modus-themes-intense-mouseovers nil
         modus-themes-deuteranopia nil
         modus-themes-tabs-accented t
         modus-themes-variable-pitch-ui t
@@ -418,8 +419,15 @@ the sequences will be lost."
 
         ;; Options for `modus-themes-mode-line' are either nil, or a list
         ;; that can combine any of `3d' OR `moody', `borderless',
-        ;; `accented', and a natural number for extra padding
+        ;; `accented', a natural number for extra padding (or a cons cell
+        ;; of padding and NATNUM), and a floating point for the height of
+        ;; the text relative to the base font size (or a cons cell of
+        ;; height and FLOAT)
         modus-themes-mode-line '(3d borderless)
+        ;; modus-themes-mode-line '(accented borderless (padding . 4) (height . 0.9))
+
+        ;; Same as above:
+        ;; modus-themes-mode-line '(accented borderless 4 0.9)
 
         ;; Options for `modus-themes-markup' are either nil, or a list
         ;; that can combine any of `bold', `italic', `background',
@@ -449,9 +457,10 @@ the sequences will be lost."
 
         ;; Options for `modus-themes-box-buttons' are either nil (the
         ;; default), or a list that can combine any of `flat', `accented',
-        ;; `faint', `variable-pitch', `underline', the symbol of any font
-        ;; weight as listed in `modus-themes-weights', and a floating
-        ;; point number (e.g. 0.9) for the height of the button's text.
+        ;; `faint', `variable-pitch', `underline', `all-buttons', the
+        ;; symbol of any font weight as listed in `modus-themes-weights',
+        ;; and a floating point number (e.g. 0.9) for the height of the
+        ;; button's text.
         modus-themes-box-buttons '(variable-pitch flat faint 0.9)
 
         ;; Options for `modus-themes-prompts' are either nil (the
@@ -464,8 +473,8 @@ the sequences will be lost."
         ;; value (or empty list) or a list of properties that can include
         ;; any of the following (for WEIGHT read further below):
         ;;
-        ;; `key' - `background', `intense', `underline', `italic', WEIGHT
-        ;; `selection' - `accented', `intense', `underline', `italic', WEIGHT
+        ;; `matches' - `background', `intense', `underline', `italic', WEIGHT
+        ;; `selection' - `accented', `intense', `underline', `italic', `text-also' WEIGHT
         ;; `popup' - same as `selected'
         ;; `t' - applies to any key not explicitly referenced (check docs)
         ;;
