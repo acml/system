@@ -275,6 +275,7 @@
 
 (use-package! evil-colemak-basics
   :after evil evil-snipe
+  :hook (ediff-keymap-setup-hook . evil-colemak-basics-mode)
   :init
   (setq evil-colemak-basics-rotate-t-f-j nil
         evil-colemak-basics-char-jump-commands 'evil-snipe)
