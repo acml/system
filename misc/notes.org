@@ -356,6 +356,26 @@ Once that has finished, you can close ~diskpart~.
 [[https://nickjanetakis.com/blog/launching-wsl-programs-from-a-right-click-windows-menu][Launching and running]] a WSL command
 
 
+* Start a TFTP server on your Mac
+** To change the properties, edit the file ~/System/Library/LaunchDaemons/tftp.plist~
+** The default directory is ~/private/tftpboot~.
+Make this directory accessible for everybody.
+#+begin_src shell
+sudo chmod 777 /private/tftpboot
+#+end_src
+** and start it with
+#+begin_src shell
+sudo launchctl load -F /System/Library/LaunchDaemons/tftp.plist
+#+end_src
+** If you want to stop the daemon, do
+#+begin_src shell
+sudo launchctl unload /System/Library/LaunchDaemons/tftp.plist
+#+end_src
+** Check if its running (no process means it not running)
+#+begin_src shell
+netstat -atp UDP | grep tftp
+#+end_src
+
 * How to reduce the size of VMware disk
 
 #+begin_src sh
