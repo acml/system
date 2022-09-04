@@ -87,7 +87,7 @@ lib.mkMerge [
       nodePackages.vscode-langservers-extracted
 
       # Bash
-      nodePackages.bash-language-server shellcheck
+      nodePackages.bash-language-server shellcheck shfmt
 
       # :lang lua
       # (lib.mkIf isLinux sumneko-lua-language-server)
@@ -105,6 +105,7 @@ lib.mkMerge [
       go-outline # vscode
       golint # vscode
       golangci-lint
+      gotools
       gopls
       gotests
       gore
