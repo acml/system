@@ -644,7 +644,7 @@ the sequences will be lost."
 (after! projectile
   (setq ;; projectile-switch-project-action 'projectile-dired
         projectile-enable-caching t
-        projectile-project-search-path '("~/Projects/")
+        projectile-project-search-path '(("~/Projects" . 1))
         ;; Follow suggestion to reorder root functions to find the .projectile file
         ;; https://old.reddit.com/r/emacs/comments/920psp/projectile_ignoring_projectile_files/
         ;; projectile-project-root-files-functions #'(projectile-root-top-down
