@@ -325,6 +325,15 @@ done
 
 ** How to Shrink a WSL2 Virtual Disk
 
+*** Zeroing a VHDX with an ext Filesystem
+Because the VHDX cannot parse the file system, it can only remove blocks that
+contain all zeros. With that knowledge, we now have a goal: zero out unused
+blocks. We’ll need to do that from within the guest.
+
+#+begin_src shell
+sudo fstrim /
+#+end_src
+
 *** Before you begin
 
 Before shrinking a WSL2 virtual disk, you need to ensure that WSL2 is not running.
