@@ -102,6 +102,8 @@ See also: [[https://www.alfonsobeato.net/arm/how-to-access-safely-unaligned-data
 *** [[https://embetronicx.com/tutorials/linux/device-drivers/threaded-irq-in-linux-kernel/][Threaded IRQ in Linux Kernel - Linux Device Driver Tutorial Part 46]]
 *** [[https://embetronicx.com/tutorials/linux/device-drivers/][Device Drivers Archives ⋆ EmbeTronicX]]
 
+** [[https://pvs-studio.com/en/blog/posts/cpp/0391/][The Ultimate Question of Programming, Refactoring, and Everything]]
+
 * C++
 
 ** C++ Developer Roadmap
