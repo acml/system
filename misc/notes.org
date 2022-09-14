@@ -162,6 +162,7 @@ Reading Notes
 - [[https://quii.gitbook.io/learn-go-with-tests/][Learn Go with Tests - Learn Go with tests]]
 - [[https://gobyexample.com/][Go by Example]]
 - [[https://go.dev/tour/list][A Tour of Go]]
+- [[https://gophercises.com/][Gophercises - Coding exercises for budding gophers]]
 
 * Rust
 - [[https://doc.rust-lang.org/book/index.html][The Rust Programming Language - The Rust Programming Language]]
