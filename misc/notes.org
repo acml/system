@@ -163,6 +163,19 @@ Reading Notes
 - [[https://gobyexample.com/][Go by Example]]
 - [[https://go.dev/tour/list][A Tour of Go]]
 - [[https://gophercises.com/][Gophercises - Coding exercises for budding gophers]]
+- [[https://lets-go.alexedwards.net/][Let's Go! A start-to-finish guide to building web apps with Go]]
+- [[https://lets-go-further.alexedwards.net/][Let's Go Further! Advanced patterns for APIs and web applications in Go]]
+- [[https://www.udemy.com/share/103XPA3@cebP6dvnQ5qSoTyDZb9-VVu75fgy_j7OXNVWh3sHAmVHGmiTHE0ZthRWymtW-4Y3wg==/][Building Modern Web Applications with Go (Golang) | Udemy]]
+- [[https://www.udemy.com/share/106lo03@Bh6V8pRZvRru5b_GTOw4Jl38pyuQrh8QGq6aGxF0996Fmhc3ApZAYzlYju44QzMivQ==/][Working with Microservices in Go (Golang) | Udemy]]
+- [[https://www.udemy.com/share/104slo3@95sdVG1qI0GDYPq3Tcd31LSpmn7f3SY0pE1NAmKWeeEZ_x8Ql1gtZMdHw6YDtzuGgA==/][Working with WebSockets in Go (Golang) | Udemy]]
+- [[https://project-awesome.org/dariubs/GoBooks][Awesome Go Books | Curated list of awesome lists | Project-Awesome.org]]
+- [[https://dave.cheney.net/practical-go][Practical Go | Dave Cheney]]
+- [[https://yourbasic.org/golang/][Go go-to guide · YourBasic]]
+- [[https://github.com/karanpratapsingh/go-course][GitHub - karanpratapsingh/go-course: Master the fundamentals and advanced fea...]]
+- deploy and host a Go web server. Oracle Cloud Infrastructure: They have a free
+  tier that is unlike AWS, Azure, or Google Cloud in that it's actually free,
+  you can't accidentally use paid for services without upgrading your account.
+  You're allowed two instances for free.
 
 * Rust
 - [[https://doc.rust-lang.org/book/index.html][The Rust Programming Language - The Rust Programming Language]]
@@ -170,6 +183,7 @@ Reading Notes
 - [[https://github.com/rust-lang/rustlings][GitHub - rust-lang/rustlings: Small exercises to get you used to reading and ...]]
 - [[https://eli.thegreenplace.net/2022/how-i-went-about-learning-rust/][How I went about learning Rust - Eli Bendersky's website]]
 - [[https://loige.co/where-to-go-to-learn-rust-in-2021/][Where to go to learn Rust in 2021]]
+
 
 * Microsoft
 
@@ -192,6 +206,8 @@ Reading Notes
 - [[https://mlpro.io/problems/][All Problems | MLPro]]
 - [[https://github.com/gamontal/awesome-katas][GitHub - gamontal/awesome-katas: A curated list of code katas]]
 - [[https://github.com/ahmdrefat/awesome-koans][GitHub - ahmdrefat/awesome-koans: A list of all available kōans]]
+- [[https://www.codewars.com/][Codewars - Achieve mastery through coding practice and developer mentorship]]
+- [[https://adventofcode.com/][Advent of Code 2021]]
 
 * Stock Market
 ** [[https://github.com/ckz8780/market-toolkit][GitHub - ckz8780/market-toolkit: A collection of stock market resources and t...]]
