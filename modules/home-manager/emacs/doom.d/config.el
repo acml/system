@@ -379,7 +379,7 @@ the sequences will be lost."
                           'magit-insert-untracked-files
                           nil))
 
-(setq magit-repository-directories '(("~/Projects" . 2))
+(setq magit-repository-directories '(("~/.nixpkgs" . 1) ("~/Projects" . 3))
       magit-save-repository-buffers nil
       ;; Don't restore the wconf after quitting magit, it's jarring
       magit-inhibit-save-previous-winconf t
