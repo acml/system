@@ -209,6 +209,7 @@ Reading Notes
 - [[https://github.com/ahmdrefat/awesome-koans][GitHub - ahmdrefat/awesome-koans: A list of all available kōans]]
 - [[https://www.codewars.com/][Codewars - Achieve mastery through coding practice and developer mentorship]]
 - [[https://adventofcode.com/][Advent of Code 2021]]
+- [[https://www.freecodecamp.org/news/new-online-courses/][200 Universities Just Launched 850+ Free Online Courses. Here’s the Full List.]]
 
 * Stock Market
 ** [[https://github.com/ckz8780/market-toolkit][GitHub - ckz8780/market-toolkit: A collection of stock market resources and t...]]
