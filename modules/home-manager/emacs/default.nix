@@ -2,13 +2,27 @@
 let
   inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
 
-  DOOMLOCALDIR = "${config.xdg.dataHome}/doom";
   DOOMDIR = "${config.xdg.configHome}/doom";
+  DOOMLOCALDIR = "${config.xdg.dataHome}/doom";
   EDITOR = "emacsclient -tc";
   ALTERNATE_EDITOR = "emacs";
 in
 lib.mkMerge [
   {
+
+    home.sessionVariables = {
+      inherit DOOMDIR DOOMLOCALDIR EDITOR ALTERNATE_EDITOR;
+    };
+    systemd.user.sessionVariables = lib.mkIf isLinux {
+      inherit DOOMDIR DOOMLOCALDIR EDITOR ALTERNATE_EDITOR;
+    };
+
+    home.sessionPath = [ "${config.xdg.configHome}/emacs/bin" ];
+
+    xdg.configFile."doom" = {
+      source = ./doom.d;
+      force = true;
+    };
 
     programs = {
       jq.enable = true;      # cli to extract data out of json input
@@ -119,8 +133,8 @@ lib.mkMerge [
     programs.emacs = {
       enable = true;
       package = lib.mkMerge [
-        (lib.mkIf isLinux pkgs.emacsPgtkNativeComp)
-        (lib.mkIf isDarwin pkgs.emacsPgtkNativeComp)
+        (lib.mkIf isLinux pkgs.emacsNativeComp)
+        (lib.mkIf isDarwin pkgs.emacsNativeComp)
       ];
       extraPackages = epkgs: (with epkgs.melpaPackages; [
         pdf-tools
@@ -132,38 +146,6 @@ lib.mkMerge [
       ])++ [
         # pkgs.mu
       ];
-    };
-
-    home.sessionVariables = {
-      inherit DOOMLOCALDIR DOOMDIR EDITOR ALTERNATE_EDITOR;
-    };
-    systemd.user.sessionVariables = lib.mkIf isLinux {
-      inherit DOOMLOCALDIR DOOMDIR EDITOR ALTERNATE_EDITOR;
-    };
-
-    home.sessionPath = [ "${config.xdg.configHome}/emacs/bin" ];
-
-    xdg.configFile."doom" = {
-      source = ./doom.d;
-      force = true;
-    };
-
-    xdg.configFile."emacs" = {
-      source = pkgs.applyPatches {
-        name = "doom-emacs-source";
-        src = inputs.doom-emacs-source;
-        # patches = [ ./doom.d/disable_install_hooks.patch ];
-      };
-      onChange = "${pkgs.writeShellScript "doom-change" ''
-        export DOOMDIR="${config.home.sessionVariables.DOOMDIR}"
-        export DOOMLOCALDIR="${config.home.sessionVariables.DOOMLOCALDIR}"
-        if [ ! -d "$DOOMLOCALDIR" ]; then
-          ''${HOME}/.config/emacs/bin/doom --force install
-        else
-          ''${HOME}/.config/emacs/bin/doom --force sync -u
-        fi
-      ''}";
-      force = true;
     };
   }
   # user systemd service for Linux
