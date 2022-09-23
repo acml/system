@@ -220,6 +220,10 @@ Reading Notes
 - [[https://tiermaker.com/list/technology/best-big-tech-company-to-work-for-ranked-by-hackpack--1657601/2127463][Tech Interview Difficulty - TierMaker]]
 - [[https://www.upwork.com/][Upwork | The World’s Work Marketplace]]
 
+* Hands On Projects
+** [[https://incoherency.co.uk/blog/stories/nightdrive.html][James Stanley - Nightdrive]]
+** [[https://news.ycombinator.com/item?id=32938694][Web Scraping with C++ | Hacker News]]
+** [[https://buildspace.so/][buildspace]]
 
 * Git
 
