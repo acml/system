@@ -160,6 +160,10 @@ Reading Notes
 
 ** [[https://cppbyexample.com/][C++ By Example Code Examples with Simple Explanations]]
 
+** [[https://github.com/AnthonyCalandra/modern-cpp-features][GitHub - AnthonyCalandra/modern-cpp-features: A cheatsheet of modern C++ lang...]]
+** [[https://learn.microsoft.com/en-us/cpp/cpp/welcome-back-to-cpp-modern-cpp?view=msvc-170][Welcome back to C++ - Modern C++ | Microsoft Learn]]
+** [[https://cppinsights.io/][C++ Insights]]
+
 * Go
 - [[https://quii.gitbook.io/learn-go-with-tests/][Learn Go with Tests - Learn Go with tests]]
 - [[https://gobyexample.com/][Go by Example]]
