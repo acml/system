@@ -210,14 +210,16 @@
   ;; Go back home? Just press `bh'
   (setq dired-listing-switches
         "-l --almost-all --human-readable --time-style=long-iso --group-directories-first --no-group"
-        dirvish-bookmark-entries
+        dirvish-quick-access-entries
         '(("h" "~/"                          "Home")
           ("d" "~/Downloads/"                "Downloads")
           ("m" "/mnt/"                       "Drives")
           ("n" "~/.nixpkgs/"                 "Nix")
           ("p" "~/Projects/"                 "Projects")
-          ("t" "~/.local/share/Trash/files/" "TrashCan")))
-  (setq dirvish-attributes '(all-the-icons file-size collapse subtree-state vc-state git-msg))
+          ("t" "~/.local/share/Trash/files/" "TrashCan"))
+        dirvish-attributes '(vc-state subtree-state all-the-icons collapse git-msg file-time file-size)
+        dirvish-header-line-format '(:left (path) :right (free-space))
+        dirvish-mode-line-format '(:left (sort file-time " " file-size symlink) :right (omit yank index)))
 
   ;; (map! :map dired-mode-map :ng "q" #'quit-window)
   (map! :map dirvish-mode-map
