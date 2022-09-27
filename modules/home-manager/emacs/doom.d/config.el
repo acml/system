@@ -217,7 +217,7 @@
           ("n" "~/.nixpkgs/"                 "Nix")
           ("p" "~/Projects/"                 "Projects")
           ("t" "~/.local/share/Trash/files/" "TrashCan"))
-        dirvish-attributes '(vc-state subtree-state all-the-icons collapse git-msg file-time file-size)
+        dirvish-attributes '(vc-state subtree-state all-the-icons collapse git-msg)
         dirvish-header-line-format '(:left (path) :right (free-space))
         dirvish-mode-line-format '(:left (sort file-time " " file-size symlink) :right (omit yank index)))
 
