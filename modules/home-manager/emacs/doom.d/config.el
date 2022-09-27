@@ -267,6 +267,10 @@
                         (+ emacs-everywhere-window-y
                            (/ emacs-everywhere-window-height 2)))))
 
+(use-package! exercism
+  :config
+  (setq exercism-directory "~/Projects/exercism"))
+
 (after! evil
   (setq
    ;; x-select-enable-clipboard nil   ; yanking to the system clipboard crashes emacs (emacsPgtkNativeComp)
