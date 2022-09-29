@@ -51,6 +51,7 @@
 
 (package! beginend)
 (package! daemons)
+(package! dts-mode)
 (package! exercism)
 
 ;; (package! dired-show-readme :recipe (:host gitlab :repo "kisaragi-hiu/dired-show-readme"))
