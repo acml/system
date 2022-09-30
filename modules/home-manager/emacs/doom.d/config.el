@@ -225,7 +225,7 @@
         :n "b" #'dirvish-quick-access
         :n "z" #'dirvish-show-history
         ;; :n "f" #'dirvish-file-info-menu
-        ;; :n "F" #'dirvish-toggle-fullscreen
+        :n "F" #'dirvish-layout-toggle
         ;; :n "l" #'dired-find-file
         ;; :n "h" #'dired-up-directory
         :n "TAB" #'dirvish-subtree-toggle
