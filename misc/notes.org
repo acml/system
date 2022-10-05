@@ -15,6 +15,7 @@
 
 ** [[https://github.com/bebbo/amiga-gcc][GitHub - bebbo/amiga-gcc: The GNU C-Compiler with Binutils and other useful t...]]
 ** [[http://amigadev.elowar.com/][Amiga Developer Docs]]
+** [[https://www.retro-commodore.eu/][Retro Commodore | Your place with high quality scans for preservation.]]
 * Bash snippets
 #+begin_src bash
 $ for i in *.TD0; do samdisk copy ${i} ${i/.TD0/.RAW}; done
