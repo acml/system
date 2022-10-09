@@ -17,6 +17,12 @@
 ** [[http://amigadev.elowar.com/][Amiga Developer Docs]]
 ** [[https://www.retro-commodore.eu/][Retro Commodore | Your place with high quality scans for preservation.]]
 ** [[https://ktadd.weebly.com/amiga-development.html][Amiga Development - Ktadd's Personal Website]]
+** [[http://www.pjhutchison.org/tutorial/amiga_c.html][Amiga C Tutorial]]
+** [[https://amigasourcepres.gitlab.io/page/books/booklist/][Book List]]
+** [[http://eab.abime.net/showthread.php?t=100595][Help needed: Starting Amiga 500 game programming in C - English Amiga Board]]
+** [[http://aminet.net/package/dev/c/ACM_PDF][Aminet - dev/c/ACM_PDF.lha]]
+** [[https://amiga-68k-assembly-programming.zeef.com/prince.phaze101?ref=prince.phaze101&share=aa5d45d2a99d4d0c99a410e172f058b3][Amiga 68K Assembly Programming by Prince Phaze101 | ZEEF]]
+** [[https://archive.org/details/amigabooks?&sort=-week&page=1][Amiga Books : Free Texts : Free Download, Borrow and Streaming : Internet Arc...]]
 * Bash snippets
 #+begin_src bash
 $ for i in *.TD0; do samdisk copy ${i} ${i/.TD0/.RAW}; done
