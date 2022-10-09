@@ -112,17 +112,19 @@ lib.mkMerge [
 
       # :lang go
       go_1_18
+      delve        # vscode
+      go-outline   # vscode
+      go-tools     # vscode (staticcheck)
+      golint       # vscode
+      gomodifytags # vscode
+      gopkgs       # vscode
+      gopls        # vscode
+      gotests      # vscode
+      impl         # vscode
       gocode
-      gomodifytags
-      delve # vscode
-      gopkgs # vscode
-      go-outline # vscode
-      golint # vscode
       golangci-lint
-      gotools
-      gopls
-      gotests
       gore
+      gotools
 
       # :app everywhere
       xclip xdotool
