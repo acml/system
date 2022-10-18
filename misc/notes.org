@@ -176,6 +176,7 @@ Reading Notes
 ** [[https://learn.microsoft.com/en-us/cpp/cpp/welcome-back-to-cpp-modern-cpp?view=msvc-170][Welcome back to C++ - Modern C++ | Microsoft Learn]]
 ** [[https://cppinsights.io/][C++ Insights]]
 ** [[https://www.learncpp.com/][Learn C++ – Skill up with our free tutorials]]
+** [[https://www.cppstories.com/2017/01/cpp17features/][All Major C++17 Features You Should Know - C++ Stories]]
 
 * Go
 - [[https://quii.gitbook.io/learn-go-with-tests/][Learn Go with Tests - Learn Go with tests]]
@@ -195,15 +196,25 @@ Reading Notes
   tier that is unlike AWS, Azure, or Google Cloud in that it's actually free,
   you can't accidentally use paid for services without upgrading your account.
   You're allowed two instances for free.
+* Python
+** [[https://wireframe.raspberrypi.com/books/code-the-classics1][Code the Classics – Volume 1 — Wireframe Magazine]]
 
 * Rust
 - [[https://doc.rust-lang.org/book/index.html][The Rust Programming Language - The Rust Programming Language]]
+- [[https://doc.rust-lang.org/reference/][Introduction - The Rust Reference]]
+- [[https://doc.rust-lang.org/nomicon/][Introduction - The Rustonomicon]]
 - [[https://doc.rust-lang.org/rust-by-example/index.html][Introduction - Rust By Example]]
+- [[https://rust-unofficial.github.io/too-many-lists/][Introduction - Learning Rust With Entirely Too Many Linked Lists]]
+- [[https://rust-unofficial.github.io/patterns/][Introduction - Rust Design Patterns]]
+- [[https://github.com/rust-unofficial/awesome-rust][GitHub - rust-unofficial/awesome-rust: A curated list of Rust code and resour...]]
+- [[https://nnethercote.github.io/perf-book/][Title Page - The Rust Performance Book]]
+- [[https://rust-lang.github.io/async-book/][Getting Started - Asynchronous Programming in Rust]]
+- [[https://tokio.rs/tokio/tutorial][Tutorial | Tokio - An asynchronous Rust runtime]]
 - [[https://github.com/rust-lang/rustlings][GitHub - rust-lang/rustlings: Small exercises to get you used to reading and ...]]
 - [[https://eli.thegreenplace.net/2022/how-i-went-about-learning-rust/][How I went about learning Rust - Eli Bendersky's website]]
 - [[https://loige.co/where-to-go-to-learn-rust-in-2021/][Where to go to learn Rust in 2021]]
--  [[https://github.com/joaocarvalhoopen/How_to_learn_modern_Rust][GitHub - joaocarvalhoopen/How_to_learn_modern_Rust: A guide to the adventurer.]]
-
+- [[https://github.com/joaocarvalhoopen/How_to_learn_modern_Rust][GitHub - joaocarvalhoopen/How_to_learn_modern_Rust: A guide to the adventurer.]]
+- [[https://cheats.rs/][Rust Language Cheat Sheet]]
 
 * Microsoft
 
@@ -222,13 +233,52 @@ Reading Notes
 - [[https://app.codility.com/programmers/lessons/1-iterations/][Codility - Learn to Code]]
 - [[https://leetcode.com/][LeetCode - The World's Leading Online Programming Learning Platform]]
 - [[https://exercism.org/][Exercism]]
-- [[https://codecrafters.io/][Build your own X. Master any language.]]
 - [[https://mlpro.io/problems/][All Problems | MLPro]]
 - [[https://github.com/gamontal/awesome-katas][GitHub - gamontal/awesome-katas: A curated list of code katas]]
 - [[https://github.com/ahmdrefat/awesome-koans][GitHub - ahmdrefat/awesome-koans: A list of all available kōans]]
 - [[https://www.codewars.com/][Codewars - Achieve mastery through coding practice and developer mentorship]]
 - [[https://adventofcode.com/][Advent of Code 2021]]
 - [[https://www.freecodecamp.org/news/new-online-courses/][200 Universities Just Launched 850+ Free Online Courses. Here’s the Full List.]]
+
+* Touch Typing
+** [[https://thetypingcat.com/][The Typing Cat - Touch Typing Tutor - Learn To Type]]
+** [[https://www.keybr.com/][Typing Practice]]
+** [[https://monkeytype.com/][Monkeytype]]
+** [[https://ikario.com/type-faster-touch-typing-for-beginners/][How to Type Faster: Touch Typing for Beginners]]
+** [[https://10fastfingers.com/typing-test/][Typing Test English - 10FastFingers.com]]
+** [[https://play.typeracer.com/][TypeRacer]]
+** [[https://www.nitrotype.com/][Nitro Type | Competitive Typing Game | Race Your Friends]]
+** [[https://typings.gg/][typings]]
+
+* Project Ideas
+- [[https://projectbook.code.brettchalupa.com/][Introduction - Projectbook]]
+- [[https://github.com/practical-tutorials/project-based-learning][GitHub - practical-tutorials/project-based-learning: Curated list of project-...]]
+- [[https://codecrafters.io/][Build your own X. Master any language.]]
+
+* Where to start writing a OS/kernel?
+** [[https://osdev.org][Expanded Main Page - OSDev Wiki]]  is the defacto reference. Start with AMD64, don't bother with x86 (32-bit). Segmentation is a nightmare and there are less quirks with AMD64.
+
+If/when you start reading the CPU manuals, use AMD's documentation. It's better than Intel's.
+
+Write a toy kernel. The kernel is the first thing anyway and you'll need to know how it works to understand the rest. It defines the interface between userspace and the hardware. You have to define this yourself.
+
+Second resource is #osdev on Libera. Be patient, ask good questions. Some of the smartest developers I've ever met hang out there, but their time is precious and you should know they have extremely strong opinions and are not afraid to share them (for better or worse). Incredible group of people that deserve a lot of respect.
+
+I've written kernels in C and now my main OS (non-toy) kernel is in Rust. Rust is nice for this, but if you're learning then heed my advice and use C for some toy kernels to start. Otherwise the Rust stuff sort of gets in the way if you're not familiar both with the language and the concepts.
+
+Get familiar with QEMU. Remember that it lies a lot when debugging kernels (issues it reports as bugs are most likely bugs in your kernel, for example). Don't bother with vbox/vmware for OS dev. They don't help much.
+
+You can play with bootloaders to understand them (I do recommend) but remember they're annoying and it's generally better to start with a boot standard (such as Multiboot) so that GRUB/QEMU can boot into your kernel easier.
+
+OSDev's wiki has a barebones guide. Follow it. Understand everything. It's imperative. Use GCC's annoying cross compilers as prescribed. Then you'll understand more why LLVM is easier to work with later on and will understand how cross compilation works. This will be important if/when you finally switch to Rust, too.
+
+Finally, there's Reddit's r/osdev. It's less active and sometimes you get nasty Redditors responding, but there are a few frequents that are extremely helpful.
+
+You can alternatively start with ARM if that's your fancy. Just know debugging and testing is more convoluted and there are less resources for beginners. #osdev people tend to like ARM more but seem to know more about x86 in general.
+** A classic work is Operating Systems: Three Easy Pieces
+It is free as in beer
+
+[[https://pages.cs.wisc.edu/~remzi/OSTEP/][Operating Systems: Three Easy Pieces]]
 
 * Stock Market
 ** [[https://github.com/ckz8780/market-toolkit][GitHub - ckz8780/market-toolkit: A collection of stock market resources and t...]]
