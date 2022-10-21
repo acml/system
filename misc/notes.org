@@ -561,3 +561,12 @@ Management style/structure? Frequent catch-ups aka one-on-ones? Something else?
 Room for advancement?
 
 Learning opportunities?
+* Daily Tasks
+A journal of the tasks that I have to do in this week
+** Monday
+*** WAIT Golang
+SCHEDULED: <2022-10-19 Wed>
+** Tuesday
+*** TODO C
+* Project Ideas
+** Write a taskbar alternative that has systray and all. For example it should have usb, bluetooth etc. systray icons. It will be a complete replacement to the standard windows one. Not just a application launcher. It should be summoned with Win + Space.
