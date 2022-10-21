@@ -18,7 +18,12 @@ let
         [ "--preview '${pkgs.tree}/bin/tree -C {} | head -200'" ];
       historyWidgetOptions = [ ];
     };
-  aliases = lib.mkIf pkgs.stdenvNoCC.isDarwin {
+  aliases = rec {
+    # ls = "${pkgs.coreutils}/bin/ls --color=auto -h";
+    # la = "${ls} -a";
+    # ll = "${ls} -la";
+    # lt = "${ls} -lat";
+  } // lib.optionalAttrs pkgs.stdenvNoCC.isDarwin rec {
     # darwin specific aliases
     ibrew = "arch -x86_64 brew";
     abrew = "arch -arm64 brew";
@@ -174,7 +179,7 @@ in
     };
     starship = {
       enable = true;
-      package = pkgs.stable.starship;
+      package = pkgs.starship;
     };
   };
 }

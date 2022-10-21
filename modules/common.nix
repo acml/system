@@ -1,4 +1,4 @@
-{ inputs, config, lib, pkgs, ... }:
+{ self, inputs, config, lib, pkgs, ... }:
 let
   inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
 in
@@ -24,7 +24,7 @@ in
 
   # let nix manage home-manager profiles and use global nixpkgs
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = { inherit self inputs; };
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "backup";
@@ -53,7 +53,7 @@ in
     ];
     etc = {
       home-manager.source = "${inputs.home-manager}";
-      nixpkgs.source = "${pkgs.path}";
+      nixpkgs.source = "${inputs.nixpkgs}";
       stable.source = "${inputs.stable}";
     };
     # list of acceptable shells in /etc/shells

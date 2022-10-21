@@ -64,3 +64,5 @@ _dopy_completion() {
                    _DO.PY_COMPLETE=complete_bash $1 ) )
     return 0
 }
+
+complete -o default -F _dopy_completion sysdo

@@ -16,19 +16,16 @@ jobs:
           - macos-latest
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3
         with:
           # Shallow clones won't work
           fetch-depth: 0
-      - uses: cachix/install-nix-action@v16
-        env:
-          NIX_VERSION: nix-2.4pre20210823_af94b54
+      - uses: cachix/install-nix-action@v18
         with:
-          install_url: https://github.com/numtide/nix-unstable-installer/releases/download/${{ env.NIX_VERSION }}/install
           extra_nix_config: |
             experimental-features = nix-command flakes
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
-      - uses: cachix/cachix-action@v10
+      - uses: cachix/cachix-action@v11
         with:
           name: kclejeune
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
