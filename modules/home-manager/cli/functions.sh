@@ -65,4 +65,4 @@ _dopy_completion() {
     return 0
 }
 
-complete -o default -F _dopy_completion sysdo
+# complete -o default -F _dopy_completion sysdo
