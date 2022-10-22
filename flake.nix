@@ -142,7 +142,7 @@
           (system: {
             name = system;
             value = {
-              nixos = self.nixosConfigurations.phil.config.system.build.toplevel;
+              nixos = self.nixosConfigurations.darkstar.config.system.build.toplevel;
               server = self.homeConfigurations.server.activationPackage;
             };
           })
@@ -169,6 +169,13 @@
           hardwareModules = [
             ./modules/hardware/phil.nix
             inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t460s
+          ];
+          extraModules = [ ./profiles/personal.nix ];
+        };
+        darkstar = mkNixosConfig {
+          hardwareModules = [
+            ./modules/hardware/darkstar.nix
+            inputs.nixos-hardware.nixosModules.common-pc
           ];
           extraModules = [ ./profiles/personal.nix ];
         };
