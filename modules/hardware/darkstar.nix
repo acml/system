@@ -24,7 +24,7 @@
   # still possible to use this option, but it's recommended to use it in conjuction
   # with explicit per-interface declerations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.ens32.useDHCP = lib.mkDefault true;
+  networking.interfaces.ens33.useDHCP = lib.mkDefault true;
 
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
