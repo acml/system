@@ -75,7 +75,7 @@ in
       parallel
       ranger
       #(ruby.withPackages (ps: with ps; [ rufo solargraph ]))
-      sysdo
+      self.packages.${system}.sysdo
       tealdeer
     ];
   };
