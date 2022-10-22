@@ -578,6 +578,7 @@ the sequences will be lost."
 
 (after! org
   (setq
+   org-hide-emphasis-markers t
    org-agenda-files (list org-directory)
    org-ellipsis (if (and (display-graphic-p) (char-displayable-p ?)) " " nil)
    org-startup-folded 'show2levels)
