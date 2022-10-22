@@ -1,18 +1,24 @@
 #+TITLE: Notes
 
+* Quotes
+One of the most irritating things programmers do regularly is feel so good about
+learning a hard thing that they don't look for ways to to make it easy, or even
+oppose things that would do so. (Peter Bhat Harkins)
+
+[C++ is] just a garbage heap of ideas that are mutually exclusive. Everybody I
+know, whether it’s personal or corporate, selects a subset and these subsets are
+different. ... [Stroustrup] put every feature in that language that ever
+existed. (Ken Thompson, Coders at Work)
+
 * List of Free Learning Resources In Many Languages
 [[https://github.com/EbookFoundation/free-programming-books][List of Free Learning Resources In Many Languages]]
 
-
 * Great books
-
 - [[http://craftinginterpreters.com/][Crafting Interpreters]]
 - [[http://gameprogrammingpatterns.com/][Game Programming Patterns]]
 - [[https://mitpress.mit.edu/sites/default/files/sicp/index.html][Welcome to the SICP Web Site]]
 
-
 * Amiga
-
 ** [[https://github.com/bebbo/amiga-gcc][GitHub - bebbo/amiga-gcc: The GNU C-Compiler with Binutils and other useful t...]]
 ** [[http://amigadev.elowar.com/][Amiga Developer Docs]]
 ** [[https://www.retro-commodore.eu/][Retro Commodore | Your place with high quality scans for preservation.]]
@@ -23,14 +29,13 @@
 ** [[http://aminet.net/package/dev/c/ACM_PDF][Aminet - dev/c/ACM_PDF.lha]]
 ** [[https://amiga-68k-assembly-programming.zeef.com/prince.phaze101?ref=prince.phaze101&share=aa5d45d2a99d4d0c99a410e172f058b3][Amiga 68K Assembly Programming by Prince Phaze101 | ZEEF]]
 ** [[https://archive.org/details/amigabooks?&sort=-week&page=1][Amiga Books : Free Texts : Free Download, Borrow and Streaming : Internet Arc...]]
+
 * Bash snippets
 #+begin_src bash
 $ for i in *.TD0; do samdisk copy ${i} ${i/.TD0/.RAW}; done
 #+end_src
 
-
 * C
-
 ** Books
 - [[http://www.buildyourownlisp.com/][Learn C • Build Your Own Lisp]]
 - [[http://www.craftinginterpreters.com/][Crafting Interpreters]]
@@ -82,7 +87,6 @@ $ for i in *.TD0; do samdisk copy ${i} ${i/.TD0/.RAW}; done
 - [[https://www.youtube.com/watch?v=DEqXNfs_HhY][Donut-shaped C code that generates a 3D spinning donut - YouTube]]
 -[[https://www.youtube.com/watch?v=sW9npZVpiMI][ why you NEED math for programming - YouTube]]
 
-
 ** Pitfalls
 *** Do not cast an address that is not surely 32-bit aligned to a 32-bit pointer
 
@@ -117,7 +121,6 @@ See also: [[https://www.alfonsobeato.net/arm/how-to-access-safely-unaligned-data
 ** [[https://pvs-studio.com/en/blog/posts/cpp/0391/][The Ultimate Question of Programming, Refactoring, and Everything]]
 
 * C++
-
 ** C++ Developer Roadmap
 [[https://github.com/salmer/CppDeveloperRoadmap][Roadmap]] for learning the C++ programming language for beginners and experienced devs.
 
@@ -156,22 +159,17 @@ C++ YouTube [[https://www.youtube.com/playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD
 ** [[https://www.etlcpp.com/][Embedded Template Library]]
 
 ** Books
-
 *** A Tour of C++
 Reading Notes
 [[https://ianyepan.github.io/posts/cpp-notes-pt1/][A Tour of C++ - Reading Notes (Part 1/2) | Ian Y.E. Pan]]
 [[https://ianyepan.github.io/posts/cpp-notes-pt2/][A Tour of C++ - Reading Notes (Part 2/2) | Ian Y.E. Pan]]
 
 ** Game Programming
-
 *** [[https://www.youtube.com/playlist?list=PLSPw4ASQYyynKPY0I-QFHK0iJTjnvNUys][C++/Game Tutorials - YouTube]]
-
 *** [[https://www.youtube.com/playlist?list=PLSPw4ASQYyymu3PfG9gxywSPghnSMiOAW][Advanced C++/Graphics Tutorials - YouTube]]
-
 *** [[https://lazyfoo.net/tutorials/SDL/index.php][Lazy Foo' Productions - Beginning Game Programming v2.0]]
 
 ** [[https://cppbyexample.com/][C++ By Example Code Examples with Simple Explanations]]
-
 ** [[https://github.com/AnthonyCalandra/modern-cpp-features][GitHub - AnthonyCalandra/modern-cpp-features: A cheatsheet of modern C++ lang...]]
 ** [[https://learn.microsoft.com/en-us/cpp/cpp/welcome-back-to-cpp-modern-cpp?view=msvc-170][Welcome back to C++ - Modern C++ | Microsoft Learn]]
 ** [[https://cppinsights.io/][C++ Insights]]
@@ -196,6 +194,7 @@ Reading Notes
   tier that is unlike AWS, Azure, or Google Cloud in that it's actually free,
   you can't accidentally use paid for services without upgrading your account.
   You're allowed two instances for free.
+
 * Python
 ** [[https://wireframe.raspberrypi.com/books/code-the-classics1][Code the Classics – Volume 1 — Wireframe Magazine]]
 
@@ -217,17 +216,12 @@ Reading Notes
 - [[https://cheats.rs/][Rust Language Cheat Sheet]]
 
 * Microsoft
-
 ** [[https://github.com/microsoft/Data-Science-For-Beginners][Data Science for Beginners]]
-
 ** [[https://github.com/microsoft/IoT-For-Beginners][IoT for Beginners]]
-
 ** [[https://github.com/microsoft/ML-For-Beginners][Machine Learning for Beginners]]
-
 ** [[https://github.com/microsoft/Web-Dev-For-Beginners][Web Dev for Beginners]]
 
 * Online Programming
-
 - [[https://www.hackerrank.com/][HackerRank]]
 - [[https://projecteuler.net/archives][Project Euler - Archived Problems]]
 - [[https://app.codility.com/programmers/lessons/1-iterations/][Codility - Learn to Code]]
@@ -293,13 +287,10 @@ It is free as in beer
 ** [[https://buildspace.so/][buildspace]]
 
 * Git
-
 - [[https://learngitbranching.js.org/][Learn Git Branching]]
 - [[https://ohmygit.org/][Oh My Git!]]
 
-
 * Kotlin & Android
-
 ** Developing Android Apps with Kotlin
 [[https://classroom.udacity.com/courses/ud9012][Developing Android Apps with Kotlin]]
 
@@ -315,11 +306,8 @@ The 2022 [[https://github.com/skydoves/android-developer-roadmap][Android Develo
 
 ** [[https://medium.com/the-android-caf%C3%A9/solid-principles-the-kotlin-way-ff717c0d60da][Solid Principles | Vijay Mishra | Kotlin Design Patterns | The Android Cafe]]
 
-
 * Debian/Ubuntu
-
 ** Create a list of all installed packages
-
 To create a list of the names of all installed packages on your Ubuntu or Debian system and save it in a file named packages_list.txt, run the following command:
 
 #+begin_src shell
@@ -331,7 +319,6 @@ Now that you have the list, if you want to install the same packages on your new
 #+begin_src shell
 sudo xargs -a packages_list.txt apt install
 #+end_src
-
 
 * Research
 ** [[https://github.com/vikasrawal/orgpaper/blob/master/orgpapers.org][orgpaper/orgpapers.org at master · vikasrawal/orgpaper · GitHub]]
@@ -347,9 +334,7 @@ sudo xargs -a packages_list.txt apt install
 ** [[https://lucidmanager.org/categories/productivity/][More productive with Emacs: Write websites, articles and books]]
 ** [[https://blog.tecosaur.com/tmio/2021-07-31-citations.html][This Month in Org - July 2021 - Introducing citations!]]
 
-
 * NixOS
-
 ** builds everything from source if Nix user isn't trusted
 #+begin_quote
 warning: ignoring untrusted substituter 'https://cachix.cachix.org'
@@ -364,7 +349,6 @@ sudo pkill nix-daemon
 ** [[https://christine.website/blog/nix-flakes-1-2022-02-21][Nix Flakes: an Introduction - Xe]]
 
 ** To enable Nix flakes on your machine.
-
 *** If you are using NixOS, add this to your configuration.nix file:
 
 #+begin_src nix
@@ -388,11 +372,8 @@ You may need to restart the Nix daemon here with sudo systemctl restart
 nix-daemon.service, but if you are unsure how Nix was set up on that non-NixOS
 machine feel free to totally restart your computer.
 
-
 * WSL
-
 ** Convenience
-
 Run the following script after putting in your user name
 
 #+begin_src shell
@@ -402,23 +383,18 @@ done
 #+end_src
 
 ** How to Mount Windows Network Drives in WSL
-
 *** Mount a Drive Until Logoff
-
 1. Note the letter of the network drive that you would like to map in WSL. We will use M: in this example.
 2. Create a new folder for that drive letter under /mnt if it does not already exist. (ex: ~mkdir /mnt/m~)
 3. Mount the drive with ~sudo mount -t drvfs M: /mnt/m~
 
-
 *** Mount Drives in a Persistent Manner
-
 1. Ensure the folder exists for the mount target (e.g. /mnt/m)
 2. Open /etc/fstab and add a line such as the following:
    M: /mnt/m drvfs defaults 0 0
 3. Reload the fstab file with ~sudo mount -a~
 
 ** How to Shrink a WSL2 Virtual Disk
-
 *** Zeroing a VHDX with an ext Filesystem
 Because the VHDX cannot parse the file system, it can only remove blocks that
 contain all zeros. With that knowledge, we now have a goal: zero out unused
@@ -429,14 +405,12 @@ sudo fstrim /
 #+end_src
 
 *** Before you begin
-
 Before shrinking a WSL2 virtual disk, you need to ensure that WSL2 is not running.
 
 You can check if it’s running with the command ~wsl.exe --list --verbose~ in PowerShell.
 It should stop when it’s idle, or you can encourage it to stop with the ~wsl.exe --terminate~ command.
 
 *** Use ~diskpart~ to Shrink a WSL2 Virtual Disk
-
 You can launch the ~diskpart~ tool in ~PowerShell~.
 
 You need to specify the path to your VHDX file.
@@ -460,7 +434,6 @@ Once that has finished, you can close ~diskpart~.
 ** Launching WSL Programs from a Right Click Windows Menu
 [[https://nickjanetakis.com/blog/launching-wsl-programs-from-a-right-click-windows-menu][Launching and running]] a WSL command
 
-
 * Start a TFTP server on your Mac
 ** To change the properties, edit the file ~/System/Library/LaunchDaemons/tftp.plist~
 ** The default directory is ~/private/tftpboot~.
@@ -482,14 +455,11 @@ netstat -atp UDP | grep tftp
 #+end_src
 
 * How to reduce the size of VMware disk
-
 #+begin_src sh
 sudo vmware-toolbox-cmd disk shrink /
 #+end_src
 
-
 * [[https://www.adamconrad.dev/blog/changing-jobs-during-the-great-resignation/][Changing jobs during the Great Resignation - Adam C. Conrad]]
-
 
 * Interview Questions to Ask Your Interviewer
 How big is the company?
@@ -561,6 +531,7 @@ Management style/structure? Frequent catch-ups aka one-on-ones? Something else?
 Room for advancement?
 
 Learning opportunities?
+
 * Daily Tasks
 A journal of the tasks that I have to do in this week
 ** Monday
@@ -568,5 +539,6 @@ A journal of the tasks that I have to do in this week
 SCHEDULED: <2022-10-19 Wed>
 ** Tuesday
 *** TODO C
+
 * Project Ideas
 ** Write a taskbar alternative that has systray and all. For example it should have usb, bluetooth etc. systray icons. It will be a complete replacement to the standard windows one. Not just a application launcher. It should be summoned with Win + Space.
