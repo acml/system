@@ -24,12 +24,12 @@
         extraGroups =
           [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
         hashedPassword =
-          "$6$1kR9R2U/NA0.$thN8N2sTo7odYaoLhipeuu5Ic4CS7hKDt1Q6ClP9y0I3eVMaFmo.dZNpPfdwNitkElkaLwDVsGpDuM2SO2GqP/";
+          "$6$.6NbHKr23r$uD0zVajkT5IWBDeexyn6ZkYmzCCkgpInOrsSGtUsygs6nqTP7Kny2U5zzQSEBnrniYsZoBj35p4PMjaCpzj7l0";
       };
     };
   };
 
-  networking.hostName = "Phil"; # Define your hostname.
+  networking.hostName = "darkstar"; # Define your hostname.
   networking.networkmanager.enable = true;
 
   # Use the GRUB 2 boot loader.
@@ -44,9 +44,9 @@
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
-  networking.useDHCP = false;
-  networking.interfaces.enp0s31f6.useDHCP = true;
-  networking.interfaces.wlp4s0.useDHCP = true;
+  networking.useDHCP = true;
+  # networking.interfaces.enp0s31f6.useDHCP = true;
+  # networking.interfaces.wlp4s0.useDHCP = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -54,10 +54,7 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = pkgs.jetbrains-mono;
-  #   keyMap = "us";
-  # };
+  console.keyMap = "colemak/colemak";
 
   # Set your time zone.
   # time.timeZone = "EST";
@@ -95,7 +92,8 @@
   services.xserver = {
     enable = true;
     layout = "us";
-    # services.xserver.xkbOptions = "eurosign:e";
+    xkbVariant = "colemak";
+    xkbOptions = "ctrl:nocaps";
 
     # Enable touchpad support.
     libinput.enable = true;
