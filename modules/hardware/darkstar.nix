@@ -27,4 +27,5 @@
   networking.interfaces.ens33.useDHCP = lib.mkDefault true;
 
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  virtualisation.vmware.guest.enable = true;
 }
