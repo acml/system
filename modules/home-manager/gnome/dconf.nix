@@ -11,8 +11,8 @@ in
 
     "org/gnome/desktop/input-sources" = {
       current = "uint32 0";
-      sources = [ (mkTuple [ "xkb" "us" ]) ];
-      xkb-options = [ "terminate:ctrl_alt_bksp" "lv3:ralt_switch" ];
+      sources = [ (mkTuple [ "xkb" "us+colemak" ]) ];
+      xkb-options = [ "ctrl:nocaps" ];
     };
 
     "org/gnome/desktop/interface" = {
@@ -51,8 +51,6 @@ in
     };
 
     "org/gnome/desktop/sound" = { theme-name = "freedesktop"; };
-
-    "org/gnome/desktop/wm/keybindings" = { close = [ "<Alt>w" ]; };
 
     "org/gnome/epiphany/state" = {
       is-maximized = false;
