@@ -186,7 +186,8 @@
 ;;
 ;; Dired
 ;;
-(setq dired-hide-details-hide-symlink-targets t)
+(setq dired-hide-details-hide-symlink-targets t
+      dired-omit-files "\\.pyc$")
 (add-hook! dired-mode
   (dired-hide-details-mode 1)
   (dired-auto-readme-mode 1))
