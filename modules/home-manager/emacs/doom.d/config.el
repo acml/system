@@ -669,6 +669,13 @@ the sequences will be lost."
   (after! trashed
     (evil-collection-trashed-setup)))
 
+(use-package evil-collection
+  :after evil
+  :custom
+  (evil-collection-setup-minibuffer t)
+  :config
+  (evil-collection-init))
+
 (setq +treemacs-git-mode 'deferred
       ;; treemacs-collapse-dirs 5
       ;; treemacs-eldoc-display t
