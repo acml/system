@@ -233,6 +233,7 @@ Reading Notes
 - [[https://www.codewars.com/][Codewars - Achieve mastery through coding practice and developer mentorship]]
 - [[https://adventofcode.com/][Advent of Code 2021]]
 - [[https://www.freecodecamp.org/news/new-online-courses/][200 Universities Just Launched 850+ Free Online Courses. Here’s the Full List.]]
+- [[https://github.com/ossu/computer-science][GitHub - ossu/computer-science: Path to a free self-taught education in Compu...]]
 
 * Touch Typing
 ** [[https://thetypingcat.com/][The Typing Cat - Touch Typing Tutor - Learn To Type]]
