@@ -584,6 +584,8 @@ the sequences will be lost."
    org-ellipsis (if (and (display-graphic-p) (char-displayable-p ?)) " " nil)
    org-startup-folded 'show2levels)
 
+  (add-to-list 'org-modules 'org-habit)
+
   (add-hook! org-mode (org-pretty-table-mode 1))
 
   ;; (after! org-roam
