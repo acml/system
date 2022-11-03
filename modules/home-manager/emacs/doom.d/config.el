@@ -577,53 +577,16 @@ the sequences will be lost."
  org-directory (expand-file-name "~/Documents/org/")
  org-startup-with-inline-images t)
 
-(after! org
+(use-package! org
+  :config
   (setq
    org-hide-emphasis-markers t
-   org-agenda-files (list org-directory)
+   org-agenda-files (list org-directory "~/Documents/worg/")
    org-ellipsis (if (and (display-graphic-p) (char-displayable-p ?)) " " nil)
    org-startup-folded 'show2levels)
-
   (add-to-list 'org-modules 'org-habit)
 
-  (add-hook! org-mode (org-pretty-table-mode 1))
-
-  ;; (after! org-roam
-  ;;   (setq org-roam-directory "~/Documents/org/roam/")
-
-  ;;   (add-hook 'after-init-hook 'org-roam-mode)
-
-  ;;   ;; Let's set up some org-roam capture templates
-  ;;   (setq org-roam-capture-templates
-  ;;         (quote (("d" "default" plain
-  ;;                  "%?"
-  ;;                  :target
-  ;;                  (file+head "%<%Y-%m-%d-%H%M%S>-${slug}.org"
-  ;;                             "#+title: ${title}\n")
-  ;;                  :unnarrowed t)
-  ;;                 ("r" "bibliography reference" plain
-  ;;                  (file "~/org/roam/templates/orb-capture")
-  ;;                  :target
-  ;;                  (file+head "references/${citekey}.org" "#+title: ${title}\n")))))
-
-  ;;   ;; And now we set necessary variables for org-roam-dailies
-  ;;   (setq org-roam-dailies-directory "daily/")
-  ;;   (setq org-roam-dailies-capture-templates
-  ;;         '(("d" "default" entry
-  ;;            "* %?"
-  ;;            :target
-  ;;            (file+head "%<%Y-%m-%d>.org"
-  ;;                       "#+title: %<%Y-%m-%d>\n"))))
-
-  ;;   ;; Function to capture quotes from pdf
-  ;;   (defun org-roam-capture-pdf-active-region ()
-  ;;     (let* ((pdf-buf-name (plist-get org-capture-plist :original-buffer))
-  ;;            (pdf-buf (get-buffer pdf-buf-name)))
-  ;;       (if (buffer-live-p pdf-buf)
-  ;;           (with-current-buffer pdf-buf
-  ;;             (car (pdf-view-active-region-text)))
-  ;;         (user-error "Buffer %S not alive" pdf-buf-name)))
-  )
+  (add-hook! org-mode (org-pretty-table-mode 1)))
 
 (use-package! pdf-occur :commands (pdf-occur-global-minor-mode))
 (use-package! pdf-history :commands (pdf-history-minor-mode))
