@@ -1,6 +1,8 @@
 { config, pkgs, ... }: {
   imports = [ ./dconf.nix ];
 
+  # packages = with pkgs; [ gnome.gnome-tweaks ];
+
   gtk = {
     enable = true;
 

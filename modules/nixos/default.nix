@@ -10,9 +10,27 @@
     dataDir = config.user.home;
   };
 
-  environment.systemPackages = with pkgs; [ vscode firefox gnome.gnome-tweaks ];
+  environment.systemPackages = with pkgs; [ vscode firefox ];
+  environment.extraInit = ''
+    # Try really hard to get QT to respect my GTK theme.
+    export GTK_DATA_PREFIX="${config.system.path}"
+    export QT_QPA_PLATFORMTHEME="gnome"
+    export QT_STYLE_OVERRIDE="kvantum"
+  '';
 
-  hm = { pkgs, ... }: { imports = [ ../home-manager/gnome ]; };
+  fonts = {
+    fonts = with pkgs; [
+      fira-code
+      fira-code-symbols
+      open-sans
+      jetbrains-mono
+      siji
+      font-awesome
+    ];
+  };
+
+  # hm = { pkgs, ... }: { imports = [ ../home-manager/gnome ]; };
+  hm = { pkgs, ... }: { imports = [ ../home-manager/bspwm ]; };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
@@ -101,14 +119,49 @@
     # Enable the KDE Desktop Environment.
     # services.xserver.displayManager.sddm.enable = true;
     # services.xserver.desktopManager.plasma5.enable = true;
+
+    # gnome
+    # displayManager = {
+    #   gdm = {
+    #     enable = true;
+    #     wayland = true;
+    #   };
+    # };
+    # desktopManager.gnome.enable = true;
+
+    # bspwm
     displayManager = {
-      gdm = {
-        enable = true;
-        wayland = true;
-      };
+      sessionCommands = ''
+      ${pkgs.feh}/bin/feh --bg-scale \
+        --no-xinerama \
+        --no-fehbg \
+        $XDG_DATA_HOME/wallpaper
+        # GTK2_RC_FILES must be available to the display manager.
+        export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
+      '';
+      defaultSession = "none+bspwm";
+      lightdm.enable = true;
+      lightdm.greeters.mini.enable = true;
+      lightdm.greeters.mini.user = config.user.name;
+      # Login screen theme
+      lightdm.greeters.mini.extraConfig = ''
+        text-color = "#bd93f9"
+        password-background-color = "#1E2029"
+        window-color = "#1a1c25"
+        border-color = "#1a1c25"
+      '';
+      # lightdm.background = cfg.loginWallpaper;
     };
-    desktopManager.gnome.enable = true;
+    windowManager.bspwm.enable = true;
   };
+
+  # Clean up leftovers, as much as we can
+  system.userActivationScripts.cleanupHome = ''
+    pushd "${config.user.home}"
+    rm -rf .compose-cache .nv .pki .dbus .fehbg
+    [ -s .xsession-errors ] || rm -f .xsession-errors*
+    popd
+  '';
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
