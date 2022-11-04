@@ -168,6 +168,7 @@
     redshift.latitude = 40.92;
     redshift.longitude = 29.28;
     sxhkd.enable = true;
+    # sxhkd.extraOptions = "-m 1";
   };
 
   # link recursively so other modules can link files in their folders
