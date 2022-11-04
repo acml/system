@@ -173,7 +173,82 @@
   # link recursively so other modules can link files in their folders
   xdg = {
     enable = true;
-    configFile = {
+    configFile = let
+      colors = {
+        black         = "#000000"; # 0
+        red           = "#FF0000"; # 1
+        green         = "#00FF00"; # 2
+        yellow        = "#FFFF00"; # 3
+        blue          = "#0000FF"; # 4
+        magenta       = "#FF00FF"; # 5
+        cyan          = "#00FFFF"; # 6
+        silver        = "#BBBBBB"; # 7
+        grey          = "#888888"; # 8
+        brightred     = "#FF8800"; # 9
+        brightgreen   = "#00FF80"; # 10
+        brightyellow  = "#FF8800"; # 11
+        brightblue    = "#0088FF"; # 12
+        brightmagenta = "#FF88FF"; # 13
+        brightcyan    = "#88FFFF"; # 14
+        white         = "#FFFFFF"; # 15
+
+        # Color classes
+        types = {
+          bg        = colors.black;
+          fg        = colors.white;
+          panelbg   = colors.types.bg;
+          panelfg   = colors.types.fg;
+          border    = colors.types.bg;
+          error     = colors.red;
+          warning   = colors.yellow;
+          highlight = colors.white;
+        };
+      };
+    in  {
+      "xtheme.init" = {
+        text = ''cat "$XDG_CONFIG_HOME"/xtheme/* | ${pkgs.xorg.xrdb}/bin/xrdb -load'';
+        executable = true;
+      };
+      "xtheme/00-init".text = with colors; ''
+        #define bg   ${types.bg}
+        #define fg   ${types.fg}
+        #define blk  ${black}
+        #define red  ${red}
+        #define grn  ${green}
+        #define ylw  ${yellow}
+        #define blu  ${blue}
+        #define mag  ${magenta}
+        #define cyn  ${cyan}
+        #define wht  ${white}
+        #define bblk ${grey}
+        #define bred ${brightred}
+        #define bgrn ${brightgreen}
+        #define bylw ${brightyellow}
+        #define bblu ${brightblue}
+        #define bmag ${brightmagenta}
+        #define bcyn ${brightcyan}
+        #define bwht ${silver}
+       '';
+      "xtheme/05-colors".text = ''
+          *.foreground: fg
+          *.background: bg
+          *.color0:  blk
+          *.color1:  red
+          *.color2:  grn
+          *.color3:  ylw
+          *.color4:  blu
+          *.color5:  mag
+          *.color6:  cyn
+          *.color7:  wht
+          *.color8:  bblk
+          *.color9:  bred
+          *.color10: bgrn
+          *.color11: bylw
+          *.color12: bblu
+          *.color13: bmag
+          *.color14: bcyn
+          *.color15: bwht
+        '';
       "xtheme/90-theme".source = ./config/Xresources;
       "sxhkd".source = ./config/sxhkd;
       "bspwm" = {
@@ -181,6 +256,10 @@
         recursive = true;
       };
       "bspwm/rc.d/00-theme".source = ./config/bspwmrc;
+      "bspwm/rc.d/05-init" = {
+        text = "$XDG_CONFIG_HOME/xtheme.init";
+        executable = true;
+      };
       "bspwm/rc.d/95-polybar".source = ./config/polybar/run.sh;
       "rofi/theme" = { source = ./config/rofi; recursive = true; };
       "polybar" = { source = ./config/polybar; recursive = true; };

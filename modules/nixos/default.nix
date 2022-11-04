@@ -132,10 +132,8 @@
     # bspwm
     displayManager = {
       sessionCommands = ''
-      ${pkgs.feh}/bin/feh --bg-scale \
-        --no-xinerama \
-        --no-fehbg \
-        $XDG_DATA_HOME/wallpaper
+        xsetroot -cursor_name left_ptr
+        ${pkgs.feh}/bin/feh --bg-scale --no-xinerama --no-fehbg $XDG_DATA_HOME/wallpaper
         # GTK2_RC_FILES must be available to the display manager.
         export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
       '';
