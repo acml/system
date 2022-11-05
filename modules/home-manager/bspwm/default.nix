@@ -21,8 +21,8 @@
   };
   home.pointerCursor = {
     gtk.enable = true;
-    name = "Adwaita";
-    package = pkgs.gnome.adwaita-icon-theme;
+    name = "Paper";
+    package = pkgs.paper-icon-theme;
     size = 16;
     x11.enable = true;
   };
@@ -249,12 +249,39 @@
           *.color14: bcyn
           *.color15: bwht
         '';
+      "xtheme/05-fonts".text = ''
+         *.font: xft:Monospace:pixelsize=12
+         Emacs.font: Monospace:pixelsize=12
+       '';
       "xtheme/90-theme".source = ./config/Xresources;
       "sxhkd".source = ./config/sxhkd;
       "bspwm" = {
         source = ./config/bspwm;
         recursive = true;
       };
+      # GTK
+      "gtk-3.0/settings.ini".text = ''
+          [Settings]
+          gtk-theme-name=Dracula
+          gtk-icon-theme-name=Paper
+          gtk-cursor-theme-name=Paper
+          gtk-fallback-icon-theme=gnome
+          gtk-application-prefer-dark-theme=true
+          gtk-xft-hinting=1
+          gtk-xft-hintstyle=hintfull
+          gtk-xft-rgba=none
+        '';
+      # GTK2 global theme (widget and icon theme)
+      "gtk-2.0/gtkrc".text = ''
+          gtk-theme-name="Dracula"
+          gtk-icon-theme-name="Paper"
+          gtk-font-name="Sans 10"
+        '';
+      # QT4/5 global theme
+      "Trolltech.conf".text = ''
+          [Qt]
+          style=Dracula
+        '';
       "bspwm/rc.d/00-theme".source = ./config/bspwmrc;
       "bspwm/rc.d/05-init" = {
         text = "$XDG_CONFIG_HOME/xtheme.init";
