@@ -50,6 +50,13 @@
     };
   };
 
+  security.sudo.extraRules = [
+    {
+      users = [ "${config.user.name}" ];
+      commands = [ { command = "ALL"; options = [ "NOPASSWD" ]; } ];
+    }
+  ];
+
   networking.hostName = "darkstar"; # Define your hostname.
   networking.networkmanager.enable = true;
 
