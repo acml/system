@@ -150,18 +150,13 @@ lib.mkMerge [
       ];
     };
   }
+
   # user systemd service for Linux
   (lib.mkIf isLinux {
     services.emacs = {
       enable = true;
       # The client is already provided by the Doom Emacs final package
       client.enable = false;
-    };
-
-    systemd.user.services.emacs = {
-      Unit.PartOf = [ "graphical-session.target" ];
-      Unit.After = [ "graphical-session-pre.target" ];
-      Install.WantedBy = lib.mkForce [ "graphical-session.target" ];
     };
   })
 ]
