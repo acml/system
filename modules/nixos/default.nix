@@ -1,6 +1,9 @@
 { config, pkgs, ... }: {
   # bundles essential nixos modules
-  imports = [ ./keybase.nix ../common.nix ];
+  imports = [
+    # ./keybase.nix
+    ../common.nix
+  ];
 
   services.syncthing = {
     enable = true;
