@@ -27,6 +27,9 @@ super + shift + grave
 super + e
     emacsclient --eval "(emacs-everywhere)"
 
+super + x
+    exec emacsclient --alternate-editor= --create-frame
+
 super + space
 	rofi -show drun -modi drun,run -show-icons -theme theme/appmenu.rasi
 
