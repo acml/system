@@ -100,6 +100,9 @@ lib.mkMerge [
       nodePackages.prettier
       nodePackages.vscode-langservers-extracted
 
+      # Yaml
+      nodePackages.yaml-language-server
+
       # Bash
       nodePackages.bash-language-server shellcheck shfmt
 
