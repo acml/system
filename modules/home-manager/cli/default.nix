@@ -86,7 +86,7 @@ in
         color = "always";
       };
     };
-    bottom.enable = true;
+    btop.enable = true;
     htop.enable = true;
     exa = {
       enable = true;
