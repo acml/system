@@ -60,7 +60,6 @@ in
             scipy
             networkx
           ]))
-      comma
       coreutils-full
       curl
       fd
