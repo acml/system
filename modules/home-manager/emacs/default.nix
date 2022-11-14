@@ -33,7 +33,14 @@ lib.mkMerge [
     home.packages = with pkgs; [
       # fonts
       emacs-all-the-icons-fonts
-      nerdfonts
+      (pkgs.nerdfonts.override {
+        fonts = [
+          "FiraCode"
+          "IBMPlexMono"
+          "Iosevka"
+          "Overpass"
+        ];
+      })
 
       (lib.mkIf isDarwin coreutils-prefixed)
 
