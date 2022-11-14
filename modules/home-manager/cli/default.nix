@@ -69,15 +69,9 @@ in
     scmpuff.enable = true;
     skim = {
       enable = useSkim;
-      enableBashIntegration = useSkim;
-      enableZshIntegration = useSkim;
-      enableFishIntegration = useSkim;
     } // fuzz;
     fzf = {
       enable = useFzf;
-      enableBashIntegration = useFzf;
-      enableZshIntegration = useFzf;
-      enableFishIntegration = useFzf;
     } // fuzz;
     bat = {
       enable = true;
@@ -127,7 +121,11 @@ in
     in {
       enable = true;
       autocd = true;
+      defaultKeymap = "emacs";
       dotDir = ".config/zsh";
+      enableAutosuggestions = true;             # Auto suggest options and highlights syntact, searches in history for options
+      enableSyntaxHighlighting = true;
+      enableVteIntegration = true;
       localVariables = {
         LANG = "en_US.UTF-8";
         GPG_TTY = "/dev/ttys000";
@@ -141,7 +139,6 @@ in
         fpath+=~/.zfunc
       '';
       initExtra = ''
-        bindkey -e
         ${functions}
         ${if pkgs.stdenvNoCC.isDarwin then ''
           [[ -d /usr/local/Homebrew ]] && eval "$(/usr/local/Homebrew/bin/brew shellenv)"
@@ -168,13 +165,8 @@ in
       '';
       plugins = with pkgs; [
         (mkZshPlugin { pkg = zsh-autopair; })
-        (mkZshPlugin { pkg = zsh-completions; })
-        (mkZshPlugin { pkg = zsh-autosuggestions; })
-        (mkZshPlugin {
-          pkg = zsh-fast-syntax-highlighting;
-          file = "fast-syntax-highlighting.plugin.zsh";
-        })
-        (mkZshPlugin { pkg = zsh-history-substring-search; })
+        # (mkZshPlugin { pkg = zsh-completions; })
+        # (mkZshPlugin { pkg = zsh-history-substring-search; })
       ];
     };
     starship = {
