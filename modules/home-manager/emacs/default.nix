@@ -33,6 +33,7 @@ lib.mkMerge [
     home.packages = with pkgs; [
       # fonts
       emacs-all-the-icons-fonts
+      symbola
       (pkgs.nerdfonts.override {
         fonts = [
           "FiraCode"

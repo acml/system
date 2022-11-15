@@ -31,7 +31,6 @@
     fonts = with pkgs; [
       ubuntu_font_family
       dejavu_fonts
-      symbola
       fira-code
       fira-code-symbols
       open-sans
