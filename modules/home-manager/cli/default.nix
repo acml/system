@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 let
   functions = builtins.readFile ./functions.sh;
-  useSkim = true;
+  useSkim = false;
   useFzf = !useSkim;
   fuzz =
     let fd = "${pkgs.fd}/bin/fd";
