@@ -1,4 +1,8 @@
 { config, lib, pkgs, ... }: {
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowUnfreePredicate = (pkg: true);
+  };
   home.packages = [ pkgs.cacert ];
   home.sessionVariables = rec {
     NIX_SSL_CERT_FILE = "/etc/ssl/certs/ca-certificates.crt";
