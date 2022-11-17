@@ -1,11 +1,14 @@
 { inputs, config, pkgs, ... }: {
   homebrew = {
     enable = true;
-    autoUpdate = true;
-    cleanup = "zap";
+    onActivation = {
+      autoUpdate = true;
+      cleanup = "zap";
+      upgrade = true;
+    };
     global = {
       brewfile = true;
-      noLock = true;
+      lockfiles = true;
     };
 
     brews = [ "pngpaste" ];

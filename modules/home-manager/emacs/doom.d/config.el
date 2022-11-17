@@ -35,9 +35,9 @@
       ;; font string. You generally only need these two:
       ;; (setq doom-font (font-spec :family "Iosevka" :size 14)
       ;;       doom-variable-pitch-font (font-spec :family "Ubuntu Nerd Font" :size 14))
-      doom-font (font-spec :family "Iosevka Nerd Font" :size 10.0)
-      doom-big-font (font-spec :family "Iosevka Nerd Font" :size 20.0)
-      doom-variable-pitch-font (font-spec :family "Overpass Nerd Font" :size 10.0)
+      doom-font (font-spec :family "Iosevka Nerd Font" :size (if IS-MAC 13.0 10.0))
+      doom-big-font (font-spec :family "Iosevka Nerd Font" :size (if IS-MAC 26.0 20.0))
+      doom-variable-pitch-font (font-spec :family "Overpass Nerd Font" :size (if IS-MAC 13.0 10.0))
       ;; doom-unicode-font (font-spec :family "Noto Nerd Font")
       doom-serif-font (font-spec :family "BlexMono Nerd Font" :weight 'light)
       
