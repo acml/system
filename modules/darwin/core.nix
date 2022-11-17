@@ -29,6 +29,8 @@ in
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
+  services.emacs.enable = true;
+  services.emacs.package = pkgs.emacsNativeComp;
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog

@@ -7,7 +7,8 @@ in
     ./emacs
     ./nvim
     ./cli
-    ./kitty
+    # ./kitty
+    ./wezterm
     ./dotfiles
     ./git.nix
     ./1password

@@ -25,6 +25,33 @@ Install:andUse("RoundedCorners", {
 hs.hotkey.bind({ "cmd", "ctrl", "shift" }, "r", function()
     hs.reload()
 end)
+
+function openEmacs()
+    os.execute('/etc/profiles/per-user/ahmet/bin/emacsclient -n -c -a ""&', true)
+end
+
+hs.hotkey.bind({ "cmd" }, hs.keycodes.map["return"], function() os.execute("/etc/profiles/per-user/ahmet/bin/wezterm&") end)
+hs.hotkey.bind({ "cmd", "alt" }, hs.keycodes.map["return"], openEmacs)
+
+-- quick launch text editor
+-- hs.hotkey.bind(
+--     {"cmd", "alt"},
+--     hs.keycodes.map["return"],
+--     function()
+--         hs.notify.new(
+--             {title = "Starting editor", informativeText = "Just give it a moment while we pick the best editor"}
+--         ):send()
+--         customshellrun.run("emacsclient -a '' --no-wait -c", true)
+--     end
+-- )
+
+-- Provides a keyboard based window switcher (instead of app switcher)
+hs.hotkey.bind({"alt"}, "tab", function() hs.hints.windowHints() end)
+
+-- hs.hotkey.bind(modifiers.hyper, "i",
+--     function() hs.task.new("@myEmacs@/bin/emacsclient", nil, function() return false end,
+--             { "-a", "", "--eval", "(emacs-everywhere)" }):start()
+--     end)
 -- TODO: why is this infinitely reloading?
 -- Install:andUse("ReloadConfiguration", {
 --     start = true,

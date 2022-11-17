@@ -5,7 +5,7 @@
       "dozer"
       "firefox"
       "foobar2000"
-      "kitty"
+      # "kitty"
       "raycast"
       "stats"
       "android-file-transfer"
