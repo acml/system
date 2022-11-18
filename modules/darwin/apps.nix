@@ -1,16 +1,16 @@
 { config, lib, pkgs, ... }: {
   homebrew = {
     casks = [
-      "alt-tab"
+      # "alt-tab"
       "dozer"
-      "firefox"
-      "foobar2000"
+      # "firefox"
+      # "foobar2000"
       # "kitty"
       "raycast"
       "stats"
-      "android-file-transfer"
+      # "android-file-transfer"
       "appcleaner"
-      "diffmerge"
+      # "diffmerge"
       "discord"
       # "maccy"
       "meld"
