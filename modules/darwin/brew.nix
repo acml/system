@@ -11,7 +11,7 @@
       lockfiles = true;
     };
 
-    brews = [ "pngpaste" ];
+    brews = [ ];
 
     taps = [
       "1password/tap"
@@ -27,13 +27,6 @@
       "teamookla/speedtest"
     ];
     casks = [
-      "appcleaner"
-      "discord"
-      "dozer"
-      "hammerspoon"
-      "meld"
-      "raycast"
-      "stats"
     ];
     masApps = { };
   };

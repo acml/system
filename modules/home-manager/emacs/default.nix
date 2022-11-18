@@ -45,6 +45,7 @@ lib.mkMerge [
       })
 
       (lib.mkIf isDarwin coreutils-prefixed)
+      (lib.mkIf isDarwin pngpaste)
 
       man-pages
       posix_man_pages
