@@ -27,11 +27,16 @@ hs.hotkey.bind({ "cmd", "ctrl", "shift" }, "r", function()
 end)
 
 function openEmacs()
-    os.execute('/etc/profiles/per-user/ahmet/bin/emacsclient -n -c -a ""&', true)
+    os.execute('/etc/profiles/per-user/ahmet/bin/zsh -c emacs&', true)
+end
+
+function openEmacsClient()
+    os.execute('/etc/profiles/per-user/ahmet/bin/zsh -c -- "/etc/profiles/per-user/ahmet/bin/emacsclient -n -c -a \"\""&', true)
 end
 
 hs.hotkey.bind({ "cmd" }, hs.keycodes.map["return"], function() os.execute("/etc/profiles/per-user/ahmet/bin/wezterm&") end)
 hs.hotkey.bind({ "cmd", "alt" }, hs.keycodes.map["return"], openEmacs)
+hs.hotkey.bind({ "cmd", "shift", "alt" }, hs.keycodes.map["return"], openEmacsClient)
 
 -- quick launch text editor
 -- hs.hotkey.bind(
