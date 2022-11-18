@@ -8,7 +8,6 @@ in
     ./nvim
     ./cli
     # ./kitty
-    ./wezterm
     ./dotfiles
     ./git.nix
     ./1password

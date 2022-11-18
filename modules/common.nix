@@ -50,6 +50,8 @@ in
       # languages
       python3
       ruby
+
+      wezterm
     ];
     etc = {
       home-manager.source = "${inputs.home-manager}";
