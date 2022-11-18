@@ -28,7 +28,6 @@
     ];
     casks = [
       "appcleaner"
-      "bitwarden"
       "discord"
       "dozer"
       "hammerspoon"
