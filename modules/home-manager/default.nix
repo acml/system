@@ -68,6 +68,7 @@ in
       gnupg
       gnused
       htop
+      mc
       nix
       nixfmt
       nixpkgs-fmt
@@ -76,7 +77,6 @@ in
       ranger
       #(ruby.withPackages (ps: with ps; [ rufo solargraph ]))
       self.packages.${system}.sysdo
-      tealdeer
     ];
   };
 
