@@ -27,29 +27,15 @@
       "teamookla/speedtest"
     ];
     casks = [
-      # "1password"
-      # "1password-cli"
-      # "alt-tab"
-      # "appcleaner"
-      # "bartender"
-      # "docker"
-      # "firefox-developer-edition"
-      # "fork"
-      # "google-chrome"
-      # "gpg-suite"
+      "appcleaner"
+      "bitwarden"
+      "discord"
+      "dozer"
       "hammerspoon"
-      # "hot"
-      # "iina"
-      # "intellij-idea"
-      # "jetbrains-toolbox"
-      # "kitty"
-      # "obsidian"
-      # "raycast"
-      # "rancher"
-      # "stats"
-      # "utm"
-      # "visual-studio-code"
-      # "zotero"
+      "meld"
+      "raycast"
+      "stats"
     ];
+    masApps = { };
   };
 }
