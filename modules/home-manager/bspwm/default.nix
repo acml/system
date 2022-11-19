@@ -55,37 +55,66 @@
       '')
 
     # Fake rofi dmenu entries
-    # (makeDesktopItem {
-    #   name = "rofi-browsermenu";
-    #   desktopName = "Open Bookmark in Browser";
-    #   icon = "bookmark-new-symbolic";
-    #   exec = "${config.dotfiles.binDir}/rofi/browsermenu";
-    # })
-    # (makeDesktopItem {
-    #   name = "rofi-browsermenu-history";
-    #   desktopName = "Open Browser History";
-    #   icon = "accessories-clock";
-    #   exec = "${config.dotfiles.binDir}/rofi/browsermenu history";
-    # })
-    # (makeDesktopItem {
-    #   name = "rofi-filemenu";
-    #   desktopName = "Open Directory in Terminal";
-    #   icon = "folder";
-    #   exec = "${config.dotfiles.binDir}/rofi/filemenu";
-    # })
-    # (makeDesktopItem {
-    #   name = "rofi-filemenu-scratch";
-    #   desktopName = "Open Directory in Scratch Terminal";
-    #   icon = "folder";
-    #   exec = "${config.dotfiles.binDir}/rofi/filemenu -x";
-    # })
+    cached-nix-shell
+    (makeDesktopItem {
+      name = "rofi-browsermenu";
+      desktopName = "Open Bookmark in Browser";
+      icon = "bookmark-new-symbolic";
+      exec = "browsermenu";
+    })
+    (makeDesktopItem {
+      name = "rofi-browsermenu-history";
+      desktopName = "Open Browser History";
+      icon = "accessories-clock";
+      exec = "browsermenu history";
+    })
+    (makeDesktopItem {
+      name = "rofi-filemenu";
+      desktopName = "Open Directory in Terminal";
+      icon = "folder";
+      exec = "filemenu";
+    })
+    (makeDesktopItem {
+      name = "rofi-filemenu-scratch";
+      desktopName = "Open Directory in Scratch Terminal";
+      icon = "folder";
+      exec = "filemenu -x";
+    })
 
-    # (makeDesktopItem {
-    #   name = "lock-display";
-    #   desktopName = "Lock screen";
-    #   icon = "system-lock-screen";
-    #   exec = "${config.dotfiles.binDir}/zzz";
-    # })
+    (makeDesktopItem {
+      name = "lock-display";
+      desktopName = "Lock screen";
+      icon = "system-lock-screen";
+      exec = "zzz";
+    })
+
+    (writeScriptBin "autoclicker" (builtins.readFile ./bin/autoclicker))
+    (writeScriptBin "focus" (builtins.readFile ./bin/bspwm/focus))
+    (writeScriptBin "presel" (builtins.readFile ./bin/bspwm/presel))
+    (writeScriptBin "subtract-presel" (builtins.readFile ./bin/bspwm/subtract-presel))
+    (writeScriptBin "swap" (builtins.readFile ./bin/bspwm/swap))
+    (writeScriptBin "gitinfo" (builtins.readFile ./bin/gitinfo))
+    (writeScriptBin "hey" (builtins.readFile ./bin/hey))
+    (writeScriptBin "mov2gif" (builtins.readFile ./bin/mov2gif))
+    (writeScriptBin "myip" (builtins.readFile ./bin/myip))
+    (writeScriptBin "optimimg" (builtins.readFile ./bin/optimimg))
+    (writeScriptBin "optimpdf" (builtins.readFile ./bin/optimpdf))
+    (writeScriptBin "appmenu" (builtins.readFile ./bin/rofi/appmenu))
+    (writeScriptBin "browsermenu" (builtins.readFile ./bin/rofi/browsermenu))
+    (writeScriptBin "bwmenu" (builtins.readFile ./bin/rofi/bwmenu))
+    (writeScriptBin "filemenu" (builtins.readFile ./bin/rofi/filemenu))
+    (writeScriptBin "networkmenu" (builtins.readFile ./bin/rofi/networkmenu))
+    (writeScriptBin "passmenu" (builtins.readFile ./bin/rofi/passmenu))
+    (writeScriptBin "powermenu" (builtins.readFile ./bin/rofi/powermenu))
+    (writeScriptBin "spotifymenu" (builtins.readFile ./bin/rofi/spotifymenu))
+    (writeScriptBin "windowmenu" (builtins.readFile ./bin/rofi/windowmenu))
+    (writeScriptBin "scratch" (builtins.readFile ./bin/scratch))
+    (writeScriptBin "scrcap" (builtins.readFile ./bin/scrcap))
+    (writeScriptBin "scrrec" (builtins.readFile ./bin/scrrec))
+    (writeScriptBin "since" (builtins.readFile ./bin/since))
+    (writeScriptBin "spell" (builtins.readFile ./bin/spell))
+    (writeScriptBin "timein" (builtins.readFile ./bin/timein))
+    (writeScriptBin "zzz" (builtins.readFile ./bin/zzz))
   ];
 
   programs.tmux = {

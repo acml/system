@@ -28,28 +28,25 @@ super + e
     emacsclient --eval "(emacs-everywhere)"
 
 super + alt + Return
-    exec emacsclient --alternate-editor= --create-frame
+    emacsclient --alternate-editor= --create-frame
 
 super + space
-	rofi -show drun -modi drun,run -show-icons -theme theme/appmenu.rasi
+	appmenu
 
 super + Tab
-	rofi -show window -show-icons -theme theme/windowmenu.rasi
+	windowmenu
 
 super + p
-	$DOTFILES_BIN/rofi/bwmenu
+	bwmenu
 
 super + shift + p
-	$DOTFILES_BIN/rofi/bwmenu -r
+	bwmenu -r
 
 super + slash
-	$DOTFILES_BIN/rofi/filemenu -x
+	filemenu -x
 
 super + Escape
 	pkill -USR1 -x sxhkd
-
-super + shift + Escape
-	pkill -x sxhkd && sxhkd
 
 super + alt + Escape
 	bspc quit
