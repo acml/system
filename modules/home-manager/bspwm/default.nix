@@ -51,7 +51,7 @@
     })
     (writeScriptBin "rofi" ''
         #!${stdenv.shell}
-        exec ${pkgs.rofi}/bin/rofi -terminal wezterm -m -1 "$@"
+        exec ${pkgs.rofi}/bin/rofi -run-shell-command "wezterm start -- {cmd}" -m -1 "$@"
       '')
 
     # Fake rofi dmenu entries
