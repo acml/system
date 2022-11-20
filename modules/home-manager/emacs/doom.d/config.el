@@ -365,9 +365,9 @@ the sequences will be lost."
       ;; tries to autosave.
       (let ((inhibit-read-only t)
             (modified (buffer-modified-p)))
-        (ansi-color-apply-on-region beg end)
+        (ansi-color-apply-on-region beg end t)
         (set-buffer-modified-p modified))
-    (ansi-color-apply-on-region beg end)))
+    (ansi-color-apply-on-region beg end t)))
 
 (setq-default left-fringe-width 8
               right-fringe-width 8)
