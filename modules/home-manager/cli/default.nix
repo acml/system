@@ -104,7 +104,9 @@ in
                   sleep 0.3
               done
           fi
-          export WAYLAND_DISPLAY='wayland-1' && setxkbmap us -variant colemak
+          if command -v setxkbmap >/dev/null; then
+            export WAYLAND_DISPLAY='wayland-1' && setxkbmap us -variant colemak
+          fi
         fi
         export XDG_DATA_DIRS=$HOME/.nix-profile/share:$HOME/.share:''${XDG_DATA_DIRS:-/usr/local/share:/usr/share}
       '';
@@ -158,7 +160,9 @@ in
                   sleep 0.3
               done
           fi
-          export WAYLAND_DISPLAY='wayland-1' && setxkbmap us -variant colemak
+          if command -v setxkbmap >/dev/null; then
+            export WAYLAND_DISPLAY='wayland-1' && setxkbmap us -variant colemak
+          fi
         fi
         export XDG_DATA_DIRS=$HOME/.nix-profile/share:$HOME/.share:''${XDG_DATA_DIRS:-/usr/local/share:/usr/share}
       '';
