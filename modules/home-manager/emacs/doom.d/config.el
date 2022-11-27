@@ -39,7 +39,8 @@
       doom-big-font (font-spec :family "Iosevka Nerd Font" :size (if IS-MAC 26.0 20.0))
       doom-variable-pitch-font (font-spec :family "Overpass Nerd Font" :size (if IS-MAC 13.0 10.0))
       ;; doom-unicode-font (font-spec :family "Noto Nerd Font")
-      doom-serif-font (font-spec :family "BlexMono Nerd Font" :weight 'light)
+      ;; doom-unicode-font (font-spec :family "JuliaMono")
+      doom-serif-font (font-spec :family "BlexMono Nerd Font" :size (if IS-MAC 13.0 10.0) :weight 'light)
       
       fancy-splash-image (funcall
                           (lambda (choices) (elt
@@ -512,10 +513,11 @@ the sequences will be lost."
           (scheduled . uniform)
           (habit . traffic-light))
 
-        modus-themes-headings ; this is an alist: read the manual or its doc string
-        '((1 . (overline background variable-pitch 1.3))
-          (2 . (rainbow overline 1.1))
-          (t . (semibold))))
+        ;; modus-themes-headings ; this is an alist: read the manual or its doc string
+        ;; '((1 . (overline background variable-pitch 1.3))
+        ;;   (2 . (rainbow overline 1.1))
+        ;;   (t . (semibold)))
+        )
 
   ;; Load the theme files before enabling a theme
   (modus-themes-load-themes)
@@ -550,6 +552,14 @@ the sequences will be lost."
      (add-hook 'modus-themes-after-load-theme-hook #'my-pdf-tools-themes-toggle))
   :bind ("<f5>" . modus-themes-toggle))
 
+(use-package! nov
+  :mode ("\\.epub\\'" . nov-mode)
+  :hook ((nov-mode . visual-line-mode)
+         (nov-mode . visual-fill-column-mode))
+  :config
+  (setq nov-text-width most-positive-fixnum)
+  (setq visual-fill-column-center-text t))
+
 (use-package! deft
   :after org
   :custom
@@ -559,13 +569,14 @@ the sequences will be lost."
   (deft-directory org-roam-directory))
 
 (use-package! org-appear
-  :after org
   :hook (org-mode . org-appear-mode)
   :config
-  (setq org-appear-autolinks t
-        org-appear-autoemphasis t
+  (setq org-appear-autoemphasis t
         org-appear-autosubmarkers t
-        org-appear-delay 0.3))
+        org-appear-autolinks nil)
+  ;; for proper first-time setup, `org-appear--set-elements'
+  ;; needs to be run after other hooks have acted.
+  (run-at-time nil nil #'org-appear--set-elements))
 
 (use-package! org-noter
   :after org
@@ -588,6 +599,81 @@ the sequences will be lost."
   (add-to-list 'org-modules 'org-habit)
 
   (add-hook! org-mode (org-pretty-table-mode 1)))
+
+(use-package! org-modern
+  :hook (org-mode . org-modern-mode)
+  :config
+  (setq org-modern-star '("◉" "○" "✸" "✿" "✤" "✜" "◆" "▶")
+        org-modern-table-vertical 1
+        org-modern-table-horizontal 0.2
+        org-modern-list '((43 . "➤")
+                          (45 . "–")
+                          (42 . "•"))
+        org-modern-todo-faces
+        '(("TODO" :inverse-video t :inherit org-todo)
+          ("PROJ" :inverse-video t :inherit +org-todo-project)
+          ("STRT" :inverse-video t :inherit +org-todo-active)
+          ("[-]"  :inverse-video t :inherit +org-todo-active)
+          ("HOLD" :inverse-video t :inherit +org-todo-onhold)
+          ("WAIT" :inverse-video t :inherit +org-todo-onhold)
+          ("[?]"  :inverse-video t :inherit +org-todo-onhold)
+          ("KILL" :inverse-video t :inherit +org-todo-cancel)
+          ("NO"   :inverse-video t :inherit +org-todo-cancel))
+        org-modern-footnote
+        (cons nil (cadr org-script-display))
+        org-modern-block-fringe nil
+        org-modern-block-name
+        '((t . t)
+          ("src" "»" "«")
+          ("example" "»–" "–«")
+          ("quote" "❝" "❞")
+          ("export" "⏩" "⏪"))
+        org-modern-progress nil
+        org-modern-priority nil
+        org-modern-horizontal-rule (make-string 36 ?─)
+        org-modern-keyword
+        '((t . t)
+          ("title" . "𝙏")
+          ("subtitle" . "𝙩")
+          ("author" . "𝘼")
+          ("email" . #("" 0 1 (display (raise -0.14))))
+          ("date" . "𝘿")
+          ("property" . "☸")
+          ("options" . "⌥")
+          ("startup" . "⏻")
+          ("macro" . "𝓜")
+          ("bind" . #("" 0 1 (display (raise -0.1))))
+          ("bibliography" . "")
+          ("print_bibliography" . #("" 0 1 (display (raise -0.1))))
+          ("cite_export" . "⮭")
+          ("print_glossary" . #("ᴬᶻ" 0 1 (display (raise -0.1))))
+          ("glossary_sources" . #("" 0 1 (display (raise -0.14))))
+          ("include" . "⇤")
+          ("setupfile" . "⇚")
+          ("html_head" . "🅷")
+          ("html" . "🅗")
+          ("latex_class" . "🄻")
+          ("latex_class_options" . #("🄻" 1 2 (display (raise -0.14))))
+          ("latex_header" . "🅻")
+          ("latex_header_extra" . "🅻⁺")
+          ("latex" . "🅛")
+          ("beamer_theme" . "🄱")
+          ("beamer_color_theme" . #("🄱" 1 2 (display (raise -0.12))))
+          ("beamer_font_theme" . "🄱𝐀")
+          ("beamer_header" . "🅱")
+          ("beamer" . "🅑")
+          ("attr_latex" . "🄛")
+          ("attr_html" . "🄗")
+          ("attr_org" . "⒪")
+          ("call" . #("" 0 1 (display (raise -0.15))))
+          ("name" . "⁍")
+          ("header" . "›")
+          ("caption" . "☰")
+          ("RESULTS" . "🠶")))
+  (custom-set-faces! '(org-modern-statistics :inherit org-checkbox-statistics-todo)))
+
+(after! spell-fu
+  (cl-pushnew 'org-modern-tag (alist-get 'org-mode +spell-excluded-faces-alist)))
 
 (use-package! pdf-occur :commands (pdf-occur-global-minor-mode))
 (use-package! pdf-history :commands (pdf-history-minor-mode))

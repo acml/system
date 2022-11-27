@@ -33,6 +33,7 @@ lib.mkMerge [
     home.packages = with pkgs; [
       # fonts
       emacs-all-the-icons-fonts
+      julia-mono
       noto-fonts-emoji
       symbola
       (pkgs.nerdfonts.override {
