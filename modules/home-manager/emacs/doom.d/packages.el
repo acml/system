@@ -78,7 +78,6 @@
 (package! pdf-tools :built-in 'prefer)
 
 ;; (package! shrface :recipe (:host github :repo "chenyanming/shrface"))
-(package! straight :pin "3eca39d")
 (package! turkish)
 
 (package! trashed)
