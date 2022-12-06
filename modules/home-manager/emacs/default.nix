@@ -9,7 +9,7 @@ let
 in
 lib.mkMerge [
   {
-
+    nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
     home.sessionVariables = {
       inherit DOOMDIR DOOMLOCALDIR EDITOR ALTERNATE_EDITOR;
     };
@@ -149,7 +149,7 @@ lib.mkMerge [
     programs.emacs = {
       enable = true;
       package = lib.mkMerge [
-        (lib.mkIf isLinux pkgs.emacsNativeComp)
+        (lib.mkIf isLinux pkgs.emacsLsp)
         (lib.mkIf isDarwin pkgs.emacsNativeComp)
       ];
       extraPackages = epkgs: (with epkgs.melpaPackages; [
