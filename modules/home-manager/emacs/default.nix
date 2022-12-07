@@ -149,7 +149,7 @@ lib.mkMerge [
       enable = true;
       package = lib.mkMerge [
         (lib.mkIf isLinux pkgs.emacsLsp)
-        (lib.mkIf isDarwin pkgs.emacsNativeComp)
+        (lib.mkIf isDarwin pkgs.emacsUnstable)
       ];
       extraPackages = epkgs: (with epkgs.melpaPackages; [
         pdf-tools
