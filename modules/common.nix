@@ -5,6 +5,8 @@ in
 {
   imports = [ ./primary.nix ./nixpkgs.nix ./overlays.nix ];
 
+  nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;

@@ -9,7 +9,6 @@ let
 in
 lib.mkMerge [
   {
-    nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
     home.sessionVariables = {
       inherit DOOMDIR DOOMLOCALDIR EDITOR ALTERNATE_EDITOR;
     };
