@@ -3,7 +3,7 @@ let
   homeDir = config.home.homeDirectory;
 in
 {
-  nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
+  # nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
 
   imports = [
     ./emacs
