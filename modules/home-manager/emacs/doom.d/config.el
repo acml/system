@@ -703,14 +703,7 @@ the sequences will be lost."
 (after! projectile
   (setq ;; projectile-switch-project-action 'projectile-dired
         projectile-enable-caching t
-        projectile-project-search-path '(("~/Projects" . 1))
-        ;; Follow suggestion to reorder root functions to find the .projectile file
-        ;; https://old.reddit.com/r/emacs/comments/920psp/projectile_ignoring_projectile_files/
-        ;; projectile-project-root-files-functions #'(projectile-root-top-down
-        ;;                                            projectile-root-top-down-recurring
-        ;;                                            projectile-root-bottom-up
-        ;;                                            projectile-root-local)
-        ))
+        projectile-project-search-path '(("~/Projects" . 2))))
 
 (use-package! rainbow-mode
   :hook
@@ -871,4 +864,4 @@ you're done. This can be called from an external shell script."
           (add-hook 'delete-frame-functions #'cleanup-scratch-frame))))))
 
 ;; different configs on different computers
-;; (require (intern (system-name)) nil 'noerror)
+(load (concat doom-private-dir (system-name) ".el"))
