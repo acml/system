@@ -864,4 +864,4 @@ you're done. This can be called from an external shell script."
           (add-hook 'delete-frame-functions #'cleanup-scratch-frame))))))
 
 ;; different configs on different computers
-(load (concat doom-private-dir (system-name) ".el"))
+(load (concat doom-private-dir (system-name) ".el") t)
