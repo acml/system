@@ -23,7 +23,7 @@
 (after! projectile
   (projectile-register-project-type 'cp1200 '("audis_linux" "audis_tools" "audis_utils" "cp1200" "cp1500" "le_nbg2")
                                     :compilation-dir "cp1200/cp1243-1/csd"
-                                    :compile "make -k all_targets"))
+                                    :compile "make all_targets"))
 
 (provide 'linuxmint)
 ;;; linuxmint.el ends here
