@@ -141,18 +141,9 @@ in
         unset RPS1
         [[ -e ~/.nix-profile/etc/profile.d/nix.sh ]] && source ~/.nix-profile/etc/profile.d/nix.sh
         if [ -n "''${WSLENV}" ] ; then
-          export DISPLAY=:0
-          if [ -e ~/.local/bin/wsld ] && ! pgrep wsld > /dev/null 2>&1 ; then
-              nohup ~/.local/bin/wsld > /dev/null < /dev/null 2>&1 &
-              disown
-
-              # sleep until $DISPLAY is up
-              while ! xset q > /dev/null 2>&1 ; do
-                  sleep 0.3
-              done
-          fi
+          export WAYLAND_DISPLAY='wayland-1'
           if command -v setxkbmap >/dev/null; then
-            export WAYLAND_DISPLAY='wayland-1' && setxkbmap us -variant colemak
+            setxkbmap us -variant colemak
           fi
         fi
         export XDG_DATA_DIRS=$HOME/.nix-profile/share:$HOME/.share:''${XDG_DATA_DIRS:-/usr/local/share:/usr/share}
