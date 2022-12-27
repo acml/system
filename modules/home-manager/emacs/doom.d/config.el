@@ -707,7 +707,7 @@ the sequences will be lost."
 (after! projectile
   (setq ;; projectile-switch-project-action 'projectile-dired
         projectile-enable-caching t
-        projectile-project-search-path '(("~/Projects" . 2))))
+        projectile-project-search-path '(("~/Projects" . 3))))
 
 (use-package! rainbow-mode
   :hook
