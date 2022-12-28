@@ -413,7 +413,7 @@ the sequences will be lost."
 (use-package! modus-themes
   :init
   (setq modus-themes-italic-constructs t
-        modus-themes-bold-constructs t
+        modus-themes-bold-constructs nil
         modus-themes-mixed-fonts t
         modus-themes-variable-pitch-ui t
         modus-themes-custom-auto-reload t)
