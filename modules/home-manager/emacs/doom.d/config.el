@@ -323,8 +323,7 @@
 
 (after! lsp-go
   (lsp-register-custom-settings
-   '(("gopls.experimentalWorkspaceModule" t t)
-     ("gopls.staticcheck" t t))))
+   '(("gopls.staticcheck" t t))))
 
 (after! lsp-mode
   (setq lsp-headerline-breadcrumb-enable t
