@@ -587,6 +587,10 @@ the sequences will be lost."
   :config
   (evil-collection-init))
 
+(use-package! scopeline
+  :after tree-sitter
+  :config (add-hook 'tree-sitter-mode-hook #'scopeline-mode))
+
 (setq +treemacs-git-mode 'deferred
       ;; treemacs-collapse-dirs 5
       ;; treemacs-eldoc-display t
