@@ -121,7 +121,7 @@ lib.mkMerge [
       sumneko-lua-language-server
 
       # Rust
-      # cargo cargo-audit cargo-edit clippy rust-analyzer rustfmt
+      cargo cargo-audit cargo-edit clippy rust-analyzer rustfmt rustc.out
 
       # :lang go
       go_1_18
