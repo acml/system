@@ -309,7 +309,7 @@
 
 (after! format-all
   (setq +format-on-save-enabled-modes
-      '(go-mode)))
+      '(go-mode rust-mode rustic-mode)))
 
 (use-package! highlight-parentheses
   :init
