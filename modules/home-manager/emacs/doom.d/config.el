@@ -62,7 +62,8 @@
       auto-save-default t          ; Nobody likes to loose work, I certainly don't
       truncate-string-ellipsis "…" ; Unicode ellispis are nicer than "...", and also save /precious/ space
       window-resize-pixelwise t
-      frame-resize-pixelwise t)
+      frame-resize-pixelwise t
+      xref-history-storage 'xref-window-local-history)
 
 ;; (if (equal "Battery status not available"
 ;;            (battery))
