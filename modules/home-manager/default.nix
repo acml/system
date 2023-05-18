@@ -54,13 +54,6 @@ in
 
     # define package definitions for current user environment
     packages = with pkgs; [
-        # python with default packages
-        (pkgs.python3.withPackages
-          (ps: with ps; [
-            numpy
-            scipy
-            networkx
-          ]))
       coreutils-full
       curl
       fd
@@ -75,7 +68,6 @@ in
       openssh
       parallel
       ranger
-      #(ruby.withPackages (ps: with ps; [ rufo solargraph ]))
       self.packages.${system}.sysdo
     ];
   };
