@@ -41,6 +41,7 @@ lib.mkMerge [
           "IBMPlexMono"
           "Iosevka"
           "Overpass"
+          "NerdFontsSymbolsOnly"
         ];
       })
 
