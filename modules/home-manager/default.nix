@@ -11,7 +11,7 @@ in
     ./cli
     # ./kitty
     ./dotfiles
-    ./git.nix
+    # ./git.nix
     ./1password
   ];
 

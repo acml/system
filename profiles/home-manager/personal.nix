@@ -4,7 +4,7 @@
     allowUnfreePredicate = (pkg: true);
   };
   programs.git = {
-    enable = true;
+    enable = false;
     userEmail = "ozgezer@gmail.com";
     userName = "Ahmet Cemal Özgezer";
   };

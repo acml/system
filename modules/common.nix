@@ -42,7 +42,7 @@ in
       coreutils-full
       curl
       wget
-      git
+      # git
       jq
 
       # helpful shell stuff
