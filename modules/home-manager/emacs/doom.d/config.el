@@ -140,16 +140,16 @@
 ;; SPC n to switch to winum-numbered window n
 (map!
  (:leader
-    :desc "Switch to window 0" :n "0" #'treemacs-select-window
-    :desc "Switch to window 1" :n "1" #'winum-select-window-1
-    :desc "Switch to window 2" :n "2" #'winum-select-window-2
-    :desc "Switch to window 3" :n "3" #'winum-select-window-3
-    :desc "Switch to window 4" :n "4" #'winum-select-window-4
-    :desc "Switch to window 5" :n "5" #'winum-select-window-5
-    :desc "Switch to window 6" :n "6" #'winum-select-window-6
-    :desc "Switch to window 7" :n "7" #'winum-select-window-7
-    :desc "Switch to window 8" :n "8" #'winum-select-window-8
-    :desc "Switch to window 9" :n "9" #'winum-select-window-9))
+  :desc "Switch to window 0" :n "0" #'treemacs-select-window
+  :desc "Switch to window 1" :n "1" #'winum-select-window-1
+  :desc "Switch to window 2" :n "2" #'winum-select-window-2
+  :desc "Switch to window 3" :n "3" #'winum-select-window-3
+  :desc "Switch to window 4" :n "4" #'winum-select-window-4
+  :desc "Switch to window 5" :n "5" #'winum-select-window-5
+  :desc "Switch to window 6" :n "6" #'winum-select-window-6
+  :desc "Switch to window 7" :n "7" #'winum-select-window-7
+  :desc "Switch to window 8" :n "8" #'winum-select-window-8
+  :desc "Switch to window 9" :n "9" #'winum-select-window-9))
 
 ;; (add-to-list 'term-file-aliases
 ;;              '("alacritty" . "xterm-256color"))
@@ -171,12 +171,12 @@
 (when (and (eq system-type 'gnu/linux) (getenv "WSLENV"))
   ;; teach Emacs how to open links with your default browser
   (let ((cmd-exe "/mnt/c/Windows/System32/cmd.exe")
-      (cmd-args '("/c" "start")))
-  (when (file-exists-p cmd-exe)
-    (setq browse-url-generic-program  cmd-exe
-          browse-url-generic-args     cmd-args
-          browse-url-browser-function 'browse-url-generic
-          search-web-default-browser 'browse-url-generic))))
+        (cmd-args '("/c" "start")))
+    (when (file-exists-p cmd-exe)
+      (setq browse-url-generic-program  cmd-exe
+            browse-url-generic-args     cmd-args
+            browse-url-browser-function 'browse-url-generic
+            search-web-default-browser 'browse-url-generic))))
 
 (after! calendar
   (setq calendar-location-name "Istanbul, Turkey"
@@ -204,8 +204,8 @@
   (map!
    ;; Define or redefine dired bindings
    (:map dired-mode-map
-     :desc "Up" :n "<left>" #'dired-up-directory
-     :desc "Down" :n "<right>" #'dired-find-file)))
+    :desc "Up" :n "<left>" #'dired-up-directory
+    :desc "Down" :n "<right>" #'dired-find-file)))
 
 (after! (:any dired dirvish)
   (require 'dired-x))
@@ -310,7 +310,7 @@
 
 (after! format-all
   (setq +format-on-save-enabled-modes
-      '(go-mode rust-mode rustic-mode)))
+        '(go-mode rust-mode rustic-mode)))
 
 (use-package! highlight-parentheses
   :init
@@ -542,13 +542,6 @@ the sequences will be lost."
 (after! spell-fu
   (cl-pushnew 'org-modern-tag (alist-get 'org-mode +spell-excluded-faces-alist)))
 
-(use-package! pdf-occur :commands (pdf-occur-global-minor-mode))
-(use-package! pdf-history :commands (pdf-history-minor-mode))
-(use-package! pdf-links :commands (pdf-links-minor-mode))
-(use-package! pdf-outline :commands (pdf-outline-minor-mode))
-(use-package! pdf-annot :commands (pdf-annot-minor-mode))
-(use-package! pdf-sync :commands (pdf-sync-minor-mode))
-
 (after! persp-mode
   (setq persp-emacsclient-init-frame-behaviour-override nil)
   (defun display-workspaces-in-minibuffer ()
@@ -569,8 +562,8 @@ the sequences will be lost."
 
 (after! projectile
   (setq ;; projectile-switch-project-action 'projectile-dired
-        projectile-enable-caching t
-        projectile-project-search-path '(("~/Projects" . 3))))
+   projectile-enable-caching t
+   projectile-project-search-path '(("~/Projects" . 3))))
 
 (use-package! rainbow-mode
   :hook
