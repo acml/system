@@ -225,7 +225,8 @@
           ("n" "~/.nixpkgs/"                 "Nix")
           ("p" "~/Projects/"                 "Projects")
           ("t" "~/.local/share/Trash/files/" "TrashCan"))
-        dirvish-attributes '(vc-state subtree-state all-the-icons collapse git-msg)
+        dirvish-vscode-icon-size 16
+        dirvish-attributes '(subtree-state vscode-icon collapse git-msg vc-state file-size file-time)
         dirvish-header-line-format '(:left (path) :right (free-space)))
 
   ;; (map! :map dired-mode-map :ng "q" #'quit-window)

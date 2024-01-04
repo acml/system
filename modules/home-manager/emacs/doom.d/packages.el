@@ -84,6 +84,7 @@
 (package! trashed)
 (package! ascii)
 (package! visual-ascii-mode)
+(package! vscode-icon)
 (package! vundo)
 (package! windswap)
 (package! ztree)

@@ -3,6 +3,7 @@
     ./coc
     ./fzf
     ./lualine-nvim
+    ./nvim-tree
     ./telescope
     ./theme
     ./treesitter
