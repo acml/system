@@ -11,6 +11,7 @@ in
         file = ./telescope-nvim.lua;
       })
       telescope-fzf-native-nvim
+      telescope-live-grep-args-nvim
       plenary-nvim
     ];
     extraPackages = [ pkgs.ripgrep ];

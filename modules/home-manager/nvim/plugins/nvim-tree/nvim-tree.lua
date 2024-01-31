@@ -23,3 +23,5 @@ require("nvim-tree").setup()
 --     dotfiles = true,
 --   },
 -- })
+
+vim.api.nvim_set_keymap("n", "<leader>op", ":NvimTreeFindFileToggle<cr>", {silent = true, noremap = true})
